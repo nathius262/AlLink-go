@@ -1267,6 +1267,189 @@ SERVICES
 
 }
 
+/*==================================================
+PORTFOLIO
+==================================================*/
+
+.portfolio {
+
+    padding: 120px 0;
+
+    background: #f8fbfc;
+
+}
+
+.portfolio-filter {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 60px;
+
+}
+
+.portfolio-filter button {
+
+    border: none;
+
+    background: #fff;
+
+    padding: 14px 26px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    color: var(--dark);
+
+    box-shadow: 0 12px 35px rgba(15, 23, 42, .06);
+
+    transition: .35s;
+
+}
+
+.portfolio-filter button.active,
+.portfolio-filter button:hover {
+
+    background: var(--primary);
+
+    color: #fff;
+
+}
+
+.portfolio-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+.portfolio-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    min-height: 330px;
+
+}
+
+.portfolio-item.large {
+
+    grid-row: span 2;
+
+    min-height: 690px;
+
+}
+
+.portfolio-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s;
+
+}
+
+.portfolio-item:hover img {
+
+    transform: scale(1.12);
+
+}
+
+.portfolio-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(transparent,
+
+            rgba(10, 45, 70, .92));
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 35px;
+
+    color: #fff;
+
+    opacity: 0;
+
+    transition: .4s;
+
+}
+
+.portfolio-item:hover .portfolio-overlay {
+
+    opacity: 1;
+
+}
+
+.portfolio-overlay span {
+
+    color: #ffd166;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+.portfolio-overlay h3 {
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+}
+
+.portfolio-overlay a {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #fff;
+
+    font-size: 1.3rem;
+
+}
+
+.portfolio-overlay a:hover {
+
+    background: var(--secondary);
+
+}
+
 /*=====================================
 FOOTER
 ======================================*/

@@ -97,6 +97,22 @@
 
     }
 
+    /* ==========================================
+        PORTFOLIO
+    ========================================== */
+    .portfolio-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .portfolio-item.large {
+
+        min-height: 400px;
+
+        grid-row: auto;
+
+    }
 
     /* ==========================================
         FOOTER
@@ -210,6 +226,16 @@
     ========================================== */
 
     .process-wrapper {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* ==========================================
+        PORTFOLIO
+    ========================================== */
+
+    .portfolio-grid {
 
         grid-template-columns: 1fr;
 
