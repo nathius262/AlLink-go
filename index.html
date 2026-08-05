@@ -94,15 +94,197 @@
 
 <body>
 
-    <!-- ===========================
+    <!-- ===========================================
         HEADER
-    ============================ -->
+    =========================================== -->
 
-    <header>
+    <header id="header">
+        <!-- Top Bar -->
 
-        <!-- Navigation goes here -->
+        <div class="top-bar">
+
+            <div class="container">
+
+                <div class="top-bar-wrapper">
+
+                    <!-- Left -->
+
+                    <div class="top-bar-info">
+
+                        <a href="tel:07072355286">
+                            <i class="bi bi-telephone-fill"></i>
+                            07072355286
+                        </a>
+
+                        <a href="mailto:allink2go@gmail.com">
+                            <i class="bi bi-envelope-fill"></i>
+                            allink2go@gmail.com
+                        </a>
+
+                        <span>
+
+                            <i class="bi bi-clock-fill"></i>
+
+                            Mon - Fri : 9:00 AM - 6:00 PM
+
+                        </span>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="top-social">
+
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav class="navbar navbar-expand-lg">
+
+            <div class="container">
+
+                <!-- Logo -->
+
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="assets/images/logo/logo.png" alt="AlLink Logo" class="logo">
+
+                </a>
+
+                <!-- Mobile Toggle -->
+
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#mobileMenu">
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+                <!-- Desktop Navigation -->
+
+                <div class="collapse navbar-collapse justify-content-center">
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Right Buttons -->
+
+                <div class="d-none d-lg-flex align-items-center gap-3">
+
+                    <a href="#" class="btn-portal">
+
+                        Client Portal
+
+                    </a>
+
+                    <a href="#" class="btn-quote">
+
+                        Request Quote
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
 
     </header>
+
+    <!-- ===========================================
+        MOBILE MENU
+    =========================================== -->
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+
+        <div class="offcanvas-header">
+
+            <img src="assets/images/logo/logo.png" width="140" alt="">
+
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas">
+            </button>
+
+        </div>
+
+        <div class="offcanvas-body">
+
+            <ul class="mobile-nav">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="portfolio.html">Portfolio</a></li>
+
+                <li><a href="shop.html">Shop</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+            <div class="mt-5">
+
+                <a href="#" class="btn-quote w-100">
+
+                    Request Quote
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <!-- ===========================
         MAIN
