@@ -115,6 +115,32 @@
     }
 
     /* ==========================================
+        WHY CHOOSE US
+    ========================================== */
+
+    .experience-card,
+    .delivery-card {
+
+        position: relative;
+
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+
+        width: 100%;
+
+        margin-top: 20px;
+
+    }
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* ==========================================
         FOOTER
     ========================================== */
 
