@@ -6,4 +6,32 @@
 
     }
 
+    .footer-cta-wrapper {
+
+        padding: 40px 30px;
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .footer-cta h2 {
+
+        font-size: 2rem;
+
+    }
+
+    .footer-bottom-wrapper {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 20px;
+
+        padding: 25px 0;
+
+    }
+
 }
