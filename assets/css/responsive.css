@@ -175,6 +175,16 @@
 
 }
 
+@media(max-width:768px) {
+
+    .testimonial-card {
+
+        padding: 30px;
+
+    }
+
+}
+
 @media (max-width:576px) {
 
     .hero {

@@ -81,6 +81,11 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <!-- ===========================
+        SWIPER
+    ============================ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- ===========================
         CUSTOM CSS
     ============================ -->
 
@@ -1431,6 +1436,176 @@
 
         </section>
 
+        <!-- ===========================================
+            TESTIMONIALS
+        =========================================== -->
+
+        <section class="testimonials">
+
+            <div class="container">
+
+                <div class="section-title text-center">
+
+                    <span>CLIENT TESTIMONIALS</span>
+
+                    <h2>
+
+                        Trusted By Businesses
+                        <span>That Value Quality.</span>
+
+                    </h2>
+
+                    <p class="section-description">
+
+                        We don't just complete projects—we build lasting relationships
+                        through quality, reliability and exceptional service.
+
+                    </p>
+
+                </div>
+
+                <div class="swiper testimonialSwiper">
+
+                    <div class="swiper-wrapper">
+
+                        <!-- Card -->
+
+                        <div class="swiper-slide">
+
+                            <div class="testimonial-card">
+
+                                <div class="quote">
+
+                                    <i class="bi bi-quote"></i>
+
+                                </div>
+
+                                <div class="stars">
+
+                                    ★★★★★
+
+                                </div>
+
+                                <p>
+
+                                    AlLink exceeded our expectations. The packaging,
+                                    branding and print quality were exactly what we
+                                    envisioned.
+
+                                </p>
+
+                                <div class="client">
+
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg">
+
+                                    <div>
+
+                                        <h5>Sarah Johnson</h5>
+
+                                        <span>CEO, Bloom Organics</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Card -->
+
+                        <div class="swiper-slide">
+
+                            <div class="testimonial-card">
+
+                                <div class="quote">
+
+                                    <i class="bi bi-quote"></i>
+
+                                </div>
+
+                                <div class="stars">
+
+                                    ★★★★★
+
+                                </div>
+
+                                <p>
+
+                                    From concept to delivery, everything was seamless.
+                                    Professional communication and excellent finishing.
+
+                                </p>
+
+                                <div class="client">
+
+                                    <img src="https://randomuser.me/api/portraits/men/34.jpg">
+
+                                    <div>
+
+                                        <h5>Michael Daniels</h5>
+
+                                        <span>Founder, Urban Foods</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Card -->
+
+                        <div class="swiper-slide">
+
+                            <div class="testimonial-card">
+
+                                <div class="quote">
+
+                                    <i class="bi bi-quote"></i>
+
+                                </div>
+
+                                <div class="stars">
+
+                                    ★★★★★
+
+                                </div>
+
+                                <p>
+
+                                    Their attention to detail is impressive.
+                                    We received exactly what we approved.
+
+                                </p>
+
+                                <div class="client">
+
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+                                    <div>
+
+                                        <h5>Grace Williams</h5>
+
+                                        <span>Creative Director</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
     <!-- ===========================================
@@ -1654,10 +1829,43 @@
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+    <!-- ===========================
+        SWIPER
+    ============================ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script>
         AOS.init({
             duration: 800,
             once: true
+        });
+
+        const testimonialSwiper = new Swiper(".testimonialSwiper", {
+
+            loop: true,
+
+            spaceBetween: 30,
+
+            autoplay: {
+                delay: 4000
+            },
+
+            breakpoints: {
+
+                0: {
+                    slidesPerView: 1
+                },
+
+                768: {
+                    slidesPerView: 2
+                },
+
+                1200: {
+                    slidesPerView: 3
+                }
+
+            }
+
         });
     </script>
 
