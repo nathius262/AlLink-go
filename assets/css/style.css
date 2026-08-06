@@ -469,8 +469,7 @@ HEADINGS
     font-size: 4.4rem;
     font-weight: 800;
     line-height: 1.08;
-
-    color: var(--dark);
+    color: var(--secondary);
 
     margin-bottom: 20px;
 
@@ -478,7 +477,7 @@ HEADINGS
 
 .hero h1 span {
 
-    /* color: var(--secondary) */
+    color: var(--dark);
 
 }
 
