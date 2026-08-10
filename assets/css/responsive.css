@@ -80,6 +80,31 @@
 
     }
 
+    /* ==========================================
+        ABOUT PAGE
+    ========================================== */
+
+    .inner-page-hero {
+        padding-top: 160px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-story-image {
+        padding-right: 0;
+    }
+
+    .story-badge {
+        right: 25px;
+    }
+
+    .about-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 
     /* ==========================================
         PROCESS
@@ -183,6 +208,63 @@
 
     }
 
+    .inner-page-hero {
+        padding: 145px 0 80px;
+    }
+
+    /* ==========================================
+        ABOUT
+    ========================================== */
+
+    .about-story,
+    .mission-vision,
+    .values,
+    .team,
+    .about-timeline {
+        padding: 90px 0;
+    }
+
+    .inner-page-hero h1 {
+        font-size: 3rem;
+    }
+
+    .about-story-image img {
+        min-height: 400px;
+    }
+
+    .mv-card {
+        padding: 35px;
+    }
+
+    .mv-card h2 {
+        font-size: 2rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+        left: 8px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0 50px 40px;
+    }
+
+    .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 0;
+        right: auto;
+    }
+
+    .about-cta-inner {
+        padding: 40px 30px;
+    }
+
 }
 
 @media (max-width:576px) {
@@ -255,6 +337,26 @@
 
         grid-template-columns: 1fr;
 
+    }
+
+    /* ==========================================
+        ABOUT PAGE
+    ========================================== */
+
+    .inner-page-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .story-highlights {
+        flex-direction: column;
+    }
+
+    .story-highlights div {
+        width: 100%;
+    }
+
+    .team-image {
+        height: 300px;
     }
 
     /* ==========================================
