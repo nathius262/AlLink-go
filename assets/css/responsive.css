@@ -197,6 +197,22 @@
     }
 
     /* ==========================================
+        PORTFOLIO PAGE
+    ========================================== */
+    .portfolio-grid {
+        columns: 2 280px;
+    }
+
+    .project-modal-image {
+        min-height: 400px;
+    }
+
+    .project-modal-content {
+        min-height: auto;
+        padding: 40px;
+    }
+
+    /* ==========================================
         CONTACT
     ========================================== */
     .contact-form-card {
@@ -337,6 +353,46 @@
     }
 
     .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ==========================================
+        PORTFOLIO PAGE
+    ========================================== */
+    .portfolio-section {
+        padding: 80px 0 90px;
+    }
+
+    .portfolio-filter {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .portfolio-filter-btn {
+        flex: 0 0 auto;
+    }
+
+    .portfolio-grid {
+        columns: 1;
+    }
+
+    .portfolio-card,
+    .portfolio-item.portfolio-tall .portfolio-card,
+    .portfolio-item.portfolio-wide .portfolio-card {
+        min-height: 420px;
+    }
+
+    .portfolio-overlay {
+        padding: 25px;
+    }
+
+    .project-modal-content h2 {
+        font-size: 2rem;
+    }
+
+    .project-meta {
         grid-template-columns: 1fr;
     }
 
@@ -510,6 +566,20 @@
 
     .service-detail-content h2 {
         font-size: 2rem;
+    }
+
+    /* ==========================================
+        PORTFOLIO PAGE
+    ========================================== */
+    .portfolio-card,
+    .portfolio-item.portfolio-tall .portfolio-card,
+    .portfolio-item.portfolio-wide .portfolio-card {
+        min-height: 350px;
+        border-radius: 20px;
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 1.15rem;
     }
 
     /* ==========================================
