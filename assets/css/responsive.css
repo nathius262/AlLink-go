@@ -166,6 +166,37 @@
     }
 
     /* ==========================================
+        SERVICE
+    ========================================== */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-detail-row {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        margin-bottom: 100px;
+    }
+
+    .service-detail-row.reverse .service-detail-image {
+        order: 1;
+    }
+
+    .service-detail-row.reverse .service-detail-content {
+        order: 2;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 25px;
+    }
+
+    .process-grid::before {
+        display: none;
+    }
+
+    /* ==========================================
         FOOTER
     ========================================== */
 
@@ -263,6 +294,38 @@
 
     .about-cta-inner {
         padding: 40px 30px;
+    }
+
+    /* ==========================================
+        SERVICES
+    ========================================== */
+
+    .services-overview,
+    .service-details,
+    .services-process,
+    .services-faq {
+        padding: 90px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        margin-top: 45px;
+    }
+
+    .service-card {
+        min-height: auto;
+    }
+
+    .service-detail-image img {
+        min-height: 350px;
+    }
+
+    .service-detail-content ul {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
     }
 
 }
@@ -377,6 +440,17 @@
 
         grid-template-columns: 1fr;
 
+    }
+
+    /* ==========================================
+        SERVICES
+    ========================================== */
+    .service-card {
+        padding: 30px;
+    }
+
+    .service-detail-content h2 {
+        font-size: 2rem;
     }
 
 }
