@@ -3,8 +3,10 @@
     /* Brand Colors */
 
     --primary: #F68B00;
-    --secondary: #0B6B6F;
-    --dark: #0A2D46;
+    --secondary: #005f61;
+    /* #0B6B6F; */
+    --dark: #002366;
+    /* --dark: #0A2D46; */
 
     --white: #FFFFFF;
     --light: #F8F9FA;
