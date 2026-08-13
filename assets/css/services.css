@@ -1050,6 +1050,328 @@
 }
 
 /* ======================================================
+   READY-MADE PACKAGING HERO
+====================================================== */
+
+.ready-packaging-hero {
+    background:
+        linear-gradient(90deg,
+            rgba(10, 45, 70, .98) 0%,
+            rgba(10, 45, 70, .88) 48%,
+            rgba(10, 45, 70, .40) 100%),
+        url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85") center / cover no-repeat;
+}
+
+
+/* ======================================================
+   PRODUCT SECTION
+====================================================== */
+
+.ready-packaging-products {
+    padding: 120px 0;
+    background: #f8fafc;
+}
+
+
+/* ======================================================
+   FILTER
+====================================================== */
+
+.packaging-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 45px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e4e7ec;
+}
+
+.packaging-filter button {
+    padding: 10px 18px;
+    border: 1px solid #e4e7ec;
+    border-radius: 100px;
+    background: #fff;
+    color: #667085;
+    font-size: .68rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.packaging-filter button:hover,
+.packaging-filter button.active {
+    border-color: var(--dark);
+    background: var(--dark);
+    color: #fff;
+}
+
+
+/* ======================================================
+   PACKAGE CARD
+====================================================== */
+
+.ready-package-card {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #e4e7ec;
+    border-radius: 22px;
+    background: #fff;
+    transition: .35s ease;
+}
+
+.ready-package-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, .08);
+}
+
+.ready-package-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.ready-package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s ease;
+}
+
+.ready-package-card:hover .ready-package-image img {
+    transform: scale(1.05);
+}
+
+
+/* ======================================================
+   AVAILABILITY
+====================================================== */
+
+.availability-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: var(--secondary);
+    color: #fff;
+    font-family: var(--font-accent);
+    font-size: .5rem;
+    letter-spacing: .08em;
+}
+
+
+/* ======================================================
+   QUICK VIEW
+====================================================== */
+
+.quick-view-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .95);
+    color: var(--dark);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.quick-view-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+
+/* ======================================================
+   PACKAGE BODY
+====================================================== */
+
+.ready-package-body {
+    padding: 25px;
+}
+
+.ready-package-body h3 {
+    margin: 8px 0 10px;
+    color: var(--dark);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.ready-package-body p {
+    min-height: 55px;
+    margin-bottom: 20px;
+    color: #667085;
+    font-size: .75rem;
+    line-height: 1.7;
+}
+
+
+/* ======================================================
+   PRICE
+====================================================== */
+
+.package-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.package-price small {
+    color: #98a2b3;
+    font-size: .62rem;
+}
+
+.package-price strong {
+    color: var(--dark);
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+
+/* ======================================================
+   ORDER BUTTON
+====================================================== */
+
+.package-order-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 16px;
+    border: 1px solid #e4e7ec;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--dark);
+    font-size: .7rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.package-order-btn:hover {
+    border-color: var(--dark);
+    background: var(--dark);
+    color: #fff;
+}
+
+
+/* ======================================================
+   CUSTOM PACKAGE CARD
+====================================================== */
+
+.ready-package-custom {
+    height: 100%;
+    min-height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    border: 1px solid var(--secondary);
+    border-radius: 22px;
+    background: var(--dark);
+}
+
+.custom-package-icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    background: rgba(246, 139, 0, .12);
+    color: var(--primary);
+    font-size: 1.35rem;
+}
+
+.ready-package-custom h3 {
+    max-width: 330px;
+    margin: 10px 0;
+    color: #fff;
+    font-size: 1.45rem;
+    font-weight: 800;
+}
+
+.ready-package-custom p {
+    max-width: 350px;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, .55);
+    font-size: .76rem;
+    line-height: 1.8;
+}
+
+.ready-package-custom .category-btn {
+    width: fit-content;
+    border-color: rgba(255, 255, 255, .2);
+    color: #fff;
+}
+
+.ready-package-custom .category-btn:hover {
+    border-color: var(--primary);
+    background: var(--primary);
+}
+
+
+/* ======================================================
+   HOW IT WORKS
+====================================================== */
+
+.ready-how-it-works {
+    padding: 120px 0;
+}
+
+.ready-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 55px;
+    border-top: 1px solid #e4e7ec;
+    border-bottom: 1px solid #e4e7ec;
+}
+
+.ready-process-item {
+    position: relative;
+    padding: 40px 30px;
+    border-right: 1px solid #e4e7ec;
+}
+
+.ready-process-item:last-child {
+    border-right: 0;
+}
+
+.ready-process-item>span {
+    color: #98a2b3;
+    font-family: var(--font-accent);
+    font-size: .6rem;
+}
+
+.ready-process-item>i {
+    display: block;
+    margin: 25px 0 18px;
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+.ready-process-item h3 {
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.ready-process-item p {
+    margin: 0;
+    color: #667085;
+    font-size: .74rem;
+    line-height: 1.8;
+}
+
+/* ======================================================
    RESPONSIVE
 ====================================================== */
 
@@ -1082,6 +1404,18 @@
     }
 
     .offset-benefit:nth-child(-n+2) {
+        border-bottom: 1px solid #e4e7ec;
+    }
+
+    .ready-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ready-process-item:nth-child(2) {
+        border-right: 0;
+    }
+
+    .ready-process-item:nth-child(-n+2) {
         border-bottom: 1px solid #e4e7ec;
     }
 
@@ -1122,11 +1456,6 @@
         border-bottom: 0;
     }
 
-}
-
-
-@media (max-width: 767px) {
-
     .service-intro,
     .service-packages,
     .brand-applications,
@@ -1161,6 +1490,34 @@
 
     .service-custom-cta-inner {
         padding: 35px 25px;
+    }
+
+    .ready-packaging-products,
+    .ready-how-it-works {
+        padding: 80px 0;
+    }
+
+    .packaging-filter {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 15px;
+    }
+
+    .packaging-filter button {
+        flex: 0 0 auto;
+    }
+
+    .ready-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ready-process-item {
+        border-right: 0;
+        border-bottom: 1px solid #e4e7ec;
+    }
+
+    .ready-process-item:last-child {
+        border-bottom: 0;
     }
 
 }
