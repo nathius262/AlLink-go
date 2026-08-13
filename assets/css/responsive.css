@@ -224,6 +224,18 @@
         gap: 45px;
     }
 
+    .map-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .reach-map-content {
+        padding: 50px 40px;
+    }
+
+    .reach-map-visual {
+        min-height: 480px;
+    }
+
     /* ==========================================
         FOOTER
     ========================================== */
@@ -591,6 +603,22 @@
 
     .contact-whatsapp-card>a {
         flex: 0 0 42px;
+    }
+
+    .reach-map-content {
+        padding: 40px 25px;
+    }
+
+    .vendor-locations {
+        grid-template-columns: 1fr;
+    }
+
+    .reach-map-visual {
+        min-height: 400px;
+    }
+
+    .map-point strong {
+        font-size: .5rem;
     }
 
 }

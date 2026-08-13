@@ -3243,71 +3243,346 @@ TESTIMONIALS
 
 
 /* ======================================================
-   MAP
+   ALLink@go REACH / VENDOR NETWORK
 ====================================================== */
-
-.contact-map-section {
-    padding: 120px 0;
-}
 
 .map-wrapper {
     position: relative;
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     overflow: hidden;
-    margin-top: 60px;
-    border-radius: 30px;
-    box-shadow: 0 25px 70px rgba(15, 23, 42, .1);
+    border-radius: 28px;
+    background: var(--dark);
 }
 
-.map-wrapper iframe {
-    display: block;
-    filter: grayscale(.15);
+
+/* ======================================================
+   CONTENT
+====================================================== */
+
+.reach-map-content {
+    position: relative;
+    z-index: 5;
+    padding: 65px;
 }
 
-.map-location-card {
-    position: absolute;
-    left: 25px;
-    bottom: 25px;
+.reach-map-header>span {
+    color: var(--primary);
+    font-family: var(--font-accent);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.reach-map-header h3 {
+    margin: 15px 0;
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    font-weight: 800;
+}
+
+.reach-map-header h3 span {
+    color: var(--primary);
+}
+
+.reach-map-header p {
+    max-width: 480px;
+    margin: 0 0 35px;
+    color: rgba(255, 255, 255, .65);
+    font-size: .9rem;
+    line-height: 1.9;
+}
+
+
+/* ======================================================
+   LOCATIONS
+====================================================== */
+
+.vendor-locations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 500px;
+}
+
+.vendor-location {
     display: flex;
     align-items: center;
-    gap: 14px;
-    max-width: 320px;
-    padding: 16px 20px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, .95);
-    box-shadow: 0 15px 40px rgba(15, 23, 42, .15);
-    backdrop-filter: blur(10px);
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .045);
+    transition: .3s ease;
 }
 
-.map-location-icon {
-    width: 45px;
-    height: 45px;
-    flex: 0 0 45px;
+.vendor-location:hover {
+    border-color: rgba(246, 139, 0, .5);
+    background: rgba(246, 139, 0, .08);
+    transform: translateY(-3px);
+}
+
+.vendor-location-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 13px;
-    background: rgba(246, 139, 0, .1);
+    border-radius: 9px;
+    background: rgba(246, 139, 0, .12);
     color: var(--primary);
+    font-size: .8rem;
 }
 
-.map-location-card div:last-child {
+.vendor-location strong {
+    display: block;
+    color: #fff;
+    font-size: .78rem;
+}
+
+.vendor-location span {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255, 255, 255, .45);
+    font-size: .65rem;
+}
+
+
+/* ======================================================
+   NETWORK NOTE
+====================================================== */
+
+.reach-map-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+    color: rgba(255, 255, 255, .45);
+    font-size: .7rem;
+}
+
+.reach-map-note i {
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+
+/* ======================================================
+   MAP VISUAL
+====================================================== */
+
+.reach-map-visual {
+    position: relative;
+    min-height: 560px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center,
+            rgba(11, 107, 111, .35),
+            transparent 55%),
+        #071f31;
+}
+
+
+/* grid */
+
+.map-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .12;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .25) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 255, 255, .25) 1px,
+            transparent 1px);
+    background-size: 45px 45px;
+}
+
+
+/* glow */
+
+.map-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(11, 107, 111, .25);
+    filter: blur(60px);
+    transform: translate(-50%, -50%);
+}
+
+
+/* ======================================================
+   CENTER BRAND
+====================================================== */
+
+.map-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    align-items: center;
+    transform: translate(-50%, -50%);
 }
 
-.map-location-card span {
+.map-center-logo {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: 1px solid rgba(246, 139, 0, .5);
+    border-radius: 20px;
+    background: rgba(246, 139, 0, .1);
     color: var(--primary);
+    font-size: 1.6rem;
+    box-shadow: 0 0 50px rgba(246, 139, 0, .12);
+}
+
+.map-center span {
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 800;
+}
+
+.map-center small {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, .4);
+    font-family: var(--font-accent);
+    font-size: .5rem;
+}
+
+
+/* ======================================================
+   MAP POINTS
+====================================================== */
+
+.map-point {
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map-point span {
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    background: var(--dark);
+    box-shadow:
+        0 0 0 5px rgba(246, 139, 0, .08),
+        0 0 20px rgba(246, 139, 0, .5);
+}
+
+.map-point strong {
+    color: rgba(255, 255, 255, .8);
     font-family: var(--font-accent);
     font-size: .6rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
-.map-location-card strong {
-    color: var(--dark);
-    font-size: .85rem;
+
+/* positions */
+
+.map-abuja {
+    top: 20%;
+    left: 57%;
 }
+
+.map-kano {
+    top: 11%;
+    left: 35%;
+}
+
+.map-makurdi {
+    top: 43%;
+    left: 53%;
+}
+
+.map-lagos {
+    bottom: 22%;
+    left: 28%;
+}
+
+.map-ph {
+    bottom: 25%;
+    right: 17%;
+}
+
+
+/* ======================================================
+   CONNECTION LINES
+====================================================== */
+
+.map-connection {
+    position: absolute;
+    z-index: 2;
+    height: 1px;
+    transform-origin: left center;
+    border-top: 1px dashed rgba(246, 139, 0, .35);
+}
+
+
+/* Abuja */
+
+.connection-abuja {
+    width: 120px;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-76deg);
+}
+
+
+/* Kano */
+
+.connection-kano {
+    width: 145px;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-132deg);
+}
+
+
+/* Makurdi */
+
+.connection-makurdi {
+    width: 80px;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-25deg);
+}
+
+
+/* Lagos */
+
+.connection-lagos {
+    width: 160px;
+    top: 50%;
+    left: 50%;
+    transform: rotate(150deg);
+}
+
+
+/* Port Harcourt */
+
+.connection-ph {
+    width: 150px;
+    top: 50%;
+    left: 50%;
+    transform: rotate(40deg);
+}
+
+
 
 
 /* ======================================================
