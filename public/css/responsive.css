@@ -1,0 +1,675 @@
+@media (max-width:991px) {
+
+    .top-bar {
+
+        display: none;
+
+    }
+
+    /* ==========================================
+        HERO
+    ========================================== */
+
+
+    .hero {
+
+        padding-top: 150px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 3rem;
+
+    }
+
+    .hero h2 {
+
+        font-size: 2.2rem;
+
+    }
+
+    .hero-showcase {
+
+        margin-top: 50px;
+
+    }
+
+    .floating-card {
+
+        display: none;
+
+    }
+
+    .hero-bottom {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        margin-top: 70px;
+
+    }
+
+    /* ==========================================
+        ABOUT
+    ========================================== */
+
+
+    .about-images {
+
+        padding-right: 0;
+
+    }
+
+    .about-card {
+
+        position: relative;
+
+        width: 100%;
+
+        right: auto;
+
+        bottom: auto;
+
+        margin-top: 25px;
+
+    }
+
+    .section-title h2 {
+
+        font-size: 2.4rem;
+
+    }
+
+    /* ==========================================
+        ABOUT PAGE
+    ========================================== */
+
+    .inner-page-hero {
+        padding-top: 160px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-story-image {
+        padding-right: 0;
+    }
+
+    .story-badge {
+        right: 25px;
+    }
+
+    .about-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /* ==========================================
+        PROCESS
+    ========================================== */
+
+    .process-wrapper {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .process-line {
+
+        display: none;
+
+    }
+
+    /* ==========================================
+        PORTFOLIO
+    ========================================== */
+    .portfolio-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .portfolio-item.large {
+
+        min-height: 400px;
+
+        grid-row: auto;
+
+    }
+
+    /* ==========================================
+        WHY CHOOSE US
+    ========================================== */
+
+    .experience-card,
+    .delivery-card {
+
+        position: relative;
+
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+
+        width: 100%;
+
+        margin-top: 20px;
+
+    }
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* ==========================================
+        SERVICE
+    ========================================== */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-detail-row {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        margin-bottom: 100px;
+    }
+
+    .service-detail-row.reverse .service-detail-image {
+        order: 1;
+    }
+
+    .service-detail-row.reverse .service-detail-content {
+        order: 2;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 25px;
+    }
+
+    .process-grid::before {
+        display: none;
+    }
+
+    /* ==========================================
+        PORTFOLIO PAGE
+    ========================================== */
+    .portfolio-grid {
+        columns: 2 280px;
+    }
+
+    .project-modal-image {
+        min-height: 400px;
+    }
+
+    .project-modal-content {
+        min-height: auto;
+        padding: 40px;
+    }
+
+    /* ==========================================
+        CONTACT
+    ========================================== */
+    .contact-form-card {
+        padding: 40px;
+    }
+
+    .hours-wrapper {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .map-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .reach-map-content {
+        padding: 50px 40px;
+    }
+
+    .reach-map-visual {
+        min-height: 480px;
+    }
+
+    /* ==========================================
+        FOOTER
+    ========================================== */
+
+
+    .footer-cta-wrapper {
+
+        padding: 40px 30px;
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .footer-cta h2 {
+
+        font-size: 2rem;
+
+    }
+
+    .footer-bottom-wrapper {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 20px;
+
+        padding: 25px 0;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .testimonial-card {
+
+        padding: 30px;
+
+    }
+
+    .inner-page-hero {
+        padding: 145px 0 80px;
+    }
+
+        .services-showcase {
+        padding: 80px 0;
+    }
+
+    .service-showcase-slide {
+        height: 600px;
+    }
+
+    .service-showcase-overlay {
+        background:
+            linear-gradient(
+                0deg,
+                rgba(10,45,70,.94) 0%,
+                rgba(10,45,70,.55) 65%,
+                rgba(10,45,70,.15) 100%
+            );
+    }
+
+    .service-showcase-content {
+        left: 7%;
+        bottom: 13%;
+
+        width: 82%;
+    }
+
+    .service-showcase-content h3 {
+        font-size: 2.4rem;
+    }
+
+    .service-showcase-content p {
+        font-size: .82rem;
+    }
+
+    .showcase-control {
+        bottom: 5%;
+    }
+
+    .carousel-control-prev.showcase-control {
+        right: 75px;
+    }
+
+    .carousel-control-next.showcase-control {
+        right: 20px;
+    }
+
+    .services-showcase-carousel .carousel-indicators {
+        left: 7%;
+        right: auto;
+        bottom: 28px;
+    }
+
+    /* ==========================================
+        ABOUT
+    ========================================== */
+
+    .about-story,
+    .mission-vision,
+    .values,
+    .team,
+    .about-timeline {
+        padding: 90px 0;
+    }
+
+    .inner-page-hero h1 {
+        font-size: 3rem;
+    }
+
+    .about-story-image img {
+        min-height: 400px;
+    }
+
+    .mv-card {
+        padding: 35px;
+    }
+
+    .mv-card h2 {
+        font-size: 2rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+        left: 8px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0 50px 40px;
+    }
+
+    .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 0;
+        right: auto;
+    }
+
+    .about-cta-inner {
+        padding: 40px 30px;
+    }
+
+    /* ==========================================
+        SERVICES
+    ========================================== */
+
+    .services-overview,
+    .service-details,
+    .services-process,
+    .services-faq {
+        padding: 90px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        margin-top: 45px;
+    }
+
+    .service-card {
+        min-height: auto;
+    }
+
+    .service-detail-image img {
+        min-height: 350px;
+    }
+
+    .service-detail-content ul {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ==========================================
+        PORTFOLIO PAGE
+    ========================================== */
+    .portfolio-section {
+        padding: 80px 0 90px;
+    }
+
+    .portfolio-filter {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .portfolio-filter-btn {
+        flex: 0 0 auto;
+    }
+
+    .portfolio-grid {
+        columns: 1;
+    }
+
+    .portfolio-card,
+    .portfolio-item.portfolio-tall .portfolio-card,
+    .portfolio-item.portfolio-wide .portfolio-card {
+        min-height: 420px;
+    }
+
+    .portfolio-overlay {
+        padding: 25px;
+    }
+
+    .project-modal-content h2 {
+        font-size: 2rem;
+    }
+
+    .project-meta {
+        grid-template-columns: 1fr;
+    }
+
+    /* ==========================================
+        CONTACT
+    ========================================== */
+    .contact-section,
+    .contact-map-section {
+        padding: 90px 0;
+    }
+
+    .contact-form-card {
+        padding: 30px 25px;
+        border-radius: 24px;
+    }
+
+    .form-card-heading h2 {
+        font-size: 1.7rem;
+    }
+
+    .contact-hours {
+        padding: 80px 0;
+    }
+
+    .hours-table {
+        padding: 10px 20px;
+    }
+
+    .hours-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .map-wrapper {
+        margin-top: 40px;
+        border-radius: 20px;
+    }
+
+    .map-wrapper iframe {
+        height: 400px;
+    }
+
+    .map-location-card {
+        right: 15px;
+        left: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .hero {
+
+        padding-top: 140px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 2.3rem;
+
+    }
+
+    .hero h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+    }
+
+    .hero-buttons a {
+
+        width: 100%;
+        justify-content: center;
+
+    }
+
+    .hero-rating {
+
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .hero-bottom {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero-ribbon-content {
+
+        border-radius: 24px;
+
+        padding: 20px;
+
+        justify-content: flex-start;
+
+    }
+
+    .section-title h2 {
+
+        font-size: 2rem;
+
+    }
+
+    /* ==========================================
+        ABOUT
+    ========================================== */
+
+    .about-features {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* ==========================================
+        ABOUT PAGE
+    ========================================== */
+
+    .inner-page-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .story-highlights {
+        flex-direction: column;
+    }
+
+    .story-highlights div {
+        width: 100%;
+    }
+
+    .team-image {
+        height: 300px;
+    }
+
+    /* ==========================================
+        PROCESS
+    ========================================== */
+
+    .process-wrapper {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* ==========================================
+        PORTFOLIO
+    ========================================== */
+
+    .portfolio-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* ==========================================
+        SERVICES
+    ========================================== */
+    .service-card {
+        padding: 30px;
+    }
+
+    .service-detail-content h2 {
+        font-size: 2rem;
+    }
+
+    /* ==========================================
+        PORTFOLIO PAGE
+    ========================================== */
+    .portfolio-card,
+    .portfolio-item.portfolio-tall .portfolio-card,
+    .portfolio-item.portfolio-wide .portfolio-card {
+        min-height: 350px;
+        border-radius: 20px;
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 1.15rem;
+    }
+
+    /* ==========================================
+        CONTACT
+    ========================================== */
+    .contact-whatsapp-card {
+        align-items: flex-start;
+    }
+
+    .contact-whatsapp-card>a {
+        flex: 0 0 42px;
+    }
+
+    .reach-map-content {
+        padding: 40px 25px;
+    }
+
+    .vendor-locations {
+        grid-template-columns: 1fr;
+    }
+
+    .reach-map-visual {
+        min-height: 400px;
+    }
+
+    .map-point strong {
+        font-size: .5rem;
+    }
+
+}

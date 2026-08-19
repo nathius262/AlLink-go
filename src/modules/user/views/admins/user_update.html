@@ -1,0 +1,143 @@
+<div class="container-fluid py-4">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 mb-0 text-gray-800">Users</h1>
+            <p class="text-muted mb-0">Update user account information</p>
+        </div>
+        <a href="/admin/user" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Back to Users
+        </a>
+    </div>
+
+    <!-- Update User Card -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-user-edit me-2"></i>Update User
+                    </h6>
+                    <button id="delete" 
+                        data-delete="user-{{user.id}}" data-name="{{user.id}}" 
+                        data-url="/admin/user/{{user.id}}" class="btn btn-danger btn-sm"
+                    >
+                        <i class="fas fa-trash me-1"></i>Delete User
+                    </button>
+                </div>
+                <div class="card-body">
+                    <form id="update-user-form" class="needs-validation" action="/admin/user/{{user.id}}" method="POST" novalidate>
+                        <input type="hidden" name="_method" value="PUT">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" name="first_name" class="form-control" id="firstName"
+                                        value="{{user.first_name}}" placeholder="Enter First Name..." required>
+                                    <div class="invalid-feedback">
+                                        First Name is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" name="last_name" class="form-control" id="lastName"
+                                        value="{{user.last_name}}" placeholder="Enter Last Name..." required>
+                                    <div class="invalid-feedback">
+                                        Last Name is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail" class="form-label">Email Address</label>
+                                    <input type="email" name="email" class="form-control"
+                                        id="exampleInputEmail" value="{{user.email}}"
+                                        placeholder="Enter Email Address..." required>
+                                    <div class="invalid-feedback">
+                                        Email is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Roles Section -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label class="form-label mb-3">User Roles</label>
+                                <div class="d-flex flex-column flex-md-row gap-4">
+                                    <!-- User Role -->
+                                    <div class="form-check">
+                                        {{#hasRoleByName user.roles "user"}}
+                                            <input class="form-check-input" type="checkbox" id="userRole" value="true" name="is_user" checked>
+                                        {{else}}
+                                            <input class="form-check-input" type="checkbox" id="userRole" value="true" name="is_user">
+                                        {{/hasRoleByName}}
+                                        <label class="form-check-label" for="userRole">
+                                            <i class="fas fa-user me-1"></i>User
+                                        </label>
+                                    </div>
+                                    
+                                    <!-- Staff Role -->
+                                    <div class="form-check">
+                                        {{#hasRoleByName user.roles "staff"}}
+                                            <input class="form-check-input" type="checkbox" id="staffRole" value="true" name="is_staff" checked>
+                                        {{else}}
+                                            <input class="form-check-input" type="checkbox" id="staffRole" value="true" name="is_staff">
+                                        {{/hasRoleByName}}
+                                        <label class="form-check-label" for="staffRole">
+                                            <i class="fas fa-user-tie me-1"></i>Staff
+                                        </label>
+                                    </div>
+                                    
+                                    <!-- Admin Role -->
+                                    <div class="form-check">
+                                        {{#hasRoleByName user.roles "admin"}}
+                                            <input class="form-check-input" type="checkbox" id="adminRole" value="true" name="is_admin" checked>
+                                        {{else}}
+                                            <input class="form-check-input" type="checkbox" id="adminRole" value="true" name="is_admin">
+                                        {{/hasRoleByName}}
+                                        <label class="form-check-label" for="adminRole">
+                                            <i class="fas fa-crown me-1"></i>Administrator
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Error Messages -->
+                        <div class="row">
+                            <div class="col-12">
+                                <ul id="error" class="text-danger list-unstyled"></ul>
+                            </div>
+                        </div>
+
+                        <!-- Loading Spinner -->
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div class="spinner-border text-primary d-none" id="status" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" id="btn" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Update User
+                            </button>
+                            <a href="/admin/user" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/assets/js/user.js"></script>
