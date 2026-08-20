@@ -599,6 +599,644 @@
 }
 
 
+/* ======================================================
+   CUSTOMER MANAGEMENT
+====================================================== */
+
+.admin-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.admin-page-label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--admin-primary);
+    font-family: "Cascadia Mono", monospace;
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.admin-page-header h1 {
+    margin: 0;
+    color: var(--admin-dark);
+    font-size: 1.7rem;
+}
+
+.admin-page-header p {
+    margin: 6px 0 0;
+    color: var(--admin-muted);
+    font-size: .78rem;
+}
+
+.admin-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 17px;
+    background: var(--admin-primary);
+    color: #fff;
+    border-radius: 7px;
+    font-size: .72rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .25s ease;
+}
+
+.admin-primary-btn:hover {
+    background: var(--admin-secondary);
+    color: #fff;
+}
+
+
+/* ======================================================
+   STAT CARD
+====================================================== */
+
+.admin-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 9px;
+}
+
+.admin-stat-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(246, 139, 0, .1);
+    color: var(--admin-primary);
+    border-radius: 7px;
+    font-size: 1.15rem;
+}
+
+.admin-stat-card span {
+    display: block;
+    color: var(--admin-muted);
+    font-family: "Cascadia Mono", monospace;
+    font-size: .55rem;
+    letter-spacing: .06em;
+}
+
+.admin-stat-card strong {
+    display: block;
+    margin-top: 4px;
+    color: var(--admin-dark);
+    font-size: 1.35rem;
+}
+
+
+/* ======================================================
+   TABLE CARD
+====================================================== */
+
+.admin-table-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 9px;
+}
+
+.admin-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table-header h2 {
+    margin: 0;
+    color: var(--admin-dark);
+    font-size: .95rem;
+}
+
+.admin-table-header span {
+    display: block;
+    margin-top: 4px;
+    color: var(--admin-muted);
+    font-size: .67rem;
+}
+
+
+/* SEARCH */
+
+.admin-search {
+    position: relative;
+}
+
+.admin-search i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: var(--admin-muted);
+    font-size: .8rem;
+}
+
+.admin-search input {
+    width: 230px;
+    height: 38px;
+    padding: 0 12px 0 34px;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    outline: none;
+    font-size: .72rem;
+}
+
+.admin-search input:focus {
+    border-color: var(--admin-primary);
+}
+
+
+/* ======================================================
+   TABLE
+====================================================== */
+
+.admin-table {
+    margin: 0;
+}
+
+.admin-table thead th {
+    padding: 13px 24px;
+    background: #f8f9fa;
+    color: var(--admin-muted);
+    border-bottom: 1px solid var(--admin-border);
+    font-family: "Cascadia Mono", monospace;
+    font-size: .55rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    white-space: nowrap;
+}
+
+.admin-table tbody td {
+    padding: 16px 24px;
+    border-color: var(--admin-border);
+    font-size: .75rem;
+}
+
+.admin-table tbody tr {
+    transition: .2s ease;
+}
+
+.admin-table tbody tr:hover {
+    background: #fafcfc;
+}
+
+
+/* ======================================================
+   CUSTOMER
+====================================================== */
+
+.customer-table-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.customer-avatar {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 107, 111, .1);
+    color: var(--admin-secondary);
+    border-radius: 50%;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.customer-table-user strong {
+    display: block;
+    color: var(--admin-dark);
+    font-size: .76rem;
+}
+
+.customer-table-user span {
+    display: block;
+    margin-top: 3px;
+    color: var(--admin-muted);
+    font-size: .64rem;
+}
+
+.customer-id {
+    padding: 5px 8px;
+    background: #f5f7f8;
+    color: var(--admin-dark);
+    border-radius: 5px;
+    font-family: "Cascadia Mono", monospace;
+    font-size: .6rem;
+}
+
+.customer-contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--admin-text);
+}
+
+.customer-contact-info i {
+    color: var(--admin-secondary);
+}
+
+.customer-date strong,
+.customer-date span {
+    display: block;
+}
+
+.customer-date strong {
+    color: var(--admin-dark);
+    font-size: .7rem;
+}
+
+.customer-date span {
+    margin-top: 3px;
+    color: var(--admin-muted);
+    font-size: .6rem;
+}
+
+
+/* ======================================================
+   ACTIONS
+====================================================== */
+
+.customer-actions {
+    display: inline-flex;
+    gap: 6px;
+}
+
+.admin-action-btn {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--admin-border);
+    background: #fff;
+    color: var(--admin-dark);
+    border-radius: 6px;
+    font-size: .75rem;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.admin-action-btn:hover {
+    background: var(--admin-dark);
+    border-color: var(--admin-dark);
+    color: #fff;
+}
+
+.admin-action-danger:hover {
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+
+/* ======================================================
+   EMPTY STATE
+====================================================== */
+
+.admin-empty-state {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.admin-empty-state > div {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7f8;
+    color: var(--admin-muted);
+    border-radius: 50%;
+    font-size: 1.3rem;
+}
+
+.admin-empty-state h3 {
+    margin: 0;
+    color: var(--admin-dark);
+    font-size: .9rem;
+}
+
+.admin-empty-state p {
+    margin: 6px 0 0;
+    color: var(--admin-muted);
+    font-size: .7rem;
+}
+
+/* ======================================================
+   CUSTOMER CREATE / FORM
+====================================================== */
+
+.admin-form-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 9px;
+}
+
+
+/* ======================================================
+   FORM SECTION
+====================================================== */
+
+.admin-form-section {
+    padding: 26px 28px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-form-section:last-of-type {
+    border-bottom: 0;
+}
+
+
+/* SECTION HEADER */
+
+.admin-form-section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 25px;
+}
+
+.admin-form-section-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(246, 139, 0, .1);
+    color: var(--admin-primary);
+    border-radius: 7px;
+    font-size: .9rem;
+}
+
+.admin-form-section-header h2 {
+    margin: 0;
+    color: var(--admin-dark);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.admin-form-section-header p {
+    margin: 4px 0 0;
+    color: var(--admin-muted);
+    font-size: .67rem;
+}
+
+
+/* ======================================================
+   FORM LABELS
+====================================================== */
+
+.admin-form-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 7px;
+    color: var(--admin-dark);
+    font-size: .68rem;
+    font-weight: 700;
+}
+
+.admin-form-label .text-danger {
+    color: #dc3545 !important;
+    font-size: .7rem;
+}
+
+.admin-form-optional {
+    margin-left: 3px;
+    color: var(--admin-muted);
+    font-size: .58rem;
+    font-weight: 400;
+}
+
+
+/* ======================================================
+   FORM CONTROLS
+====================================================== */
+
+.admin-form-control {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 12px;
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    outline: none;
+    color: var(--admin-dark);
+    font-family: inherit;
+    font-size: .72rem;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.admin-form-control::placeholder {
+    color: #a6adb2;
+}
+
+.admin-form-control:focus {
+    border-color: var(--admin-primary);
+    box-shadow: 0 0 0 3px rgba(246, 139, 0, .08);
+}
+
+.admin-form-control:hover:not(:focus) {
+    border-color: #cbd1d4;
+}
+
+
+/* TEXTAREA */
+
+textarea.admin-form-control {
+    min-height: 95px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+
+/* SELECT */
+
+select.admin-form-control {
+    cursor: pointer;
+    appearance: auto;
+}
+
+
+/* ======================================================
+   VALIDATION
+====================================================== */
+
+.admin-form-control.is-invalid,
+.was-validated .admin-form-control:invalid {
+    border-color: #dc3545;
+}
+
+.admin-form-control.is-invalid:focus,
+.was-validated .admin-form-control:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, .08);
+}
+
+.invalid-feedback {
+    margin-top: 5px;
+    color: #dc3545;
+    font-size: .6rem;
+}
+
+
+/* ======================================================
+   FORM HELP TEXT
+====================================================== */
+
+.admin-form-help {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 7px;
+    color: var(--admin-muted);
+    font-size: .6rem;
+    line-height: 1.5;
+}
+
+.admin-form-help i {
+    margin-top: 1px;
+    color: var(--admin-secondary);
+}
+
+
+/* ======================================================
+   FORM FOOTER
+====================================================== */
+
+.admin-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 18px 28px;
+    background: #fafbfb;
+    border-top: 1px solid var(--admin-border);
+}
+
+
+/* ======================================================
+   SECONDARY BUTTON
+====================================================== */
+
+.admin-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 9px 15px;
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    color: var(--admin-dark);
+    border-radius: 7px;
+    font-size: .7rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.admin-secondary-btn:hover {
+    background: #f5f7f8;
+    border-color: #cbd1d4;
+    color: var(--admin-dark);
+}
+
+
+/* ======================================================
+   PRIMARY FORM BUTTON
+====================================================== */
+
+.admin-form-footer .admin-primary-btn {
+    min-height: 40px;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 767px) {
+
+    .admin-form-section {
+        padding: 22px 18px;
+    }
+
+    .admin-form-section-header {
+        margin-bottom: 20px;
+    }
+
+    .admin-form-footer {
+        align-items: stretch;
+        flex-direction: column-reverse;
+        padding: 16px 18px;
+    }
+
+    .admin-form-footer .admin-primary-btn,
+    .admin-form-footer .admin-secondary-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+.admin-table-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--admin-border);
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 767px) {
+
+    .admin-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-table-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-search,
+    .admin-search input {
+        width: 100%;
+    }
+
+}
+
+
 @media (max-width: 991px) {
 
     .admin-sidebar {

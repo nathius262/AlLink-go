@@ -72,4 +72,13 @@ export default function registerHelpers(handlebars) {
   handlebars.registerHelper('json', function(context) {
     return JSON.stringify(context);
   });
+
+  handlebars.registerHelper('firstLetter', function(str) {
+    // Check if the input is a valid, non-empty string
+    if (typeof str === 'string' && str.length > 0) {
+      return str.charAt(0);
+    }
+    return ''; // Return an empty string if input is invalid or empty
+  });
+
 }

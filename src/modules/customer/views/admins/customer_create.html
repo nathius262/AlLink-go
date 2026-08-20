@@ -1,0 +1,363 @@
+<!-- ==========================================
+    CREATE CUSTOMER
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                CUSTOMER MANAGEMENT
+            </span>
+
+            <h1>
+                Create Customer
+            </h1>
+
+            <p>
+                Add a new customer record to your customer directory.
+            </p>
+
+        </div>
+
+        <a href="/admin/customer" class="admin-primary-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Customers
+
+        </a>
+
+    </div>
+
+
+    <!-- CUSTOMER FORM -->
+
+    <div class="admin-form-card">
+
+        <form
+            action="/admin/customer/create"
+            method="POST"
+            id="create-form"
+            class="needs-validation"
+            novalidate>
+
+
+            <!-- ==========================================
+                CUSTOMER INFORMATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Customer Information
+                        </h2>
+
+                        <p>
+                            Provide the customer's basic contact information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- NAME -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="name"
+                            class="admin-form-label">
+
+                            Full Name
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="admin-form-control"
+                            placeholder="e.g. John Doe"
+                            autocomplete="name"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide the customer's name.
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="email"
+                            class="admin-form-label">
+
+                            Email Address
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="admin-form-control"
+                            placeholder="e.g. john@example.com"
+                            autocomplete="email"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="phone"
+                            class="admin-form-label">
+
+                            Phone Number
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            class="admin-form-control"
+                            placeholder="e.g. 08012345678"
+                            autocomplete="tel"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a phone number.
+                        </div>
+
+                    </div>
+
+
+                    <!-- COMPANY -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="company"
+                            class="admin-form-label">
+
+                            Company
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="company"
+                            id="company"
+                            class="admin-form-control"
+                            placeholder="e.g. AlLink@go"
+                            autocomplete="organization">
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="col-12">
+
+                        <label
+                            for="address"
+                            class="admin-form-label">
+
+                            Address
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+                        <textarea
+                            name="address"
+                            id="address"
+                            rows="3"
+                            class="admin-form-control"
+                            placeholder="Enter customer's address"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                ACCOUNT LINKING
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person-check"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Account Association
+                        </h2>
+
+                        <p>
+                            Optionally associate this customer with an existing user account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-8">
+
+                        <label
+                            for="user_id"
+                            class="admin-form-label">
+
+                            User Account
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+                        <select
+                            name="user_id"
+                            id="user_id"
+                            class="admin-form-control">
+
+                            <option value="">
+                                No user account — Guest Customer
+                            </option>
+
+                            {{#each users}}
+
+                                <option value="{{this.id}}">
+
+                                    {{this.email}}
+
+                                    {{#if this.first_name}}
+                                        — {{this.first_name}}
+                                    {{/if}}
+
+                                    {{#if this.username}}
+                                        — {{this.username}}
+                                    {{/if}}
+
+                                </option>
+
+                            {{/each}}
+
+                        </select>
+
+                        <div class="admin-form-help">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            Leave this empty if this customer does not have an account.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                FORM ACTIONS
+            =========================================== -->
+
+            <div class="admin-form-footer">
+
+                <a
+                    href="/admin/customer"
+                    class="admin-secondary-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="admin-primary-btn">
+
+                    <i class="bi bi-person-plus"></i>
+
+                    Create Customer
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script type="module" src="/assets/js/form-handler.js"></script>
+
+<!--
+    Use this instead when the form eventually supports
+    image/file uploads.
+
+    <script
+        type="module"
+        src="/assets/js/uploader.js">
+    </script>
+-->
