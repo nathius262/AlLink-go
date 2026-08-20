@@ -2,35 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <!-- ===========================
+        BASIC META
+    ============================ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===========================
+        SEO
+    ============================ -->
     <meta name="description"
-        content="A lightweight **Express.js framework** with **Sequelize**, **automatic module generation**, **authentication**, and a **CLI** for easy development.">
+        content="AlLink is a premium branding, packaging and printing agency helping businesses move from design to dispatch through creative branding, quality packaging and professional printing solutions.">
     <meta name="keywords"
-        content="nexus, nexusjs, framework">
-    <meta name="author" content="nathius262">
-    <meta property="og:title" content="NexusJs - Admin | {{pageTitle}}">
+        content="Branding, Packaging, Printing, Brand Identity, Product Packaging, Offset Printing, Digital Printing, Nigeria">
+    <meta name="author" content="AlLink">
+
+    <meta property="og:title" content="AlLink | Design, Branding & Packaging Agency | {{pageTitle}}">
     <meta property="og:description"
-        content="A lightweight **Express.js framework** with **Sequelize**, **automatic module generation**, **authentication**, and a **CLI** for easy development.">
+        content="AlLink is a premium branding, packaging and printing agency helping businesses move from design to dispatch through creative branding, quality packaging and professional printing solutions.">
     <meta property="og:image" content={{pageLogo}}>
-    <meta property="og:url" content="https://github.com/Nathius262/nexusjs">
+    <meta property="og:url" content="#">
 
     <!--twitter social share-->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{pageTitle}}" id="twitterTitle">
+    <meta name="twitter:title" content="AlLink | Design, Branding & Packaging Agency | {{pageTitle}}" id="twitterTitle">
     <meta name="twitter:description"
-        content="A lightweight **Express.js framework** with **Sequelize**, **automatic module generation**, **authentication**, and a **CLI** for easy development."
+        content="AlLink is a premium branding, packaging and printing agency helping businesses move from design to dispatch through creative branding, quality packaging and professional printing solutions."
         id="twitterDescription">
     <meta name="twitter:image" content={{pageLogo}} id="twitterImage">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>NexusJs - Admin | {{pageTitle}}</title>
+    <title>AlLink | Admin | {{pageTitle}}</title>
+    <meta name="robots" content="index, follow">
 
-    <link rel="icon" href="/assets/img/logo.jpg">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&amp;display=swap" rel="stylesheet">
+    <!-- ===========================
+        THEME
+    ============================ -->
+    <meta name="theme-color" content="#F68B00">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+    <!-- ===========================
+        FAVICON
+    ============================ -->
+    <link rel="icon" href="/assets/images/logo/logo-2.png">
+
+    <!-- ===========================
+        GOOGLE FONTS
+    ============================ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ===========================
+        BOOTSTRAP
+    ============================ -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ===========================
+        BOOTSTRAP ICONS
+    ============================ -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
         integrity="sha512-siarrzI1u3pCqFG2LEzi87McrBmq6Tp7juVsdmGY1Dr8Saw+ZBAzDzrGwX3vgxX1NkioYNCFOVC0GpDPss10zQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -41,125 +79,406 @@
         integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
+    <!-- ===========================
+        AOS
+    ============================ -->
 
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- ===========================
+        SWIPER
+    ============================ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- ===========================
+        CUSTOM CSS
+    ============================ -->
+
+    <link rel="stylesheet" href="/assets/css/variables.css">
+
     <link href="/assets/css/admin.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
 <body>
-    
 
     <!--============ROOT SECTION==============-->
     <section id="root" class=" position-relative overflow-x-hidden">
-        <!-- SIDEBAR -->
-        <div class="sidebar bg-dark text-white">
-            <div class="sidebar-header p-3 border-bottom border-secondary">
-                <h4 class="mb-0">
-                    <i class="fas fa-project-diagram me-2"></i>
-                    NexusJs
-                </h4>
-            </div>
-            <div class="sidebar-menu p-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">
-                        <a class="nav-link text-white d-flex align-items-center" href="/admin">
-                            <i class="fas fa-tachometer-alt me-2"></i>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a class="nav-link text-white d-flex align-items-center" href="/admin/user">
-                            <i class="fas fa-user me-2"></i>
-                            Users
-                        </a>
-                    </li>
+                
 
-                    <li class="nav-item mb-2">
-                        <a class="nav-link text-white d-flex align-items-center" href="/admin/role">
-                            <i class="fas fa-users me-2"></i>
-                            Roles
-                        </a>
-                    </li>
+        <!-- ==========================================
+            ADMIN LAYOUT
+        =========================================== -->
 
-                    <li class="nav-item mb-2">
-                        <a class="nav-link text-white d-flex align-items-center" href="#">
-                            <i class="fas fa-cog me-2"></i>
-                            Settings
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a class="nav-link text-white d-flex align-items-center" href="#">
-                            <i class="fas fa-chart-bar me-2"></i>
-                            Analytics
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a class="nav-link text-white d-flex align-items-center" href="#">
-                            <i class="fas fa-file-alt me-2"></i>
-                            Reports
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div class="admin-layout">
 
-        <!-- MAIN CONTENT WRAPPER -->
-        <div class="main-content">
-            <!-- NAVBAR -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-                <div class="container-fluid">
-                    <button class="btn btn-sm" id="sidebarToggle">
-                        <i class="fas fa-bars"></i>
+
+            <!-- ======================================
+                SIDEBAR
+            ======================================= -->
+
+            <aside class="admin-sidebar" id="adminSidebar">
+
+                <div class="admin-sidebar-header">
+
+                    <a href="/admin" class="admin-brand">
+
+                        <img
+                            src="/assets/images/logo/logo-2.png"
+                            alt="AlLink@go">
+
+                        <div>
+                            <strong>
+                                AlLink<span>@</span>go
+                            </strong>
+
+                            <small>
+                                ADMIN PANEL
+                            </small>
+                        </div>
+
+                    </a>
+
+                    <button
+                        class="sidebar-close"
+                        id="sidebarClose"
+                        type="button">
+
+                        <i class="bi bi-x-lg"></i>
+
                     </button>
-                    
-                    <div class="d-flex align-items-center ms-auto">
-                        <div class="dropdown me-3">
-                            <button class="btn btn-light dropdown-toggle" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-bell"></i>
-                                <span class="badge bg-danger rounded-pill">3</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
-                                <li><a class="dropdown-item" href="#">New user registered</a></li>
-                                <li><a class="dropdown-item" href="#">Server update completed</a></li>
-                                <li><a class="dropdown-item" href="#">Payment received</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
-                                    <span class="text-white">A</span>
-                                </div>
-                                <span>Admin</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#" id="logout-button"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
 
-            <!--=========MAIN BEGIN===========-->
-            
+                </div>
+
+
+                <!-- NAVIGATION -->
+
+                <nav class="admin-navigation">
+
+
+                    <span class="admin-nav-label">
+                        OVERVIEW
+                    </span>
+
+                    <a href="/admin"
+                    class="admin-nav-link active">
+
+                        <i class="bi bi-grid-1x2"></i>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+
+
+                    <span class="admin-nav-label">
+                        BUSINESS
+                    </span>
+
+
+                    <a href="admin-orders.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-bag-check"></i>
+
+                        <span>
+                            Orders
+                        </span>
+
+                        <span class="nav-badge">
+                            8
+                        </span>
+
+                    </a>
+
+
+                    <a href="admin-products.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <span>
+                            Products
+                        </span>
+
+                    </a>
+
+
+                    <a href="admin-services.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-grid"></i>
+
+                        <span>
+                            Services
+                        </span>
+
+                    </a>
+
+
+                    <a href="admin-customers.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-people"></i>
+
+                        <span>
+                            Customers
+                        </span>
+
+                    </a>
+
+
+                    <a href="admin-consultations.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-calendar-check"></i>
+
+                        <span>
+                            Consultations
+                        </span>
+
+                        <span class="nav-badge">
+                            3
+                        </span>
+
+                    </a>
+
+
+                    <span class="admin-nav-label">
+                        CONTENT
+                    </span>
+
+
+                    <a href="admin-portfolio.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-images"></i>
+
+                        <span>
+                            Portfolio
+                        </span>
+
+                    </a>
+
+
+                    <a href="admin-content.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-file-earmark-text"></i>
+
+                        <span>
+                            Website Content
+                        </span>
+
+                    </a>
+
+
+                    <span class="admin-nav-label">
+                        SYSTEM
+                    </span>
+
+
+                    <a href="admin-settings.html"
+                    class="admin-nav-link">
+
+                        <i class="bi bi-gear"></i>
+
+                        <span>
+                            Settings
+                        </span>
+
+                    </a>
+
+                </nav>
+
+
+                <!-- SIDEBAR FOOTER -->
+
+                <div class="admin-sidebar-footer">
+
+                    <div class="admin-support">
+
+                        <i class="bi bi-headset"></i>
+
+                        <div>
+
+                            <strong>
+                                Need Help?
+                            </strong>
+
+                            <span>
+                                Contact support
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!-- ======================================
+                MAIN
+            ======================================= -->
+
+            <main class="admin-main">
+
+
+                <!-- TOPBAR -->
+
+                <header class="admin-topbar">
+
+                    <div class="topbar-left">
+
+                        <button
+                            class="sidebar-toggle"
+                            id="sidebarToggle"
+                            type="button">
+
+                            <i class="bi bi-list"></i>
+
+                        </button>
+
+                        <div>
+
+                            <span class="topbar-label">
+                                ADMINISTRATION
+                            </span>
+
+                            <h1>
+                                Dashboard
+                            </h1>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="topbar-right">
+
+
+                        <!-- NOTIFICATIONS -->
+
+                        <button
+                            class="topbar-icon"
+                            type="button"
+                            title="Notifications">
+
+                            <i class="bi bi-bell"></i>
+
+                            <span></span>
+
+                        </button>
+
+
+                        <!-- VIEW WEBSITE -->
+
+                        <a
+                            href="/"
+                            target="_blank"
+                            class="view-site-btn">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                            <span>
+                                View Website
+                            </span>
+
+                        </a>
+
+
+                        <!-- PROFILE -->
+
+                        <div class="admin-profile dropdown">
+
+                            <button
+                                class="admin-profile-trigger dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+
+                                <div class="admin-avatar">
+                                    A
+                                </div>
+
+                                <div class="admin-profile-info">
+
+                                    <strong>
+                                        Administrator
+                                    </strong>
+
+                                    <span>
+                                        Super Admin
+                                    </span>
+
+                                </div>
+
+                                <i class="bi bi-chevron-down"></i>
+
+                            </button>
+
+
+                            <ul class="dropdown-menu dropdown-menu-end admin-profile-menu">
+
+                                <li>
+                                    <a class="dropdown-item" href="admin-profile.html">
+                                        <i class="bi bi-person"></i>
+                                        Profile
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="admin-settings.html">
+                                        <i class="bi bi-gear"></i>
+                                        Settings
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-danger" href="/auth/logout">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+            </main>
+
             {{{body}}}
 
-            <!--=========MAIN END===========-->
-
-            <!--=========FOOTER BEGIN===========-->
-            {{> notification/success}}
-            {{> modals/message}}
-            {{> modals/delete}}
-            <!--=========FOOTER END===========-->
         </div>
+
+        <!-- MOBILE OVERLAY -->
+
+        <div
+            class="sidebar-overlay"
+            id="sidebarOverlay">
+        </div>
+
+        <!--=========MAIN END===========-->
+
+        <!--=========FOOTER BEGIN===========-->
+        {{> notification/success}}
+        {{> modals/message}}
+        {{> modals/delete}}
+        <!--=========FOOTER END===========-->
     </section>
     <!--============ROOT SECTION END==============-->
 
@@ -217,6 +536,50 @@
             document.querySelector('.sidebar').classList.toggle('collapsed');
             document.querySelector('.main-content').classList.toggle('expanded');
         });
+    </script>
+
+    
+    <script>
+        /* ======================================================
+        ADMIN SIDEBAR
+        ====================================================== */
+
+        const adminSidebar = document.getElementById("adminSidebar");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const sidebarClose = document.getElementById("sidebarClose");
+        const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+
+        function openSidebar() {
+
+            adminSidebar?.classList.add("show");
+            sidebarOverlay?.classList.add("show");
+
+        }
+
+
+        function closeSidebar() {
+
+            adminSidebar?.classList.remove("show");
+            sidebarOverlay?.classList.remove("show");
+
+        }
+
+
+        sidebarToggle?.addEventListener(
+            "click",
+            openSidebar
+        );
+
+        sidebarClose?.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+        sidebarOverlay?.addEventListener(
+            "click",
+            closeSidebar
+        );
     </script>
 
 
