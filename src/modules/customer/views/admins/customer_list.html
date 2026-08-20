@@ -24,7 +24,9 @@
 
         </div>
 
-        <a href="/admin/customer/create" class="admin-primary-btn">
+        <a
+            href="/admin/customer/create"
+            class="admin-primary-btn">
 
             <i class="bi bi-plus-lg"></i>
 
@@ -35,16 +37,22 @@
     </div>
 
 
-    <!-- STATISTICS -->
+    <!-- ==========================================
+        STATISTICS
+    =========================================== -->
 
     <div class="row g-3 mb-4">
+
+        <!-- TOTAL CUSTOMERS -->
 
         <div class="col-xl-3 col-md-6">
 
             <div class="admin-stat-card">
 
                 <div class="admin-stat-icon">
+
                     <i class="bi bi-people"></i>
+
                 </div>
 
                 <div>
@@ -64,12 +72,16 @@
         </div>
 
 
+        <!-- NEW CUSTOMERS -->
+
         <div class="col-xl-3 col-md-6">
 
             <div class="admin-stat-card">
 
                 <div class="admin-stat-icon">
+
                     <i class="bi bi-person-plus"></i>
+
                 </div>
 
                 <div>
@@ -91,9 +103,13 @@
     </div>
 
 
-    <!-- CUSTOMER TABLE -->
+    <!-- ==========================================
+        CUSTOMER TABLE
+    =========================================== -->
 
     <div class="admin-table-card">
+
+        <!-- TABLE HEADER -->
 
         <div class="admin-table-header">
 
@@ -127,6 +143,8 @@
 
         </div>
 
+
+        <!-- TABLE -->
 
         <div class="table-responsive">
 
@@ -171,41 +189,41 @@
 
                         <td>
 
-                            <div class="customer-table-user">
+                            <div class="admin-table-user">
 
-                                <div class="customer-avatar">
+                                <div class="admin-table-avatar">
 
-                                    {{#if this.metadata.name}}
-                                        {{firstLetter this.metadata.name}}
-                                    {{else if this.name}}
+                                    {{#if this.name}}
+
                                         {{firstLetter this.name}}
+
                                     {{else}}
+
                                         C
+
                                     {{/if}}
 
                                 </div>
+
 
                                 <div>
 
                                     <strong>
 
-                                        {{#if this.metadata.name}}
-                                            {{this.metadata.name}}
-                                        {{else if this.name}}   
-                                        {{this.name}} 
+                                        {{#if this.name}}
+
+                                            {{this.name}}
+
                                         {{else}}
+
                                             Customer
+
                                         {{/if}}
 
                                     </strong>
 
-                                    {{#if this.metadata.email}}
 
-                                        <span>
-                                            {{this.metadata.email}}
-                                        </span>
-
-                                    {{else if this.email}}
+                                    {{#if this.email}}
 
                                         <span>
                                             {{this.email}}
@@ -220,11 +238,11 @@
                         </td>
 
 
-                        <!-- ID -->
+                        <!-- CUSTOMER ID -->
 
                         <td>
 
-                            <span class="customer-id">
+                            <span class="admin-table-id">
 
                                 #{{this.id}}
 
@@ -237,26 +255,24 @@
 
                         <td>
 
-                            <div class="customer-contact-info">
+                            <div class="admin-table-contact">
 
-                                {{#if this.metadata.phone}}
-
-                                    <span>
-                                        <i class="bi bi-telephone"></i>
-                                        {{this.metadata.phone}}
-                                    </span>
-
-                                {{else if this.phone}}
+                                {{#if this.phone}}
 
                                     <span>
+
                                         <i class="bi bi-telephone"></i>
+
                                         {{this.phone}}
+
                                     </span>
 
                                 {{else}}
 
                                     <span class="text-muted">
+
                                         No phone number
+
                                     </span>
 
                                 {{/if}}
@@ -270,14 +286,18 @@
 
                         <td>
 
-                            <div class="customer-date">
+                            <div class="admin-table-date">
 
                                 <strong>
+
                                     {{formatDate this.createdAt}}
+
                                 </strong>
 
                                 <span>
+
                                     Customer record
+
                                 </span>
 
                             </div>
@@ -289,7 +309,9 @@
 
                         <td class="text-end">
 
-                            <div class="customer-actions">
+                            <div class="admin-table-actions">
+
+                                <!-- VIEW -->
 
                                 <a
                                     href="/admin/customer/{{this.id}}"
@@ -301,6 +323,8 @@
                                 </a>
 
 
+                                <!-- EDIT -->
+
                                 <a
                                     href="/admin/customer/{{this.id}}"
                                     class="admin-action-btn"
@@ -311,10 +335,12 @@
                                 </a>
 
 
+                                <!-- DELETE -->
+
                                 <button
                                     type="button"
                                     data-delete="customer-{{this.id}}"
-                                    data-name="{{this.id}}"
+                                    data-name="{{this.name}}"
                                     data-url="/admin/customer/{{this.id}}"
                                     class="admin-action-btn admin-action-danger"
                                     title="Delete customer">
@@ -329,7 +355,10 @@
 
                     </tr>
 
+
                     {{else}}
+
+                    <!-- EMPTY STATE -->
 
                     <tr>
 
@@ -338,7 +367,9 @@
                             <div class="admin-empty-state">
 
                                 <div>
+
                                     <i class="bi bi-people"></i>
+
                                 </div>
 
                                 <h3>

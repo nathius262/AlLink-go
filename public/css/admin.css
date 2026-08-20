@@ -795,16 +795,16 @@
 
 
 /* ======================================================
-   CUSTOMER
+   ADMIN TABLE USER
 ====================================================== */
 
-.customer-table-user {
+.admin-table-user {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.customer-avatar {
+.admin-table-avatar {
     width: 38px;
     height: 38px;
     flex: 0 0 38px;
@@ -816,22 +816,34 @@
     border-radius: 50%;
     font-size: .75rem;
     font-weight: 700;
+    overflow: hidden;
 }
 
-.customer-table-user strong {
+.admin-table-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-table-user strong {
     display: block;
     color: var(--admin-dark);
     font-size: .76rem;
 }
 
-.customer-table-user span {
+.admin-table-user span {
     display: block;
     margin-top: 3px;
     color: var(--admin-muted);
     font-size: .64rem;
 }
 
-.customer-id {
+
+/* ======================================================
+   ADMIN TABLE ID
+====================================================== */
+
+.admin-table-id {
     padding: 5px 8px;
     background: #f5f7f8;
     color: var(--admin-dark);
@@ -840,28 +852,38 @@
     font-size: .6rem;
 }
 
-.customer-contact-info span {
+
+/* ======================================================
+   ADMIN TABLE CONTACT
+====================================================== */
+
+.admin-table-contact span {
     display: flex;
     align-items: center;
     gap: 7px;
     color: var(--admin-text);
 }
 
-.customer-contact-info i {
+.admin-table-contact i {
     color: var(--admin-secondary);
 }
 
-.customer-date strong,
-.customer-date span {
+
+/* ======================================================
+   ADMIN TABLE DATE
+====================================================== */
+
+.admin-table-date strong,
+.admin-table-date span {
     display: block;
 }
 
-.customer-date strong {
+.admin-table-date strong {
     color: var(--admin-dark);
     font-size: .7rem;
 }
 
-.customer-date span {
+.admin-table-date span {
     margin-top: 3px;
     color: var(--admin-muted);
     font-size: .6rem;
@@ -869,10 +891,10 @@
 
 
 /* ======================================================
-   ACTIONS
+   ADMIN TABLE ACTIONS
 ====================================================== */
 
-.customer-actions {
+.admin-table-actions {
     display: inline-flex;
     gap: 6px;
 }

@@ -24,7 +24,10 @@
 
         </div>
 
-        <a href="/admin/customer" class="admin-primary-btn">
+
+        <a
+            href="/admin/customer"
+            class="admin-secondary-btn">
 
             <i class="bi bi-arrow-left"></i>
 
@@ -35,7 +38,9 @@
     </div>
 
 
-    <!-- CUSTOMER FORM -->
+    <!-- ==========================================
+        CUSTOMER FORM
+    =========================================== -->
 
     <div class="admin-form-card">
 
@@ -60,6 +65,7 @@
                         <i class="bi bi-person"></i>
 
                     </div>
+
 
                     <div>
 
@@ -226,7 +232,7 @@
 
 
             <!-- ==========================================
-                ACCOUNT LINKING
+                ACCOUNT ASSOCIATION
             =========================================== -->
 
             <div class="admin-form-section">
@@ -238,6 +244,7 @@
                         <i class="bi bi-person-check"></i>
 
                     </div>
+
 
                     <div>
 
@@ -270,6 +277,7 @@
 
                         </label>
 
+
                         <select
                             name="user_id"
                             id="user_id"
@@ -278,6 +286,7 @@
                             <option value="">
                                 No user account — Guest Customer
                             </option>
+
 
                             {{#each users}}
 
@@ -298,6 +307,7 @@
                             {{/each}}
 
                         </select>
+
 
                         <div class="admin-form-help">
 
@@ -350,7 +360,10 @@
 </div>
 
 
-<script type="module" src="/assets/js/form-handler.js"></script>
+<script
+    type="module"
+    src="/assets/js/form-handler.js">
+</script>
 
 <!--
     Use this instead when the form eventually supports

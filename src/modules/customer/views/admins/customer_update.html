@@ -24,6 +24,7 @@
 
         </div>
 
+
         <a
             href="/admin/customer"
             class="admin-secondary-btn">
@@ -37,7 +38,9 @@
     </div>
 
 
-    <!-- CUSTOMER FORM -->
+    <!-- ==========================================
+        CUSTOMER FORM
+    =========================================== -->
 
     <div class="admin-form-card">
 
@@ -67,6 +70,7 @@
                         <i class="bi bi-person"></i>
 
                     </div>
+
 
                     <div>
 
@@ -250,6 +254,7 @@
 
                     </div>
 
+
                     <div>
 
                         <h2>
@@ -281,6 +286,7 @@
 
                         </label>
 
+
                         <select
                             name="user_id"
                             id="user_id"
@@ -290,15 +296,20 @@
                                 No user account — Guest Customer
                             </option>
 
+
                             {{#each users}}
 
                                 <option
                                     value="{{this.id}}"
-                                    {{#if (eq this.id ../customer.user.id)}}
+                                    {{#if (eq this.id ../customer.user_id)}}
                                         selected
                                     {{/if}}>
 
                                     {{this.email}}
+
+                                    {{#if this.first_name}}
+                                        — {{this.first_name}}
+                                    {{/if}}
 
                                     {{#if this.username}}
                                         — {{this.username}}
@@ -309,6 +320,7 @@
                             {{/each}}
 
                         </select>
+
 
                         <div class="admin-form-help">
 
@@ -339,6 +351,7 @@
 
                     </div>
 
+
                     <div>
 
                         <h2>
@@ -364,9 +377,10 @@
                             Customer ID
                         </label>
 
+
                         <div class="admin-form-control bg-light">
 
-                            <span class="customer-id">
+                            <span class="admin-table-id">
                                 #{{customer.id}}
                             </span>
 
@@ -382,6 +396,7 @@
                         <label class="admin-form-label">
                             Created
                         </label>
+
 
                         <div class="admin-form-control bg-light">
 
@@ -432,7 +447,10 @@
 </div>
 
 
-<script type="module" src="/assets/js/form-handler.js"></script>
+<script
+    type="module"
+    src="/assets/js/form-handler.js">
+</script>
 
 <!--
     Use this instead when the form eventually supports
