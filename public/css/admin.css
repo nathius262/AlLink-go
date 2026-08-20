@@ -1345,3 +1345,343 @@ select.admin-form-control {
     }
 
 }
+
+
+/* ======================================================
+   METADATA BUILDER
+====================================================== */
+
+.metadata-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.metadata-builder-field {
+    padding: 20px;
+    background: #fafbfb;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+}
+
+.metadata-builder-field-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.metadata-builder-field-header > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.metadata-builder-field-header strong {
+    color: var(--admin-dark);
+    font-size: .72rem;
+}
+
+.metadata-builder-field-number {
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(246, 139, 0, .1);
+    color: var(--admin-primary);
+    border-radius: 50%;
+    font-family: "Cascadia Mono", monospace;
+    font-size: .58rem;
+    font-weight: 700;
+}
+
+.metadata-builder-remove {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--admin-border);
+    background: #fff;
+    color: var(--admin-muted);
+    border-radius: 6px;
+    transition: .2s ease;
+}
+
+.metadata-builder-remove:hover {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.metadata-builder-empty {
+    padding: 35px 20px;
+    text-align: center;
+    border: 1px dashed var(--admin-border);
+    border-radius: 8px;
+}
+
+.metadata-builder-empty-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7f8;
+    color: var(--admin-muted);
+    border-radius: 50%;
+}
+
+.metadata-builder-empty strong {
+    display: block;
+    color: var(--admin-dark);
+    font-size: .72rem;
+}
+
+.metadata-builder-empty span {
+    display: block;
+    margin-top: 5px;
+    color: var(--admin-muted);
+    font-size: .65rem;
+}
+
+
+/* ======================================================
+   METADATA FIELD GUIDE
+====================================================== */
+
+.admin-form-help-card {
+    margin-top: 20px;
+    background: #f8f9fa;
+    border: 1px solid var(--admin-border);
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.admin-form-help-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 18px;
+    border: 0;
+    background: transparent;
+    color: var(--admin-dark);
+    font-size: .75rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.admin-form-help-toggle > span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.admin-form-help-toggle > span i {
+    color: var(--admin-primary);
+}
+
+.admin-form-help-toggle > i {
+    color: var(--admin-muted);
+    font-size: .7rem;
+    transition: transform .2s ease;
+}
+
+.admin-form-help-toggle[aria-expanded="true"] > i {
+    transform: rotate(180deg);
+}
+
+.admin-form-help-content {
+    padding: 0 18px 20px;
+    border-top: 1px solid var(--admin-border);
+}
+
+.metadata-guide-intro {
+    padding: 18px 0;
+}
+
+.metadata-guide-intro strong {
+    display: block;
+    color: var(--admin-dark);
+    font-size: .78rem;
+}
+
+.metadata-guide-intro p {
+    max-width: 700px;
+    margin: 5px 0 0;
+    color: var(--admin-muted);
+    font-size: .68rem;
+    line-height: 1.6;
+}
+
+
+/* SEARCH */
+
+.metadata-guide-search {
+    margin-bottom: 20px;
+}
+
+.metadata-guide-search input {
+    width: 100%;
+}
+
+
+/* GUIDE SECTION */
+
+.metadata-guide-section {
+    margin-bottom: 18px;
+    background: #fff;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.metadata-guide-section:last-child {
+    margin-bottom: 0;
+}
+
+.metadata-guide-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #fafbfb;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.metadata-guide-section-icon {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(246, 139, 0, .1);
+    color: var(--admin-primary);
+    border-radius: 6px;
+    font-size: .85rem;
+}
+
+.metadata-guide-section-header strong {
+    display: block;
+    color: var(--admin-dark);
+    font-size: .74rem;
+}
+
+.metadata-guide-section-header span {
+    display: block;
+    margin-top: 3px;
+    color: var(--admin-muted);
+    font-size: .62rem;
+}
+
+
+/* FIELD */
+
+.metadata-field-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.metadata-field-item {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.metadata-field-item:nth-child(odd) {
+    border-right: 1px solid var(--admin-border);
+}
+
+.metadata-field-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.metadata-field-name code {
+    padding: 4px 7px;
+    background: #f3f5f6;
+    color: var(--admin-dark);
+    border-radius: 4px;
+    font-family: "Cascadia Mono", monospace;
+    font-size: .62rem;
+}
+
+.metadata-field-type {
+    padding: 3px 6px;
+    color: var(--admin-secondary);
+    background: rgba(11, 107, 111, .08);
+    border-radius: 4px;
+    font-family: "Cascadia Mono", monospace;
+    font-size: .5rem;
+    text-transform: uppercase;
+}
+
+.metadata-field-item p {
+    margin: 8px 0 5px;
+    color: var(--admin-text);
+    font-size: .65rem;
+    line-height: 1.5;
+}
+
+.metadata-field-item small {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--admin-muted);
+    font-size: .58rem;
+}
+
+.metadata-field-item small i {
+    color: var(--admin-secondary);
+}
+
+.metadata-field-item small strong {
+    color: var(--admin-dark);
+    font-weight: 600;
+}
+
+
+/* EMPTY */
+
+.metadata-guide-empty {
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.metadata-guide-empty i {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--admin-muted);
+    font-size: 1.2rem;
+}
+
+.metadata-guide-empty strong {
+    display: block;
+    color: var(--admin-dark);
+    font-size: .75rem;
+}
+
+.metadata-guide-empty span {
+    display: block;
+    margin-top: 4px;
+    color: var(--admin-muted);
+    font-size: .62rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+
+    .metadata-field-list {
+        grid-template-columns: 1fr;
+    }
+
+    .metadata-field-item:nth-child(odd) {
+        border-right: 0;
+    }
+
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

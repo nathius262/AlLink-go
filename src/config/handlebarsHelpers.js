@@ -70,7 +70,7 @@ export default function registerHelpers(handlebars) {
     return new Date(date).toLocaleDateString();
   });
   handlebars.registerHelper('json', function(context) {
-    return JSON.stringify(context);
+    return JSON.stringify(context || {});
   });
 
   handlebars.registerHelper('firstLetter', function(str) {
@@ -79,6 +79,40 @@ export default function registerHelpers(handlebars) {
       return str.charAt(0);
     }
     return ''; // Return an empty string if input is invalid or empty
+  });
+  handlebars.registerHelper('formatNumber', (value, decimals = 0) => {
+    if (value === null || value === undefined || value === '') {
+        return '0';
+    }
+
+    const number = Number(value);
+
+    if (Number.isNaN(number)) {
+        return '0';
+    }
+
+    return new Intl.NumberFormat('en-NG', {
+        minimumFractionDigits: Number(decimals),
+        maximumFractionDigits: Number(decimals),
+    }).format(number);
+  });
+
+  handlebars.registerHelper('formatCurrency', (value, currency = 'NGN') => {
+    if (value === null || value === undefined || value === '') {
+        return '₦0';
+    }
+
+    const number = Number(value);
+
+    if (Number.isNaN(number)) {
+        return '₦0';
+    }
+
+    return new Intl.NumberFormat('en-NG', {
+        style: 'currency',
+        currency,
+        maximumFractionDigits: 2,
+    }).format(number);
   });
 
 }

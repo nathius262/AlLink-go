@@ -1,5 +1,5 @@
 ClassicEditor
-    .create(document.querySelector('#description'), {
+    .create(document.querySelector('.ckeditor'), {
 
         toolbar: [
             'heading',

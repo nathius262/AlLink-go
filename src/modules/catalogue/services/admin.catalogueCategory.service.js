@@ -180,7 +180,7 @@ export const update = async (id, data, image = null) => {
       is_active:
         data.is_active === undefined
           ? category.is_active
-          : data.is_active === 'true' || data.is_active === true,
+          : data.is_active === 'true' || data.is_active === true || data.is_active == 1,
       sort_order:
         data.sort_order !== undefined
           ? Number(data.sort_order) || 0
@@ -195,6 +195,9 @@ export const update = async (id, data, image = null) => {
     }
 
     await category.update(updateData);
+
+    console.log("data", data.is_active, "saved", category.is_active)
+
 
     return category;
   } catch (error) {
