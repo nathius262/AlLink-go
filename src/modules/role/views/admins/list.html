@@ -1,61 +1,202 @@
-<!-- Sidebar -->
-{{> admin_sidebar}}
-<!-- End of Sidebar -->
+<!-- ==========================================
+    ROLE MANAGEMENT
+=========================================== -->
 
-<div class="main-content" id="main-content">
+<div class="admin-content">
 
-    <!-- Topbar -->
-    {{> admin_navbar}}
-    <!-- End of Topbar -->
+    <!-- PAGE HEADER -->
 
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <div class="admin-page-header">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Roles</h1>
+        <div>
+
+            <span class="admin-page-label">
+                USER MANAGEMENT
+            </span>
+
+            <h1>
+                Roles
+            </h1>
+
+            <p>
+                Manage the roles available for user accounts.
+            </p>
+
         </div>
 
-        <!-- Content Row -->
-        <div class="row">
-            {{> admin/rolenav}}
-        </div>
+        <a
+            href="/admin/role/create"
+            class="admin-primary-btn">
 
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-12 mb-4">
-                <!-- Approach -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">All Roles</h6>
-                    </div>
-                    <div class="card-body table-responsive-md">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Role Name</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+            <i class="bi bi-plus-lg"></i>
 
-                                {{#each roles}}
-                                <tr>
-                                    <th scope="row">{{this.id}}</th>
-                                    <td><a href="/admin/role/{{this.id}}">{{this.name}}</a></td>
-                                </tr>
-                                {{/each}}
+            Create Role
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        </a>
+
+    </div>
+
+
+    <!-- ROLE TABLE -->
+
+    <div class="admin-table-card">
+
+        <div class="admin-table-header">
+
+            <div>
+
+                <h2>
+                    Role Directory
+                </h2>
+
+                <span>
+                    All available user roles
+                </span>
 
             </div>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table admin-table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ROLE
+                        </th>
+
+                        <th>
+                            ROLE ID
+                        </th>
+
+                        <th class="text-end">
+                            ACTIONS
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {{#each roles}}
+
+                    <tr>
+
+                        <!-- ROLE -->
+
+                        <td>
+
+                            <div class="admin-table-user">
+
+                                <div class="admin-avatar">
+
+                                    <i class="bi bi-shield-check"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        {{this.name}}
+                                    </strong>
+
+                                    <span>
+                                        User role
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- ID -->
+
+                        <td>
+
+                            <span class="admin-record-id">
+                                #{{this.id}}
+                            </span>
+
+                        </td>
+
+
+                        <!-- ACTIONS -->
+
+                        <td class="text-end">
+
+                            <div class="admin-actions">
+
+                                <a
+                                    href="/admin/role/{{this.id}}"
+                                    class="admin-action-btn"
+                                    title="Edit role">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+
+                                <button
+                                    type="button"
+                                    data-delete="role-{{this.id}}"
+                                    data-name="{{this.name}}"
+                                    data-url="/admin/role/{{this.id}}"
+                                    class="admin-action-btn admin-action-danger"
+                                    title="Delete role">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {{else}}
+
+                    <tr>
+
+                        <td colspan="3">
+
+                            <div class="admin-empty-state">
+
+                                <div>
+                                    <i class="bi bi-shield"></i>
+                                </div>
+
+                                <h3>
+                                    No roles found
+                                </h3>
+
+                                <p>
+                                    Create a role to begin assigning roles to users.
+                                </p>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
         </div>
 
     </div>
-    <!-- /.container-fluid -->
 
 </div>
-<!-- End of Main Content -->

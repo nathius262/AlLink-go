@@ -44,7 +44,7 @@ export const findById = async (id) => {
   }
 };
 
-export const create = async ({username, email, password, role_ids=[]}) => {
+export const create = async ({username="", email, password, role_ids=[]}) => {
   try {
 
     const hashed_password = await bcrypt.hash(password, 10);
