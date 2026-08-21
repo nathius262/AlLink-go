@@ -1,0 +1,463 @@
+<!-- ==========================================
+     CREATE PORTFOLIO
+=========================================== -->
+
+<div class="admin-content">
+
+  <!-- PAGE HEADER -->
+
+  <div class="admin-page-header">
+
+    <div>
+
+      <span class="admin-page-label">
+        CONTENT MANAGEMENT
+      </span>
+
+      <h1>
+        Create Portfolio
+      </h1>
+
+      <p>
+        Add a new project to your portfolio.
+      </p>
+
+    </div>
+
+
+    <a href="/admin/portfolio" class="admin-secondary-btn">
+
+      <i class="bi bi-arrow-left"></i>
+
+      Back to Portfolio
+
+    </a>
+
+  </div>
+
+
+  <!-- FORM -->
+
+  <div class="admin-form-card">
+
+    <form action="/admin/portfolio/create" method="POST" enctype="multipart/form-data" id="create-portfolio-form"
+      class="needs-validation" novalidate>
+
+
+      <!-- ==========================================
+                 PORTFOLIO INFORMATION
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+            <i class="bi bi-images"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              Project Information
+            </h2>
+
+            <p>
+              Provide the basic information about this portfolio project.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <!-- TITLE -->
+
+          <div class="col-md-6">
+
+            <label for="title" class="admin-form-label">
+
+              Project Title
+
+              <span class="text-danger">*</span>
+
+            </label>
+
+            <input type="text" name="title" id="title" class="admin-form-control"
+              placeholder="e.g. Premium Coffee Brand Identity" required>
+
+            <div class="invalid-feedback">
+              Please provide a project title.
+            </div>
+
+          </div>
+
+
+          <!-- SLUG -->
+
+          <div class="col-md-6">
+
+            <label for="slug" class="admin-form-label">
+
+              Slug
+
+              <span class="text-danger">*</span>
+
+            </label>
+
+            <input type="text" name="slug" id="slug" class="admin-form-control"
+              placeholder="premium-coffee-brand-identity" required>
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Used as the public URL identifier.
+
+            </div>
+
+          </div>
+
+
+          <!-- CLIENT -->
+
+          <div class="col-md-6">
+
+            <label for="client" class="admin-form-label">
+
+              Client
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input type="text" name="client" id="client" class="admin-form-control" placeholder="e.g. ABC Foods Ltd">
+
+          </div>
+
+
+          <!-- CATEGORY -->
+
+          <div class="col-md-6">
+
+            <label for="category" class="admin-form-label">
+
+              Project Category
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input type="text" name="category" id="category" class="admin-form-control"
+              placeholder="e.g. Brand Identity">
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Examples: Brand Identity, Packaging, Printing, Logo Design.
+
+            </div>
+
+          </div>
+
+
+          <!-- DESCRIPTION -->
+
+          <div class="col-12">
+
+            <label for="description" class="admin-form-label">
+
+              Project Description
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <textarea name="description" id="description" class="admin-form-control ckeditor" data-editor="ckeditor"
+              rows="8" placeholder="Describe the project, the client's needs and the solution provided..."></textarea>
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Keep the description clear and focused on the project outcome.
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==========================================
+                 PROJECT MEDIA
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+            <i class="bi bi-image"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              Project Media
+            </h2>
+
+            <p>
+              Upload the primary image that represents this project.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <!-- IMAGE -->
+
+          <div class="col-md-8">
+
+            <label for="image" class="admin-form-label">
+
+              Project Image
+
+              <span class="text-danger">*</span>
+
+            </label>
+
+            <input type="file" name="image" id="image" class="admin-form-control"
+              accept="image/jpeg,image/png,image/webp" required>
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Recommended formats: JPG, PNG or WebP.
+
+            </div>
+
+            <div class="invalid-feedback">
+              Please upload a project image.
+            </div>
+
+          </div>
+
+
+          <!-- IMAGE PREVIEW -->
+
+          <div class="col-md-4">
+
+            <div id="image-preview" class="admin-image-preview">
+
+              <div class="admin-image-preview-placeholder">
+
+                <i class="bi bi-image"></i>
+
+                <span>
+                  Image preview
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==========================================
+                 PORTFOLIO SETTINGS
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+            <i class="bi bi-sliders"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              Portfolio Settings
+            </h2>
+
+            <p>
+              Control the visibility and ordering of this project.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <!-- STATUS -->
+
+          <div class="col-md-6">
+
+            <label for="is_active" class="admin-form-label">
+
+              Status
+
+            </label>
+
+            <select name="is_active" id="is_active" class="admin-form-control">
+
+              <option value="1">
+                Active
+              </option>
+
+              <option value="0">
+                Inactive
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- SORT ORDER -->
+
+          <div class="col-md-6">
+
+            <label for="sort_order" class="admin-form-label">
+
+              Display Order
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input type="number" name="sort_order" id="sort_order" class="admin-form-control" value="0" min="0">
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Lower numbers appear first.
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ERRORS -->
+
+      <div class="admin-form-errors">
+
+        <ul id="error" class="text-danger list-unstyled mb-0">
+        </ul>
+
+      </div>
+
+
+      <!-- LOADING -->
+
+      <div class="text-center">
+
+        <div class="spinner-border d-none" id="status" role="status">
+
+          <span class="visually-hidden">
+            Saving...
+          </span>
+
+        </div>
+
+      </div>
+
+      <progress id="progressBar" value="0" max="100" style="width:100%;display:none;" class="mt-3">
+      </progress>
+
+
+      <!-- FORM ACTIONS -->
+
+      <div class="admin-form-footer">
+
+        <a href="/admin/portfolio" class="admin-secondary-btn">
+
+          <i class="bi bi-x-lg"></i>
+
+          Cancel
+
+        </a>
+
+
+        <button type="submit" id="btn" class="admin-primary-btn">
+
+          <i class="bi bi-check-lg"></i>
+
+          Create Portfolio
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const nameInput = document.getElementById('title');
+    const slugInput = document.getElementById('slug');
+
+    if (!nameInput || !slugInput) return;
+
+    let slugManuallyEdited = false;
+
+    slugInput.addEventListener('input', () => {
+      slugManuallyEdited = true;
+    });
+
+    nameInput.addEventListener('input', () => {
+
+      if (slugManuallyEdited) return;
+
+      slugInput.value = nameInput.value
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+    });
+  });
+
+</script>
+
+<script type="module" src="/assets/js/uploader.js">
+</script>
