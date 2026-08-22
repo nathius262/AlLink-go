@@ -56,24 +56,24 @@ export default function registerHelpers(handlebars) {
     if (!options.data.root) options.data.root = {};
     options.data.root[varName] = varValue;
   });
-  handlebars.registerHelper('contains', function(categoryId, categoryArray) {
+  handlebars.registerHelper('contains', function (categoryId, categoryArray) {
     if (!categoryArray || !Array.isArray(categoryArray)) return false;
-    
-    return categoryArray.some(function(category) {
-        return category.id === categoryId;
+
+    return categoryArray.some(function (category) {
+      return category.id === categoryId;
     });
   });
-  handlebars.registerHelper('stripTags', function(html) {
+  handlebars.registerHelper('stripTags', function (html) {
     return html.replace(/<[^>]*>/g, '').substring(0, 100) + '...';
   });
-  handlebars.registerHelper('formatDate', function(date) {
+  handlebars.registerHelper('formatDate', function (date) {
     return new Date(date).toLocaleDateString();
   });
-  handlebars.registerHelper('json', function(context) {
+  handlebars.registerHelper('json', function (context) {
     return JSON.stringify(context || {});
   });
 
-  handlebars.registerHelper('firstLetter', function(str) {
+  handlebars.registerHelper('firstLetter', function (str) {
     // Check if the input is a valid, non-empty string
     if (typeof str === 'string' && str.length > 0) {
       return str.charAt(0);
@@ -82,37 +82,55 @@ export default function registerHelpers(handlebars) {
   });
   handlebars.registerHelper('formatNumber', (value, decimals = 0) => {
     if (value === null || value === undefined || value === '') {
-        return '0';
+      return '0';
     }
 
     const number = Number(value);
 
     if (Number.isNaN(number)) {
-        return '0';
+      return '0';
     }
 
     return new Intl.NumberFormat('en-NG', {
-        minimumFractionDigits: Number(decimals),
-        maximumFractionDigits: Number(decimals),
+      minimumFractionDigits: Number(decimals),
+      maximumFractionDigits: Number(decimals),
     }).format(number);
   });
 
   handlebars.registerHelper('formatCurrency', (value, currency = 'NGN') => {
     if (value === null || value === undefined || value === '') {
-        return '₦0';
+      return '₦0';
     }
 
     const number = Number(value);
 
     if (Number.isNaN(number)) {
-        return '₦0';
+      return '₦0';
     }
 
     return new Intl.NumberFormat('en-NG', {
-        style: 'currency',
-        currency,
-        maximumFractionDigits: 2,
+      style: 'currency',
+      currency,
+      maximumFractionDigits: 2,
     }).format(number);
+  });
+  handlebars.registerHelper('repeat', function (count, options) {
+    const output = [];
+
+    const total = Number(count);
+
+    if (!Number.isInteger(total) || total <= 0) {
+      return '';
+    }
+
+    for (let i = 0; i < total; i++) {
+      output.push(options.fn(this));
+    }
+
+    return output.join('');
+  });
+  handlebars.registerHelper('subtract', function (a, b) {
+    return Number(a) - Number(b);
   });
 
 }

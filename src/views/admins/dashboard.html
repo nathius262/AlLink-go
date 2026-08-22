@@ -1,8 +1,799 @@
+<!-- ==========================================
+    ADMIN DASHBOARD
+=========================================== -->
 
-    <!-- PAGE CONTENT -->
+<div class="admin-content">
 
-    <div class="admin-content">
+    <!-- ==========================================
+        PAGE HEADER
+    =========================================== -->
 
-        <!-- Dashboard content will come here -->
+    <div class="admin-page-header">
+
+        <div>
+            <span class="admin-page-label">
+                OVERVIEW
+            </span>
+
+            <h1>
+                Dashboard
+            </h1>
+
+            <p>
+                Here's an overview of your business and recent activity.
+            </p>
+        </div>
+
+        <div class="admin-dashboard-date">
+            <i class="bi bi-calendar3"></i>
+
+            <span>
+                {{formatDate currentDate}}
+            </span>
+        </div>
 
     </div>
+
+
+    <!-- ==========================================
+        PRIMARY STATISTICS
+    =========================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <!-- CUSTOMERS -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-card-top">
+
+                    <div class="admin-stat-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <span class="admin-stat-label">
+                        CUSTOMERS
+                    </span>
+
+                </div>
+
+                <div class="admin-stat-value">
+                    {{stats.customers.total}}
+                </div>
+
+                <div class="admin-stat-footer">
+
+                    <span>
+                        {{stats.customers.total}} active
+                    </span>
+
+                    <a href="/admin/customer">
+                        View
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CATALOGUE -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-card-top">
+
+                    <div class="admin-stat-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                    <span class="admin-stat-label">
+                        CATALOGUE
+                    </span>
+
+                </div>
+
+                <div class="admin-stat-value">
+                    {{stats.catalogueItems.total}}
+                </div>
+
+                <div class="admin-stat-footer">
+
+                    <span>
+                        {{stats.categories.total}} categories
+                    </span>
+
+                    <a href="/admin/catalogue/item">
+                        View
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PORTFOLIO -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-card-top">
+
+                    <div class="admin-stat-icon">
+                        <i class="bi bi-images"></i>
+                    </div>
+
+                    <span class="admin-stat-label">
+                        PORTFOLIO
+                    </span>
+
+                </div>
+
+                <div class="admin-stat-value">
+                    {{stats.portfolios.total}}
+                </div>
+
+                <div class="admin-stat-footer">
+
+                    <span>
+                        {{stats.portfolios.active}} active
+                    </span>
+
+                    <a href="/admin/portfolio">
+                        View
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TESTIMONIALS -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-card-top">
+
+                    <div class="admin-stat-icon">
+                        <i class="bi bi-chat-quote"></i>
+                    </div>
+
+                    <span class="admin-stat-label">
+                        TESTIMONIALS
+                    </span>
+
+                </div>
+
+                <div class="admin-stat-value">
+                    {{stats.testimonials.total}}
+                </div>
+
+                <div class="admin-stat-footer">
+
+                    <span>
+                        {{stats.testimonials.active}} active
+                    </span>
+
+                    <a href="/admin/testimony">
+                        View
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+        CATALOGUE + QUICK ACTIONS
+    =========================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <!-- CATALOGUE OVERVIEW -->
+
+        <div class="col-12 col-xl-8">
+
+            <div class="admin-dashboard-card">
+
+                <div class="admin-dashboard-card-header">
+
+                    <div>
+
+                        <span class="admin-section-label">
+                            BUSINESS
+                        </span>
+
+                        <h2>
+                            Catalogue Overview
+                        </h2>
+
+                    </div>
+
+                    <a href="/admin/catalogue/item" class="admin-card-action">
+
+                        View Catalogue
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="row g-3">
+
+                    <!-- CATEGORIES -->
+
+                    <div class="col-md-4">
+
+                        <a href="/admin/catalogue/category" class="admin-overview-item">
+
+                            <div class="admin-overview-icon">
+                                <i class="bi bi-grid"></i>
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Categories
+                                </span>
+
+                                <strong>
+                                    {{stats.catalogue.categories}}
+                                </strong>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- ITEMS -->
+
+                    <div class="col-md-4">
+
+                        <a href="/admin/catalogue/item" class="admin-overview-item">
+
+                            <div class="admin-overview-icon">
+                                <i class="bi bi-box-seam"></i>
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Catalogue Items
+                                </span>
+
+                                <strong>
+                                    {{stats.catalogue.items}}
+                                </strong>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- ACTIVE -->
+
+                    <div class="col-md-4">
+
+                        <div class="admin-overview-item">
+
+                            <div class="admin-overview-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Active Items
+                                </span>
+
+                                <strong>
+                                    {{stats.catalogue.active}}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="col-12 col-xl-4">
+
+            <div class="admin-dashboard-card">
+
+                <div class="admin-dashboard-card-header">
+
+                    <div>
+
+                        <span class="admin-section-label">
+                            ACTIONS
+                        </span>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-quick-actions">
+
+                    <a href="/admin/customer/create" class="admin-quick-action">
+
+                        <i class="bi bi-person-plus"></i>
+
+                        <span>
+                            Add Customer
+                        </span>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="/admin/catalogue/item/create" class="admin-quick-action">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <span>
+                            Add Catalogue Item
+                        </span>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="/admin/portfolio/create" class="admin-quick-action">
+
+                        <i class="bi bi-images"></i>
+
+                        <span>
+                            Add Portfolio
+                        </span>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="/admin/testimony/create" class="admin-quick-action">
+
+                        <i class="bi bi-chat-quote"></i>
+
+                        <span>
+                            Add Testimonial
+                        </span>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+        RECENT CUSTOMERS + TESTIMONIALS
+    =========================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <!-- RECENT CUSTOMERS -->
+
+        <div class="col-12 col-xl-7">
+
+            <div class="admin-dashboard-card">
+
+                <div class="admin-dashboard-card-header">
+
+                    <div>
+
+                        <span class="admin-section-label">
+                            CUSTOMERS
+                        </span>
+
+                        <h2>
+                            Recent Customers
+                        </h2>
+
+                    </div>
+
+                    <a href="/admin/customer" class="admin-card-action">
+
+                        View All
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="admin-dashboard-list">
+
+                    {{#each recentCustomers}}
+
+                    <div class="admin-dashboard-list-item">
+
+                        <div class="admin-list-avatar">
+
+                            {{firstLetter this.name}}
+
+                        </div>
+
+                        <div class="admin-list-content">
+
+                            <strong>
+                                {{this.name}}
+                            </strong>
+
+                            <span>
+                                {{this.email}}
+                            </span>
+
+                        </div>
+
+                        <div class="admin-list-meta">
+
+                            {{formatDate this.createdAt}}
+
+                        </div>
+
+                    </div>
+
+                    {{else}}
+
+                    <div class="admin-empty-state">
+
+                        <i class="bi bi-people"></i>
+
+                        <span>
+                            No customers found.
+                        </span>
+
+                    </div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT TESTIMONIALS -->
+
+        <div class="col-12 col-xl-5">
+
+            <div class="admin-dashboard-card">
+
+                <div class="admin-dashboard-card-header">
+
+                    <div>
+
+                        <span class="admin-section-label">
+                            FEEDBACK
+                        </span>
+
+                        <h2>
+                            Testimonials
+                        </h2>
+
+                    </div>
+
+                    <a href="/admin/testimony" class="admin-card-action">
+
+                        View All
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="admin-dashboard-list">
+
+                    {{#each recentTestimonials}}
+
+                    <div class="admin-testimonial-item">
+
+                        <div class="admin-testimonial-header">
+
+                            <strong>
+                                {{this.name}}
+                            </strong>
+
+                            {{#if this.rating}}
+
+                            <div class="admin-rating">
+
+                                {{#repeat this.rating}}
+
+                                <i class="bi bi-star-fill"></i>
+
+                                {{/repeat}}
+
+                            </div>
+
+                            {{/if}}
+
+                        </div>
+
+                        <p>
+                            {{truncate this.content 100}}
+                        </p>
+
+                    </div>
+
+                    {{else}}
+
+                    <div class="admin-empty-state">
+
+                        <i class="bi bi-chat-quote"></i>
+
+                        <span>
+                            No testimonials yet.
+                        </span>
+
+                    </div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+        PORTFOLIO + SYSTEM
+    =========================================== -->
+
+    <div class="row g-4">
+
+        <!-- RECENT PORTFOLIO -->
+
+        <div class="col-12 col-xl-8">
+
+            <div class="admin-dashboard-card">
+
+                <div class="admin-dashboard-card-header">
+
+                    <div>
+
+                        <span class="admin-section-label">
+                            CONTENT
+                        </span>
+
+                        <h2>
+                            Recent Portfolio
+                        </h2>
+
+                    </div>
+
+                    <a href="/admin/portfolio" class="admin-card-action">
+
+                        Manage Portfolio
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div class="row g-3">
+
+                    {{#each recentPortfolios}}
+
+                    <div class="col-md-6">
+
+                        <a href="/admin/portfolio/{{this.id}}" class="admin-portfolio-item">
+
+                            {{#if this.image}}
+
+                            <img src="{{this.image}}" class="w-100" alt="{{this.title}}">
+
+                            {{else}}
+
+                            <div class="admin-portfolio-placeholder">
+                                <i class="bi bi-image"></i>
+                            </div>
+
+                            {{/if}}
+
+                            <div class="admin-portfolio-info">
+
+                                <strong>
+                                    {{this.title}}
+                                </strong>
+
+                                <span>
+                                    {{formatDate this.createdAt}}
+                                </span>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    {{else}}
+
+                    <div class="col-12">
+
+                        <div class="admin-empty-state">
+
+                            <i class="bi bi-images"></i>
+
+                            <span>
+                                No portfolio projects yet.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYSTEM OVERVIEW -->
+
+        <div class="col-12 col-xl-4">
+
+            <div class="admin-dashboard-card">
+
+                <div class="admin-dashboard-card-header">
+
+                    <div>
+
+                        <span class="admin-section-label">
+                            SYSTEM
+                        </span>
+
+                        <h2>
+                            Administration
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-system-list">
+
+                    <a href="/admin/user" class="admin-system-item">
+
+                        <div class="admin-system-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Users
+                            </strong>
+
+                            <span>
+                                {{stats.users.total}} accounts
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-chevron-right"></i>
+
+                    </a>
+
+
+                    <a href="/admin/role" class="admin-system-item">
+
+                        <div class="admin-system-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Roles
+                            </strong>
+
+                            <span>
+                                {{stats.roles.total}} roles
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-chevron-right"></i>
+
+                    </a>
+
+
+                    <div class="admin-system-item">
+
+                        <div class="admin-system-icon">
+                            <i class="bi bi-person-check"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Active Users
+                            </strong>
+
+                            <span>
+                                {{stats.users.active}} active accounts
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
