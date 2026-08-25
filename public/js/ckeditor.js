@@ -19,7 +19,10 @@ ClassicEditor
             'blockQuote',
             '|',
             'undo',
-            'redo'
+            'redo',
+            '|',
+            'code',
+            'codeBlock'
         ]
 
     })

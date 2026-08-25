@@ -132,5 +132,10 @@ export default function registerHelpers(handlebars) {
   handlebars.registerHelper('subtract', function (a, b) {
     return Number(a) - Number(b);
   });
-
+  handlebars.registerHelper('addOne', function (value) {
+    return Number(value) + 1
+  });
+  handlebars.registerHelper('uppercase', function (value) {
+    return String(value || '').toUpperCase()
+  });
 }
