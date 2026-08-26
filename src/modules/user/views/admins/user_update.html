@@ -1,0 +1,502 @@
+<!-- ==========================================
+    UPDATE USER
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                USER MANAGEMENT
+            </span>
+
+            <h1>
+                Update User
+            </h1>
+
+            <p>
+                Update account information and manage the user's roles.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/user"
+            class="admin-secondary-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Users
+
+        </a>
+
+    </div>
+
+
+    <!-- USER FORM -->
+
+    <div class="admin-form-card">
+
+        <form
+            id="update-form"
+            class="needs-validation"
+            action="/admin/user/{{user.id}}"
+            method="POST"
+            novalidate>
+
+            <input
+                type="hidden"
+                name="_method"
+                value="PUT">
+
+
+            <!-- ==========================================
+                ACCOUNT INFORMATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Account Information
+                        </h2>
+
+                        <p>
+                            Update the user's personal and account information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- FIRST NAME -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="firstName"
+                            class="admin-form-label">
+
+                            First Name
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="first_name"
+                            id="firstName"
+                            class="admin-form-control"
+                            value="{{user.first_name}}"
+                            placeholder="Enter first name"
+                            required>
+
+                        <div class="invalid-feedback">
+                            First name is required.
+                        </div>
+
+                    </div>
+
+
+                    <!-- LAST NAME -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="lastName"
+                            class="admin-form-label">
+
+                            Last Name
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="last_name"
+                            id="lastName"
+                            class="admin-form-control"
+                            value="{{user.last_name}}"
+                            placeholder="Enter last name"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Last name is required.
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="email"
+                            class="admin-form-label">
+
+                            Email Address
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="admin-form-control"
+                            value="{{user.email}}"
+                            placeholder="Enter email address"
+                            autocomplete="email"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Email address is required.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                USER ROLES
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person-badge"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            User Roles
+                        </h2>
+
+                        <p>
+                            Manage the roles assigned to this user account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-role-options">
+
+
+                    <!-- USER -->
+
+                    <label class="admin-role-option">
+
+                        {{#hasRoleByName user.roles "user"}}
+
+                            <input
+                                type="checkbox"
+                                id="userRole"
+                                name="is_user"
+                                value="true"
+                                checked>
+
+                        {{else}}
+
+                            <input
+                                type="checkbox"
+                                id="userRole"
+                                name="is_user"
+                                value="true">
+
+                        {{/hasRoleByName}}
+
+
+                        <span class="admin-role-option-icon">
+
+                            <i class="bi bi-person"></i>
+
+                        </span>
+
+
+                        <span class="admin-role-option-content">
+
+                            <strong>
+                                User
+                            </strong>
+
+                            <small>
+                                Standard user account
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <!-- STAFF -->
+
+                    <label class="admin-role-option">
+
+                        {{#hasRoleByName user.roles "staff"}}
+
+                            <input
+                                type="checkbox"
+                                id="staffRole"
+                                name="is_staff"
+                                value="true"
+                                checked>
+
+                        {{else}}
+
+                            <input
+                                type="checkbox"
+                                id="staffRole"
+                                name="is_staff"
+                                value="true">
+
+                        {{/hasRoleByName}}
+
+
+                        <span class="admin-role-option-icon">
+
+                            <i class="bi bi-person-workspace"></i>
+
+                        </span>
+
+
+                        <span class="admin-role-option-content">
+
+                            <strong>
+                                Staff
+                            </strong>
+
+                            <small>
+                                Staff member with administrative access
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <!-- ADMIN -->
+
+                    <label class="admin-role-option">
+
+                        {{#hasRoleByName user.roles "admin"}}
+
+                            <input
+                                type="checkbox"
+                                id="adminRole"
+                                name="is_admin"
+                                value="true"
+                                checked>
+
+                        {{else}}
+
+                            <input
+                                type="checkbox"
+                                id="adminRole"
+                                name="is_admin"
+                                value="true">
+
+                        {{/hasRoleByName}}
+
+
+                        <span class="admin-role-option-icon">
+
+                            <i class="bi bi-shield-check"></i>
+
+                        </span>
+
+
+                        <span class="admin-role-option-content">
+
+                            <strong>
+                                Administrator
+                            </strong>
+
+                            <small>
+                                Full administrative account
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                ACCOUNT RECORD
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-info-circle"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Account Record
+                        </h2>
+
+                        <p>
+                            Basic information about this user account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- USER ID -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            User ID
+                        </label>
+
+                        <div class="admin-form-control bg-light">
+
+                            <span class="admin-record-id">
+                                #{{user.id}}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- USERNAME -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            Username
+                        </label>
+
+                        <div class="admin-form-control bg-light">
+
+                            {{user.username}}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CREATED -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            Created
+                        </label>
+
+                        <div class="admin-form-control bg-light">
+
+                            {{formatDate user.createdAt}}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ERRORS -->
+
+            <div id="error" class="admin-form-errors"></div>
+
+
+            <!-- LOADING -->
+
+            <div
+                id="status"
+                class="spinner-border admin-form-spinner d-none"
+                role="status">
+
+                <span class="visually-hidden">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="admin-form-footer">
+
+                <a
+                    href="/admin/user"
+                    class="admin-secondary-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    id="btn"
+                    class="admin-primary-btn">
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script
+    type="module"
+    src="/assets/js/form-handler.js">
+</script>

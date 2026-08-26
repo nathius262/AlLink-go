@@ -1,0 +1,402 @@
+<!-- ==========================================
+    CATALOGUE ITEM MANAGEMENT
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                CATALOGUE MANAGEMENT
+            </span>
+
+            <h1>
+                Catalogue Items
+            </h1>
+
+            <p>
+                Manage the services and products available in your catalogue.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/catalogue/item/create"
+            class="admin-primary-btn">
+
+            <i class="bi bi-plus-lg"></i>
+
+            Add Catalogue Item
+
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        TOTAL ITEMS
+                    </span>
+
+                    <strong>
+                        {{totalItems}}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    <i class="bi bi-grid"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        CATALOGUE ITEMS
+                    </span>
+
+                    <strong>
+                        {{totalItems}}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ITEM TABLE -->
+
+    <div class="admin-table-card">
+
+        <div class="admin-table-header">
+
+            <div>
+
+                <h2>
+                    Catalogue Directory
+                </h2>
+
+                <span>
+                    All services and products in the catalogue
+                </span>
+
+            </div>
+
+
+            <div class="admin-table-tools">
+
+                <div class="admin-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search catalogue..."
+                        id="catalogueItemSearch">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table admin-table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ITEM
+                        </th>
+
+                        <th>
+                            CATEGORY
+                        </th>
+
+                        <th>
+                            PRICE
+                        </th>
+
+                        <th>
+                            STATUS
+                        </th>
+
+                        <th>
+                            CREATED
+                        </th>
+
+                        <th class="text-end">
+                            ACTIONS
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {{#each items}}
+
+                    <tr>
+
+                        <!-- ITEM -->
+
+                        <td>
+
+                            <div class="admin-table-user">
+
+                                <div class="admin-avatar">
+
+                                    {{#if this.image}}
+
+                                        <img
+                                            src="{{this.image}}"
+                                            alt="{{this.name}}">
+
+                                    {{else}}
+
+                                        {{firstLetter this.name}}
+
+                                    {{/if}}
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        {{this.name}}
+                                    </strong>
+
+                                    <span>
+                                        #{{this.id}}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- CATEGORY -->
+
+                        <td>
+
+                            {{#if this.category}}
+
+                                <span class="admin-badge admin-badge-secondary">
+
+                                    <i class="bi bi-grid"></i>
+
+                                    {{this.category.name}}
+
+                                </span>
+
+                            {{else}}
+
+                                <span class="text-muted">
+                                    Uncategorized
+                                </span>
+
+                            {{/if}}
+
+                        </td>
+
+
+                        <!-- PRICE -->
+
+                        <td>
+
+                            {{#if this.price}}
+
+                                <strong class="admin-price">
+
+                                    ₦{{formatNumber this.price 2}}
+
+                                </strong>
+
+                            {{else}}
+
+                                <span class="text-muted">
+                                    Contact us
+                                </span>
+
+                            {{/if}}
+
+                        </td>
+
+
+                        <!-- STATUS -->
+
+                        <td>
+
+                            {{#if this.is_active}}
+
+                                <span class="admin-status admin-status-active">
+
+                                    <span></span>
+
+                                    Active
+
+                                </span>
+
+                            {{else}}
+
+                                <span class="admin-status admin-status-inactive">
+
+                                    <span></span>
+
+                                    Inactive
+
+                                </span>
+
+                            {{/if}}
+
+                        </td>
+
+
+                        <!-- CREATED -->
+
+                        <td>
+
+                            <div class="admin-date">
+
+                                <strong>
+                                    {{formatDate this.createdAt}}
+                                </strong>
+
+                                <span>
+                                    Catalogue item
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- ACTIONS -->
+
+                        <td class="text-end">
+
+                            <div class="admin-actions">
+
+                                <a
+                                    href="/admin/catalogue/item/{{this.id}}"
+                                    class="admin-action-btn"
+                                    title="View item">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </a>
+
+
+                                <a
+                                    href="/admin/catalogue/item/{{this.id}}"
+                                    class="admin-action-btn"
+                                    title="Edit item">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+
+                                <button
+                                    type="button"
+                                    data-delete="catalogue-item-{{this.id}}"
+                                    data-name="{{this.name}}"
+                                    data-url="/admin/catalogue/item/{{this.id}}"
+                                    class="admin-action-btn admin-action-danger"
+                                    title="Delete item">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    {{else}}
+
+                    <tr>
+
+                        <td colspan="6">
+
+                            <div class="admin-empty-state">
+
+                                <div>
+                                    <i class="bi bi-box-seam"></i>
+                                </div>
+
+                                <h3>
+                                    No catalogue items found
+                                </h3>
+
+                                <p>
+                                    Services and products will appear here once they are created.
+                                </p>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- PAGINATION -->
+
+        <div class="admin-table-footer">
+
+            {{> pagination}}
+
+        </div>
+
+    </div>
+
+</div>

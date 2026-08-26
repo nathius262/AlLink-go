@@ -1,0 +1,620 @@
+<!-- ==========================================
+    UPDATE TESTIMONY
+=========================================== -->
+
+<div class="admin-content">
+
+  <!-- PAGE HEADER -->
+
+  <div class="admin-page-header">
+
+    <div>
+
+      <span class="admin-page-label">
+        CONTENT MANAGEMENT
+      </span>
+
+      <h1>
+        Update Testimony
+      </h1>
+
+      <p>
+        Update the information and presentation of this testimonial.
+      </p>
+
+    </div>
+
+
+    <a href="/admin/testimony" class="admin-secondary-btn">
+
+      <i class="bi bi-arrow-left"></i>
+
+      Back to Testimonials
+
+    </a>
+
+  </div>
+
+
+
+  <!-- FORM -->
+
+  <div class="admin-form-card">
+
+    <form action="/admin/testimony/{{testimony.id}}" method="POST" enctype="multipart/form-data"
+      id="update-testimony-form" class="needs-validation" novalidate>
+
+      <input type="hidden" name="_method" value="PUT">
+
+
+
+      <!-- ==========================================
+                CUSTOMER INFORMATION
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+
+            <i class="bi bi-person"></i>
+
+          </div>
+
+          <div>
+
+            <h2>
+              Customer Information
+            </h2>
+
+            <p>
+              Update the customer's information.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <!-- NAME -->
+
+          <div class="col-md-6">
+
+            <label for="name" class="admin-form-label">
+
+              Customer Name
+
+              <span class="text-danger">*</span>
+
+            </label>
+
+            <input type="text" name="name" id="name" class="admin-form-control" value="{{testimony.name}}" required>
+
+            <div class="invalid-feedback">
+              Please provide the customer's name.
+            </div>
+
+          </div>
+
+
+
+          <!-- ROLE -->
+
+          <div class="col-md-6">
+
+            <label for="role" class="admin-form-label">
+
+              Role / Position
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input type="text" name="role" id="role" class="admin-form-control" value="{{testimony.role}}"
+              placeholder="e.g. Founder & CEO">
+
+          </div>
+
+
+
+          <!-- COMPANY -->
+
+          <div class="col-md-6">
+
+            <label for="company" class="admin-form-label">
+
+              Company / Organisation
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input type="text" name="company" id="company" class="admin-form-control" value="{{testimony.company}}"
+              placeholder="e.g. Acme Ltd">
+
+          </div>
+
+
+
+          <!-- IMAGE -->
+
+          <div class="col-md-6">
+
+            <label for="image" class="admin-form-label">
+
+              Profile Image
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input type="file" name="image" id="image" class="admin-form-control"
+              accept="image/jpeg,image/png,image/webp">
+
+
+            {{#if testimony.image}}
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-image"></i>
+
+              A profile image is currently uploaded.
+              Upload another image to replace it.
+
+            </div>
+
+            {{else}}
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-image"></i>
+
+              No profile image has been uploaded.
+
+            </div>
+
+            {{/if}}
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==========================================
+                TESTIMONIAL
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+
+            <i class="bi bi-chat-quote"></i>
+
+          </div>
+
+          <div>
+
+            <h2>
+              Testimonial
+            </h2>
+
+            <p>
+              Update the customer's feedback or experience.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+          <div class="col-12">
+
+            <label for="content" class="admin-form-label">
+
+              Testimony
+
+              <span class="text-danger">*</span>
+
+            </label>
+
+            <textarea name="content" id="content" class="admin-form-control ckeditor" data-editor="ckeditor" rows="8"
+              required>{{{testimony.content}}}</textarea>
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Keep the testimonial authentic, clear and customer-focused.
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==========================================
+                PRESENTATION SETTINGS
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+
+            <i class="bi bi-sliders"></i>
+
+          </div>
+
+          <div>
+
+            <h2>
+              Presentation Settings
+            </h2>
+
+            <p>
+              Control how this testimonial is presented publicly.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <!-- RATING -->
+
+          <div class="col-md-4">
+
+            <label for="rating" class="admin-form-label">
+
+              Rating
+
+              <span class="admin-form-optional">
+                Optional
+              </span>
+
+            </label>
+
+            <select name="rating" id="rating" class="admin-form-control">
+
+              <option value="" {{#unless testimony.rating}} selected {{/unless}}>
+
+                No rating
+
+              </option>
+
+              <option value="5" {{#if (eq testimony.rating 5)}} selected {{/if}}>
+
+                5 Stars
+
+              </option>
+
+              <option value="4" {{#if (eq testimony.rating 4)}} selected {{/if}}>
+
+                4 Stars
+
+              </option>
+
+              <option value="3" {{#if (eq testimony.rating 3)}} selected {{/if}}>
+
+                3 Stars
+
+              </option>
+
+              <option value="2" {{#if (eq testimony.rating 2)}} selected {{/if}}>
+
+                2 Stars
+
+              </option>
+
+              <option value="1" {{#if (eq testimony.rating 1)}} selected {{/if}}>
+
+                1 Star
+
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- SORT ORDER -->
+
+          <div class="col-md-4">
+
+            <label for="sort_order" class="admin-form-label">
+
+              Display Order
+
+            </label>
+
+            <input type="number" name="sort_order" id="sort_order" class="admin-form-control"
+              value="{{testimony.sort_order}}" min="0">
+
+            <div class="admin-form-help">
+
+              <i class="bi bi-info-circle"></i>
+
+              Lower numbers appear first.
+
+            </div>
+
+          </div>
+
+
+
+          <!-- STATUS -->
+
+          <div class="col-md-4">
+
+            <label for="is_active" class="admin-form-label">
+
+              Status
+
+            </label>
+
+            <select name="is_active" id="is_active" class="admin-form-control">
+
+              <option value="1" {{#if testimony.is_active}} selected {{/if}}>
+
+                Active
+
+              </option>
+
+              <option value="0" {{#unless testimony.is_active}} selected {{/unless}}>
+
+                Inactive
+
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- FEATURED -->
+
+          <div class="col-12">
+
+            <div class="admin-checkbox-card">
+
+              <input type="checkbox" name="is_featured" value="1" id="is_featured" class="form-check-input" {{#if
+                testimony.is_featured}} checked {{/if}}>
+
+              <label for="is_featured">
+
+                <span class="admin-checkbox-icon">
+
+                  <i class="bi bi-star"></i>
+
+                </span>
+
+                <span>
+
+                  <strong>
+                    Featured Testimonial
+                  </strong>
+
+                  <small>
+                    Highlight this testimonial in featured sections of the website.
+                  </small>
+
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==========================================
+                RECORD INFORMATION
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+
+            <i class="bi bi-info-circle"></i>
+
+          </div>
+
+          <div>
+
+            <h2>
+              Testimony Record
+            </h2>
+
+            <p>
+              Basic information about this testimonial.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <!-- ID -->
+
+          <div class="col-md-6">
+
+            <label class="admin-form-label">
+              Testimony ID
+            </label>
+
+            <div class="admin-form-control bg-light">
+
+              <span class="admin-record-id">
+                #{{testimony.id}}
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- CREATED -->
+
+          <div class="col-md-6">
+
+            <label class="admin-form-label">
+              Created
+            </label>
+
+            <div class="admin-form-control bg-light">
+
+              {{formatDate testimony.createdAt}}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ERRORS -->
+
+      <div class="row">
+
+        <div class="col-12">
+
+          <ul id="error" class="text-danger list-unstyled">
+          </ul>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- LOADING -->
+
+      <div class="text-center">
+
+        <div class="spinner-border text-primary d-none" id="status" role="status">
+
+          <span class="visually-hidden">
+            Loading...
+          </span>
+
+        </div>
+
+      </div>
+
+      <progress id="progressBar" value="0" max="100" style="width:100%;display:none;" class="mt-3">
+      </progress>
+
+
+
+      <!-- FORM ACTIONS -->
+
+      <div class="admin-form-footer">
+
+        <a href="/admin/testimony" class="admin-secondary-btn">
+
+          <i class="bi bi-x-lg"></i>
+
+          Cancel
+
+        </a>
+
+
+        <button type="button" id="delete" data-delete="testimony-{{testimony.id}}" data-name="{{testimony.name}}"
+          data-url="/admin/testimony/{{testimony.id}}" class="admin-danger-btn">
+
+          <i class="bi bi-trash"></i>
+
+          Delete
+
+        </button>
+
+
+        <button type="submit" id="btn" class="admin-primary-btn">
+
+          <i class="bi bi-check-lg"></i>
+
+          Save Changes
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const nameInput = document.getElementById('title');
+    const slugInput = document.getElementById('slug');
+
+    if (!nameInput || !slugInput) return;
+
+    let slugManuallyEdited = false;
+
+    slugInput.addEventListener('input', () => {
+      slugManuallyEdited = true;
+    });
+
+    nameInput.addEventListener('input', () => {
+
+      if (slugManuallyEdited) return;
+
+      slugInput.value = nameInput.value
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+    });
+  });
+
+</script>
+
+<script type="module" src="/assets/js/uploader.js">
+</script>

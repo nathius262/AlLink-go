@@ -1,0 +1,60 @@
+:root {
+
+    /* Brand Colors */
+
+    --primary: #F68B00;
+    --secondary: #005f61;
+    /* #0B6B6F; */
+    --dark: #253559;
+    /* --dark: #002366; */
+    /* --dark: #0A2D46; */
+
+    --white: #FFFFFF;
+    --light: #F8F9FA;
+
+    --text: #495057;
+
+    --border: #E9ECEF;
+
+    /* Typography */
+
+    --font-family: "Manrope", sans-serif;
+
+    /* Border Radius */
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 30px;
+
+    /* Shadows */
+
+    --shadow-sm: 0 8px 20px rgba(0, 0, 0, .06);
+
+    --shadow-md: 0 15px 40px rgba(0, 0, 0, .08);
+
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, .12);
+
+    /* Transition */
+
+    --transition: all .35s ease;
+
+    /* Layout */
+
+    --section-padding: 100px;
+
+
+    /* ======================================================
+    ADMIN PANEL
+    ====================================================== */    
+    --admin-primary: #F68B00;
+    --admin-secondary: #0B6B6F;
+    --admin-dark: #0A2D46;
+
+    --admin-bg: #F5F7F8;
+    --admin-white: #FFFFFF;
+    --admin-border: #E5E9EC;
+    --admin-text: #1F2933;
+    --admin-muted: #7B8794;
+
+    --admin-sidebar-width: 270px;
+}

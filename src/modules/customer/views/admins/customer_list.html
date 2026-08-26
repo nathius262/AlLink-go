@@ -1,0 +1,408 @@
+<!-- ==========================================
+    CUSTOMER MANAGEMENT
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                CUSTOMER MANAGEMENT
+            </span>
+
+            <h1>
+                Customers
+            </h1>
+
+            <p>
+                Manage customer records and view customer information.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/customer/create"
+            class="admin-primary-btn">
+
+            <i class="bi bi-plus-lg"></i>
+
+            Add Customer
+
+        </a>
+
+    </div>
+
+
+    <!-- ==========================================
+        STATISTICS
+    =========================================== -->
+
+    <div class="row g-3 mb-4">
+
+        <!-- TOTAL CUSTOMERS -->
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+
+                    <i class="bi bi-people"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        TOTAL CUSTOMERS
+                    </span>
+
+                    <strong>
+                        {{totalItems}}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEW CUSTOMERS -->
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+
+                    <i class="bi bi-person-plus"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        NEW CUSTOMERS
+                    </span>
+
+                    <strong>
+                        {{newCustomers}}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+        CUSTOMER TABLE
+    =========================================== -->
+
+    <div class="admin-table-card">
+
+        <!-- TABLE HEADER -->
+
+        <div class="admin-table-header">
+
+            <div>
+
+                <h2>
+                    Customer Directory
+                </h2>
+
+                <span>
+                    All registered customer records
+                </span>
+
+            </div>
+
+
+            <div class="admin-table-tools">
+
+                <div class="admin-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        placeholder="Search customers..."
+                        id="customerSearch">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="table-responsive">
+
+            <table class="table admin-table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            CUSTOMER
+                        </th>
+
+                        <th>
+                            CUSTOMER ID
+                        </th>
+
+                        <th>
+                            INFORMATION
+                        </th>
+
+                        <th>
+                            CREATED
+                        </th>
+
+                        <th class="text-end">
+                            ACTIONS
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {{#each customers}}
+
+                    <tr>
+
+                        <!-- CUSTOMER -->
+
+                        <td>
+
+                            <div class="admin-table-user">
+
+                                <div class="admin-table-avatar">
+
+                                    {{#if this.name}}
+
+                                        {{firstLetter this.name}}
+
+                                    {{else}}
+
+                                        C
+
+                                    {{/if}}
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+
+                                        {{#if this.name}}
+
+                                            {{this.name}}
+
+                                        {{else}}
+
+                                            Customer
+
+                                        {{/if}}
+
+                                    </strong>
+
+
+                                    {{#if this.email}}
+
+                                        <span>
+                                            {{this.email}}
+                                        </span>
+
+                                    {{/if}}
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- CUSTOMER ID -->
+
+                        <td>
+
+                            <span class="admin-table-id">
+
+                                #{{this.id}}
+
+                            </span>
+
+                        </td>
+
+
+                        <!-- INFORMATION -->
+
+                        <td>
+
+                            <div class="admin-table-contact">
+
+                                {{#if this.phone}}
+
+                                    <span>
+
+                                        <i class="bi bi-telephone"></i>
+
+                                        {{this.phone}}
+
+                                    </span>
+
+                                {{else}}
+
+                                    <span class="text-muted">
+
+                                        No phone number
+
+                                    </span>
+
+                                {{/if}}
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- CREATED -->
+
+                        <td>
+
+                            <div class="admin-table-date">
+
+                                <strong>
+
+                                    {{formatDate this.createdAt}}
+
+                                </strong>
+
+                                <span>
+
+                                    Customer record
+
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- ACTIONS -->
+
+                        <td class="text-end">
+
+                            <div class="admin-table-actions">
+
+                                <!-- VIEW -->
+
+                                <a
+                                    href="/admin/customer/{{this.id}}"
+                                    class="admin-action-btn"
+                                    title="View customer">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </a>
+
+
+                                <!-- EDIT -->
+
+                                <a
+                                    href="/admin/customer/{{this.id}}"
+                                    class="admin-action-btn"
+                                    title="Edit customer">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+
+                                <!-- DELETE -->
+
+                                <button
+                                    type="button"
+                                    data-delete="customer-{{this.id}}"
+                                    data-name="{{this.name}}"
+                                    data-url="/admin/customer/{{this.id}}"
+                                    class="admin-action-btn admin-action-danger"
+                                    title="Delete customer">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    {{else}}
+
+                    <!-- EMPTY STATE -->
+
+                    <tr>
+
+                        <td colspan="5">
+
+                            <div class="admin-empty-state">
+
+                                <div>
+
+                                    <i class="bi bi-people"></i>
+
+                                </div>
+
+                                <h3>
+                                    No customers found
+                                </h3>
+
+                                <p>
+                                    Customer records will appear here once they are created.
+                                </p>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- PAGINATION -->
+
+        <div class="admin-table-footer">
+
+            {{> pagination}}
+
+        </div>
+
+    </div>
+
+</div>

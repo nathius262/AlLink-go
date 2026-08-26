@@ -1,0 +1,425 @@
+<!-- ==========================================
+    CREATE USER
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                USER MANAGEMENT
+            </span>
+
+            <h1>
+                Create User
+            </h1>
+
+            <p>
+                Create a new user account and assign the appropriate role.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/user"
+            class="admin-secondary-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Users
+
+        </a>
+
+    </div>
+
+
+    <!-- USER FORM -->
+
+    <div class="admin-form-card">
+
+        <form
+            id="create-new-user"
+            class="needs-validation"
+            action="/admin/user/create"
+            method="POST"
+            novalidate>
+
+
+            <!-- ==========================================
+                ACCOUNT INFORMATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Account Information
+                        </h2>
+
+                        <p>
+                            Provide the basic information for the new user account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- EMAIL -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="email"
+                            class="admin-form-label">
+
+                            Email Address
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="admin-form-control"
+                            placeholder="e.g. john@example.com"
+                            autocomplete="email"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+
+                    </div>
+
+
+                    <!-- USERNAME -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="username"
+                            class="admin-form-label">
+
+                            Username
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            class="admin-form-control"
+                            placeholder="e.g. johndoe"
+                            autocomplete="username"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a username.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                USER ROLES
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person-badge"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            User Roles
+                        </h2>
+
+                        <p>
+                            Select the roles that should be assigned to this account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-role-options">
+
+
+                    <!-- USER -->
+
+                    <label class="admin-role-option">
+
+                        <input
+                            type="checkbox"
+                            name="is_user"
+                            value="true">
+
+                        <span class="admin-role-option-icon">
+
+                            <i class="bi bi-person"></i>
+
+                        </span>
+
+                        <span class="admin-role-option-content">
+
+                            <strong>
+                                User
+                            </strong>
+
+                            <small>
+                                Standard user account
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <!-- STAFF -->
+
+                    <label class="admin-role-option">
+
+                        <input
+                            type="checkbox"
+                            name="is_staff"
+                            value="true">
+
+                        <span class="admin-role-option-icon">
+
+                            <i class="bi bi-person-workspace"></i>
+
+                        </span>
+
+                        <span class="admin-role-option-content">
+
+                            <strong>
+                                Staff
+                            </strong>
+
+                            <small>
+                                Staff member with administrative access
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <!-- ADMIN -->
+
+                    <label class="admin-role-option">
+
+                        <input
+                            type="checkbox"
+                            name="is_admin"
+                            value="true">
+
+                        <span class="admin-role-option-icon">
+
+                            <i class="bi bi-shield-check"></i>
+
+                        </span>
+
+                        <span class="admin-role-option-content">
+
+                            <strong>
+                                Administrator
+                            </strong>
+
+                            <small>
+                                Full administrative account
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                PASSWORD
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-lock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Account Password
+                        </h2>
+
+                        <p>
+                            Set a secure password for this user account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- PASSWORD -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="password"
+                            class="admin-form-label">
+
+                            Password
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="admin-form-control"
+                            placeholder="Enter password"
+                            autocomplete="new-password"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a password.
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="confirmPassword"
+                            class="admin-form-label">
+
+                            Confirm Password
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            id="confirmPassword"
+                            class="admin-form-control"
+                            placeholder="Confirm password"
+                            autocomplete="new-password"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please confirm the password.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ERRORS -->
+
+            <div id="error" class="admin-form-errors"></div>
+
+
+            <!-- LOADING -->
+
+            <div
+                id="status"
+                class="spinner-border admin-form-spinner d-none"
+                role="status">
+
+                <span class="visually-hidden">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="admin-form-footer">
+
+                <a
+                    href="/admin/user"
+                    class="admin-secondary-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    id="btn"
+                    class="admin-primary-btn">
+
+                    <i class="bi bi-person-plus"></i>
+
+                    Create User
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script
+    type="module"
+    src="/assets/js/form-handler.js">
+</script>

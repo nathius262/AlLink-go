@@ -1,0 +1,502 @@
+<!-- ==========================================
+    UPDATE CATALOGUE CATEGORY
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                CATALOGUE MANAGEMENT
+            </span>
+
+            <h1>
+                Update Category
+            </h1>
+
+            <p>
+                Update category information and catalogue settings.
+            </p>
+
+        </div>
+
+
+        <a
+            href="/admin/catalogue/category"
+            class="admin-secondary-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Categories
+
+        </a>
+
+    </div>
+
+
+    <!-- ==========================================
+        CATEGORY FORM
+    =========================================== -->
+
+    <div class="admin-form-card">
+
+        <form
+            action="/admin/catalogue/category/{{category.id}}"
+            method="POST"
+            id="update-form"
+            class="needs-validation"
+            enctype="multipart/form-data"
+            novalidate>
+
+            <input
+                type="hidden"
+                name="_method"
+                value="PUT">
+
+
+            <!-- ==========================================
+                CATEGORY INFORMATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-grid"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Category Information
+                        </h2>
+
+                        <p>
+                            Update the category's basic information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- NAME -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="name"
+                            class="admin-form-label">
+
+                            Category Name
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="admin-form-control"
+                            value="{{category.name}}"
+                            placeholder="e.g. Brand and Brand Identity"
+                            required>
+
+
+                        <div class="invalid-feedback">
+
+                            Please provide a category name.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SLUG -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="slug"
+                            class="admin-form-label">
+
+                            Slug
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            name="slug"
+                            id="slug"
+                            class="admin-form-control"
+                            value="{{category.slug}}"
+                            placeholder="e.g. brand-and-brand-identity"
+                            required>
+
+
+                        <div class="admin-form-help">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            Keep the slug unique and URL-friendly.
+
+                        </div>
+
+
+                        <div class="invalid-feedback">
+
+                            Please provide a valid slug.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="col-12">
+
+                        <label
+                            for="description"
+                            class="admin-form-label">
+
+                            Description
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+
+                        <textarea
+                            name="description"
+                            id="description"
+                            class="admin-form-control ckeditor"
+                            rows="7"
+                            placeholder="Describe this catalogue category...">{{category.description}}</textarea>
+
+
+                        <div class="admin-form-help">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            Provide a clear description of what belongs under this category.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                CATEGORY SETTINGS
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-sliders"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Category Settings
+                        </h2>
+
+                        <p>
+                            Configure the category's availability and presentation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- STATUS -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="status"
+                            class="admin-form-label">
+
+                            Status
+
+                        </label>
+
+
+                        <select
+                            name="is_active"
+                            id="is_active"
+                            class="admin-form-control">
+
+                            <option
+                                value="1"
+                                {{#if category.is_active}}
+                                    selected
+                                {{/if}}>
+
+                                Active
+
+                            </option>
+
+
+                            <option
+                                value="0"
+                                {{#unless category.is_active}}
+                                    selected
+                                {{/unless}}>
+
+                                Inactive
+
+                            </option>
+
+                        </select>
+
+
+                        <div class="admin-form-help">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            Inactive categories will not be available for new catalogue items.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="image"
+                            class="admin-form-label">
+
+                            Category Image
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+
+                        <input
+                            type="file"
+                            name="image"
+                            id="image"
+                            class="admin-form-control"
+                            accept="image/*">
+
+
+                        {{#if category.image}}
+
+                            <div class="admin-form-help">
+
+                                <i class="bi bi-image"></i>
+
+                                Current image is already uploaded. Upload a new image to replace it.
+
+                            </div>
+
+                        {{else}}
+
+                            <div class="admin-form-help">
+
+                                <i class="bi bi-info-circle"></i>
+
+                                No category image has been uploaded.
+
+                            </div>
+
+                        {{/if}}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                CATEGORY RECORD
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-info-circle"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Category Record
+                        </h2>
+
+                        <p>
+                            System information for this catalogue category.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- ID -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            Category ID
+                        </label>
+
+
+                        <div class="admin-form-control bg-light">
+
+                            <span class="admin-table-id">
+
+                                #{{category.id}}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CREATED -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            Created
+                        </label>
+
+
+                        <div class="admin-form-control bg-light">
+
+                            {{formatDate category.createdAt}}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <progress
+                    id="progressBar"
+                    value="0"
+                    max="100"
+                    style="width:100%;display:none;"
+                    class="mt-3">
+                </progress>
+
+            </div>
+
+
+            <!-- ==========================================
+                FORM ACTIONS
+            =========================================== -->
+
+            <div class="admin-form-footer">
+
+                <a
+                    href="/admin/catalogue/category"
+                    class="admin-secondary-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="admin-primary-btn">
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const nameInput = document.getElementById('name');
+        const slugInput = document.getElementById('slug');
+
+        if (!nameInput || !slugInput) return;
+
+        let slugManuallyEdited = false;
+
+        slugInput.addEventListener('input', () => {
+            slugManuallyEdited = true;
+        });
+
+        nameInput.addEventListener('input', () => {
+
+            if (slugManuallyEdited) return;
+
+            slugInput.value = nameInput.value
+                .toLowerCase()
+                .trim()
+                .replace(/&/g, 'and')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+
+        });
+    });
+
+</script>
+
+<!-- FORM HANDLER -->
+<script
+    type="module"
+    src="/assets/js/uploader.js">
+</script>

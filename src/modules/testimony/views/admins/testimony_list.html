@@ -1,0 +1,390 @@
+<!-- ==========================================
+    CONTENT MANAGEMENT
+=========================================== -->
+
+<div class="admin-content">
+
+  <!-- PAGE HEADER -->
+
+  <div class="admin-page-header">
+
+    <div>
+
+      <span class="admin-page-label">
+        CONTENT MANAGEMENT
+      </span>
+
+      <h1>
+        Testimony
+      </h1>
+
+      <p>
+        Manage the categories used to organize your testimony.
+      </p>
+
+    </div>
+
+
+    <a href="/admin/testimony/create" class="admin-primary-btn">
+
+      <i class="bi bi-plus-lg"></i>
+
+      Add Testimony
+
+    </a>
+
+  </div>
+
+
+  <!-- ==========================================
+        STATISTICS
+    =========================================== -->
+
+  <div class="row g-3 mb-4">
+
+    <!-- TOTAL -->
+
+    <div class="col-xl-3 col-md-6">
+
+      <div class="admin-stat-card">
+
+        <div class="admin-stat-icon">
+
+          <i class="bi bi-grid"></i>
+
+        </div>
+
+        <div>
+
+          <span>
+            TOTAL TESTIMONIES
+          </span>
+
+          <strong>
+            {{totalItems}}
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ACTIVE -->
+
+    <div class="col-xl-3 col-md-6">
+
+      <div class="admin-stat-card">
+
+        <div class="admin-stat-icon">
+
+          <i class="bi bi-check-circle"></i>
+
+        </div>
+
+        <div>
+
+          <span>
+            ACTIVE TESTIMONY
+          </span>
+
+          <strong>
+            {{activeTestimony}}
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+        CATEGORY TABLE
+    =========================================== -->
+
+  <div class="admin-table-card">
+
+    <!-- HEADER -->
+
+    <div class="admin-table-header">
+
+      <div>
+
+        <h2>
+          Testimony
+        </h2>
+
+        <span>
+          All available Testimony
+        </span>
+
+      </div>
+
+
+      <div class="admin-table-tools">
+
+        <div class="admin-search">
+
+          <i class="bi bi-search"></i>
+
+          <input type="search" id="categorySearch" placeholder="Search testimonies...">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div class="table-responsive">
+
+      <table class="table admin-table align-middle">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              TESTIMONY
+            </th>
+
+            <th>
+              TESTIMONY ID
+            </th>
+
+            <th>
+              RATING
+            </th>
+
+            <th>
+              STATUS
+            </th>
+
+            <th>
+              CREATED
+            </th>
+
+            <th class="text-end">
+              ACTIONS
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          {{#each testimonies}}
+
+          <tr>
+
+            <!-- CATEGORY -->
+
+            <td>
+
+              <div class="admin-table-user">
+
+                <div class="admin-table-avatar">
+
+                  {{#if this.image}}
+
+                  <img src="{{this.image}}" alt="{{this.title}}">
+
+                  {{else}}
+
+                  {{firstLetter this.title}}
+
+                  {{/if}}
+
+                </div>
+
+
+                <div>
+
+                  <strong>
+                    {{this.title}}
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </td>
+
+
+            <!-- ID -->
+
+            <td>
+
+              <span class="admin-table-id">
+
+                #{{this.id}}
+
+              </span>
+
+            </td>
+
+            <!-- RATING -->
+            <td>
+
+              {{#if this.rating}}
+
+              <div class="admin-rating">
+
+                {{#repeat this.rating}}
+                <i class="bi bi-star-fill"></i>
+                {{/repeat}}
+
+                {{#repeat (subtract 5 this.rating)}}
+                <i class="bi bi-star"></i>
+                {{/repeat}}
+
+              </div>
+
+              {{else}}
+
+              <span class="text-muted">
+                No rating
+              </span>
+
+              {{/if}}
+
+            </td>
+
+
+            <!-- STATUS -->
+
+            <td>
+
+              {{#if this.is_active}}
+
+              <span class="admin-status-badge admin-status-success">
+
+                <i class="bi bi-check-circle"></i>
+
+                Active
+
+              </span>
+
+              {{else}}
+
+              <span class="admin-status-badge admin-status-muted">
+
+                <i class="bi bi-dash-circle"></i>
+
+                Inactive
+
+              </span>
+
+              {{/if}}
+
+            </td>
+
+
+            <!-- CREATED -->
+
+            <td>
+
+              <div class="admin-table-date">
+
+                <strong>
+                  {{formatDate this.createdAt}}
+                </strong>
+
+              </div>
+
+            </td>
+
+
+            <!-- ACTIONS -->
+
+            <td class="text-end">
+
+              <div class="admin-table-actions">
+
+                <a href="/admin/testimony/{{this.id}}" class="admin-action-btn" title="View Project">
+
+                  <i class="bi bi-eye"></i>
+
+                </a>
+
+
+                <a href="/admin/testimony/{{this.id}}" class="admin-action-btn" title="Edit Project">
+
+                  <i class="bi bi-pencil"></i>
+
+                </a>
+
+
+                <button type="button" data-delete="catalogue-category-{{this.id}}" data-name="{{this.name}}"
+                  data-url="/admin/testimony/{{this.id}}" class="admin-action-btn admin-action-danger"
+                  title="Delete Project">
+
+                  <i class="bi bi-trash"></i>
+
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+
+          {{else}}
+
+          <!-- EMPTY STATE -->
+
+          <tr>
+
+            <td colspan="6">
+
+              <div class="admin-empty-state">
+
+                <div>
+
+                  <i class="bi bi-grid"></i>
+
+                </div>
+
+                <h3>
+                  No testiony found
+                </h3>
+
+                <p>
+                  Create a testiony to begin organizing your testimony.
+                </p>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+          {{/each}}
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- PAGINATION -->
+
+    <div class="admin-table-footer">
+
+      {{> pagination}}
+
+    </div>
+
+  </div>
+
+</div>

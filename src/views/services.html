@@ -1,0 +1,632 @@
+<!-- ===========================================
+    SERVICES PAGE
+=========================================== -->
+<style>
+    .section-title {
+        max-width: 100%;
+    }
+</style>
+
+<main>
+
+    <!-- ===========================================
+        PAGE HERO
+    ============================================ -->
+
+    <section class="inner-page-hero services-hero">
+
+        <div class="container">
+
+            <div class="inner-page-hero-content">
+
+                <span class="page-label">
+                    WHAT WE DO
+                </span>
+
+                <h1>
+                    From Creative Ideas
+                    <span>To Finished Products.</span>
+                </h1>
+
+                <p>
+                    From digital product creation to branding, packaging and
+                    printing, we provide everything you need to take your
+                    product from concept to customer.
+                </p>
+
+                <div class="breadcrumb-wrap">
+
+                    <a href="/">Home</a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>Services</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================================
+        SERVICE OVERVIEW
+    ============================================ -->
+
+    <section class="services-overview">
+
+        <div class="container">
+
+            <div class="section-title text-center">
+
+                <span>OUR SERVICES</span>
+
+                <h2>
+                    Everything Your Brand Needs
+                    <span>Under One Roof.</span>
+                </h2>
+
+                <p class="section-description">
+
+                    We combine creative design, strategic branding,
+                    professional printing and practical packaging to
+                    give you a seamless experience from start to finish.
+
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                {{#each categories}}
+
+                <article class="service-card {{#if @first}}featured{{/if}}">
+
+                    <div class="service-number">
+                        {{addOne @index}}
+                    </div>
+
+                    <div class="service-icon">
+
+                        {{#if icon}}
+                        <i class="{{icon}}"></i>
+                        {{else}}
+                        <i class="bi bi-box-seam"></i>
+                        {{/if}}
+
+                    </div>
+
+                    <span>
+                        {{uppercase name}}
+                    </span>
+
+                    <h3>
+                        {{name}}
+                    </h3>
+
+                    <p>
+                        {{{description}}}
+                    </p>
+
+                    <a href="/services/{{slug}}" class="service-link">
+
+                        Explore Service
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+                    {{#if @first}}
+
+                    <div class="featured-label">
+                        FEATURED SERVICE
+                    </div>
+
+                    {{/if}}
+
+                </article>
+
+                {{else}}
+
+                <div class="col-12">
+
+                    <div class="text-center py-5">
+
+                        <i class="bi bi-box-seam fs-1 text-muted"></i>
+
+                        <h3 class="mt-3">
+                            Our services are coming soon.
+                        </h3>
+
+                        <p class="text-muted">
+                            We're currently preparing our service catalogue.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                {{/each}}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================================
+        SERVICE DETAILS
+    ============================================ -->
+
+    <section class="service-details">
+
+        <div class="container">
+
+            {{#each categories}}
+
+            <div class="service-detail-row {{#if @odd}}reverse{{/if}}" id="service-{{slug}}">
+
+                <div class="service-detail-image">
+
+                    {{#if this.image}}
+
+                    <img src="{{image}}" alt="{{name}}" loading="lazy">
+
+                    {{else}}
+
+                    <div class="service-detail-placeholder">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                    {{/if}}
+
+                </div>
+
+
+                <div class="service-detail-content">
+
+                    <span>
+                        {{addOne @index}} / {{uppercase name}}
+                    </span>
+
+                    <h2>
+
+                        {{name}}
+
+                        <strong>
+                            Built For Your Brand.
+                        </strong>
+
+                    </h2>
+
+                    {{#if description}}
+
+                    <p>
+                        {{{description}}}
+                    </p>
+
+                    {{else}}
+
+                    <p>
+                        We provide professional {{name}} solutions
+                        designed to help businesses build stronger brands
+                        and deliver quality products.
+                    </p>
+
+                    {{/if}}
+
+
+                    {{#if features}}
+
+                    <ul>
+
+                        {{#each features}}
+
+                        <li>
+
+                            <i class="bi bi-check2"></i>
+
+                            {{this}}
+
+                        </li>
+
+                        {{/each}}
+
+                    </ul>
+
+                    {{/if}}
+
+                </div>
+
+            </div>
+
+            {{/each}}
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================================
+        OUR PROCESS
+    ============================================ -->
+
+    <section class="services-process">
+
+        <div class="container">
+
+            <div class="section-title text-center">
+
+                <span>HOW IT WORKS</span>
+
+                <h2>
+                    From Brief
+                    <span>To Dispatch.</span>
+                </h2>
+
+                <p class="section-description">
+
+                    A straightforward process designed to keep your project
+                    clear, efficient and stress-free.
+
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <i class="bi bi-chat-square-text"></i>
+
+                    <h3>Tell Us What You Need</h3>
+
+                    <p>
+                        Share your idea, requirements, references,
+                        specifications or existing brand assets.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <i class="bi bi-pencil-square"></i>
+
+                    <h3>Design & Review</h3>
+
+                    <p>
+                        Our team develops the creative direction and
+                        presents the design for your review and approval.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <i class="bi bi-gear-wide-connected"></i>
+
+                    <h3>Production</h3>
+
+                    <p>
+                        Once approved, your project moves into production
+                        using the appropriate materials and processes.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <i class="bi bi-box-seam"></i>
+
+                    <h3>Quality Check</h3>
+
+                    <p>
+                        We inspect the finished work to ensure it meets
+                        the approved specifications and quality standards.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        05
+                    </div>
+
+                    <i class="bi bi-truck"></i>
+
+                    <h3>Dispatch</h3>
+
+                    <p>
+                        Your completed project is prepared for pickup
+                        or delivery.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================================
+        FAQ
+    ============================================ -->
+
+    <section class="services-faq">
+
+        <div class="container">
+
+            <div class="row gy-5">
+
+                <div class="col-lg-5">
+
+                    <div class="section-title">
+
+                        <span>FAQ</span>
+
+                        <h2>
+                            Questions?
+                            <span>We've Got Answers.</span>
+                        </h2>
+
+                    </div>
+
+                    <p class="faq-intro">
+                        Everything you need to know before starting
+                        your next branding, packaging or printing project.
+                    </p>
+
+                    <a href="/contact" class="btn-quote">
+                        Ask Us Anything
+                    </a>
+
+                </div>
+
+
+                <div class="col-lg-7">
+
+                    <div class="accordion" id="servicesFaq">
+
+                        <!-- FAQ CONTENT REMAINS UNCHANGED -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqOne">
+                                    How do I start a project with AlLink?
+                                </button>
+
+                            </h2>
+
+                            <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#servicesFaq">
+
+                                <div class="accordion-body">
+
+                                    Simply contact us through WhatsApp,
+                                    phone, email or our project enquiry form.
+                                    Tell us what you need and we'll guide you
+                                    through the next steps.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqTwo">
+                                    Can you work with an existing logo or brand?
+                                </button>
+
+                            </h2>
+
+                            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+
+                                <div class="accordion-body">
+
+                                    Yes. We can work with your existing brand
+                                    assets and extend them into packaging,
+                                    print materials and other brand touchpoints.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqThree">
+                                    Do you offer custom packaging?
+                                </button>
+
+                            </h2>
+
+                            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+
+                                <div class="accordion-body">
+
+                                    Yes. We provide custom packaging design
+                                    and production based on your product,
+                                    brand requirements and specifications.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqFour">
+                                    Do you have ready-made packaging?
+                                </button>
+
+                            </h2>
+
+                            <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+
+                                <div class="accordion-body">
+
+                                    Yes. We offer selected ready-made
+                                    packaging options for clients who need
+                                    convenient and faster solutions.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqFive">
+                                    How do you deliver packages?
+                                </button>
+
+                            </h2>
+
+                            <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+
+                                <div class="accordion-body">
+
+                                    Delivery options can be arranged based
+                                    on the project and destination. Contact
+                                    us with your location and requirements
+                                    and we'll provide the available options.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faqSix">
+                                    How long does a project take?
+                                </button>
+
+                            </h2>
+
+                            <div id="faqSix" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+
+                                <div class="accordion-body">
+
+                                    Turnaround depends on the type, quantity
+                                    and specifications of the project. We'll
+                                    confirm the expected timeline before
+                                    production begins.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================================
+        CTA
+    ============================================ -->
+
+    <section class="about-page-cta">
+
+        <div class="container">
+
+            <div class="about-cta-inner">
+
+                <div>
+
+                    <span>FROM DESIGN TO DISPATCH</span>
+
+                    <h2>
+                        Have A Project In Mind?
+                        Let's Make It Happen.
+                    </h2>
+
+                </div>
+
+                <div class="cta-buttons">
+
+                    <a href="/contact" class="btn-quote">
+                        Request Quote
+                    </a>
+
+                    <a href="https://wa.me/2347072355286" class="btn-whatsapp">
+
+                        <i class="bi bi-whatsapp"></i>
+
+                        WhatsApp Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>

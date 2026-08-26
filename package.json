@@ -1,0 +1,38 @@
+{
+  "name": "allink-go",
+  "version": "1.0.0",
+  "description": "Branding and packaging agency.",
+  "keywords": [
+    "Alink",
+    "Alink-go",
+    "Nexusjs",
+    "Branding",
+    "Consultation"
+  ],
+  "homepage": "https://github.com/nathius262/AlLink-go#readme",
+  "bugs": {
+    "url": "https://github.com/nathius262/AlLink-go/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathius262/AlLink-go.git"
+  },
+  "license": "MIT",
+  "author": "Nathius262",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@nathius262/nexusjs": "^0.0.22",
+    "multer": "^2.2.0",
+    "multer-storage-cloudinary": "^4.0.0",
+    "pg": "^8.23.0",
+    "vercel": "^59.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

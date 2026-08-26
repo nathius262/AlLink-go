@@ -1,0 +1,201 @@
+<!-- ==========================================
+    CREATE ROLE
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                USER MANAGEMENT
+            </span>
+
+            <h1>
+                Create Role
+            </h1>
+
+            <p>
+                Create a new role that can be assigned to user accounts.
+            </p>
+
+        </div>
+
+
+        <a
+            href="/admin/role"
+            class="admin-secondary-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Roles
+
+        </a>
+
+    </div>
+
+
+    <!-- ROLE FORM -->
+
+    <div class="admin-form-card">
+
+        <form
+            id="create-new-role"
+            class="needs-validation"
+            action="/admin/role/create"
+            method="POST"
+            novalidate>
+
+
+            <!-- ==========================================
+                ROLE INFORMATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-shield-plus"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Role Information
+                        </h2>
+
+                        <p>
+                            Define the name of the new user role.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- ROLE NAME -->
+
+                    <div class="col-md-8">
+
+                        <label
+                            for="name"
+                            class="admin-form-label">
+
+                            Role Name
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="admin-form-control"
+                            placeholder="e.g. Staff"
+                            autocomplete="off"
+                            required>
+
+
+                        <div class="invalid-feedback">
+
+                            Please provide a role name.
+
+                        </div>
+
+
+                        <div class="admin-form-help">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            Use a clear and descriptive name for this role.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                FORM ACTIONS
+            =========================================== -->
+
+            <div class="admin-form-footer">
+
+                <a
+                    href="/admin/role"
+                    class="admin-secondary-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    id="btn"
+                    class="admin-primary-btn">
+
+                    <i class="bi bi-shield-plus"></i>
+
+                    Create Role
+
+                </button>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div class="mt-3">
+
+                <ul
+                    id="error"
+                    class="text-danger list-unstyled mb-0">
+                </ul>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div class="text-center mt-3">
+
+                <div
+                    class="spinner-border d-none"
+                    id="status"
+                    role="status">
+
+                    <span class="visually-hidden">
+                        Loading...
+                    </span>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script
+    type="module"
+    src="/assets/js/form-handler.js">
+</script>

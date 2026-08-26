@@ -1,0 +1,463 @@
+<!-- ==========================================
+    UPDATE CUSTOMER
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                CUSTOMER MANAGEMENT
+            </span>
+
+            <h1>
+                Update Customer
+            </h1>
+
+            <p>
+                Update customer information and keep their records up to date.
+            </p>
+
+        </div>
+
+
+        <a
+            href="/admin/customer"
+            class="admin-secondary-btn">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back to Customers
+
+        </a>
+
+    </div>
+
+
+    <!-- ==========================================
+        CUSTOMER FORM
+    =========================================== -->
+
+    <div class="admin-form-card">
+
+        <form
+            action="/admin/customer/{{customer.id}}"
+            method="POST"
+            id="update-form"
+            class="needs-validation"
+            novalidate>
+
+            <input
+                type="hidden"
+                name="_method"
+                value="PUT">
+
+
+            <!-- ==========================================
+                CUSTOMER INFORMATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Customer Information
+                        </h2>
+
+                        <p>
+                            Update the customer's contact and business information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- NAME -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="name"
+                            class="admin-form-label">
+
+                            Full Name
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="admin-form-control"
+                            value="{{customer.name}}"
+                            placeholder="e.g. John Doe"
+                            autocomplete="name"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide the customer's name.
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="email"
+                            class="admin-form-label">
+
+                            Email Address
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="admin-form-control"
+                            value="{{customer.email}}"
+                            placeholder="e.g. john@example.com"
+                            autocomplete="email"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="phone"
+                            class="admin-form-label">
+
+                            Phone Number
+
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            class="admin-form-control"
+                            value="{{customer.phone}}"
+                            placeholder="e.g. 08012345678"
+                            autocomplete="tel"
+                            required>
+
+                        <div class="invalid-feedback">
+                            Please provide a phone number.
+                        </div>
+
+                    </div>
+
+
+                    <!-- COMPANY -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="company"
+                            class="admin-form-label">
+
+                            Company
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="company"
+                            id="company"
+                            class="admin-form-control"
+                            value="{{customer.company}}"
+                            placeholder="e.g. AlLink@go"
+                            autocomplete="organization">
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="col-12">
+
+                        <label
+                            for="address"
+                            class="admin-form-label">
+
+                            Address
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+                        <textarea
+                            name="address"
+                            id="address"
+                            rows="3"
+                            class="admin-form-control"
+                            placeholder="Enter customer's address">{{customer.address}}</textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                ACCOUNT ASSOCIATION
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-person-check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Account Association
+                        </h2>
+
+                        <p>
+                            View or update the user account associated with this customer.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-8">
+
+                        <label
+                            for="user_id"
+                            class="admin-form-label">
+
+                            User Account
+
+                            <span class="admin-form-optional">
+                                Optional
+                            </span>
+
+                        </label>
+
+
+                        <select
+                            name="user_id"
+                            id="user_id"
+                            class="admin-form-control">
+
+                            <option value="">
+                                No user account — Guest Customer
+                            </option>
+
+
+                            {{#each users}}
+
+                                <option
+                                    value="{{this.id}}"
+                                    {{#if (eq this.id ../customer.user_id)}}
+                                        selected
+                                    {{/if}}>
+
+                                    {{this.email}}
+
+                                    {{#if this.first_name}}
+                                        — {{this.first_name}}
+                                    {{/if}}
+
+                                    {{#if this.username}}
+                                        — {{this.username}}
+                                    {{/if}}
+
+                                </option>
+
+                            {{/each}}
+
+                        </select>
+
+
+                        <div class="admin-form-help">
+
+                            <i class="bi bi-info-circle"></i>
+
+                            Leave this empty if this customer should remain a guest customer.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                CUSTOMER RECORD
+            =========================================== -->
+
+            <div class="admin-form-section">
+
+                <div class="admin-form-section-header">
+
+                    <div class="admin-form-section-icon">
+
+                        <i class="bi bi-info-circle"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Customer Record
+                        </h2>
+
+                        <p>
+                            Basic information about this customer record.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <!-- CUSTOMER ID -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            Customer ID
+                        </label>
+
+
+                        <div class="admin-form-control bg-light">
+
+                            <span class="admin-table-id">
+                                #{{customer.id}}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CREATED -->
+
+                    <div class="col-md-6">
+
+                        <label class="admin-form-label">
+                            Created
+                        </label>
+
+
+                        <div class="admin-form-control bg-light">
+
+                            {{formatDate customer.createdAt}}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                FORM ACTIONS
+            =========================================== -->
+
+            <div class="admin-form-footer">
+
+                <a
+                    href="/admin/customer"
+                    class="admin-secondary-btn">
+
+                    <i class="bi bi-x-lg"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="admin-primary-btn">
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script
+    type="module"
+    src="/assets/js/form-handler.js">
+</script>
+
+<!--
+    Use this instead when the form eventually supports
+    image/file uploads.
+
+    <script
+        type="module"
+        src="/assets/js/uploader.js">
+    </script>
+-->

@@ -1,0 +1,396 @@
+<!-- ==========================================
+    USER MANAGEMENT
+=========================================== -->
+
+<div class="admin-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="admin-page-header">
+
+        <div>
+
+            <span class="admin-page-label">
+                USER MANAGEMENT
+            </span>
+
+            <h1>
+                Users
+            </h1>
+
+            <p>
+                Manage user accounts and their assigned roles.
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/user/create"
+            class="admin-primary-btn">
+
+            <i class="bi bi-person-plus"></i>
+
+            Add User
+
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+
+                    <i class="bi bi-people"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        TOTAL USERS
+                    </span>
+
+                    <strong>
+                        {{totalItems}}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+
+                    <i class="bi bi-person-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        ACTIVE USERS
+                    </span>
+
+                    <strong>
+                        {{activeUsers}}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- USER TABLE -->
+
+    <div class="admin-table-card">
+
+        <!-- TABLE HEADER -->
+
+        <div class="admin-table-header">
+
+            <div>
+
+                <h2>
+                    User Directory
+                </h2>
+
+                <span>
+                    All registered user accounts
+                </span>
+
+            </div>
+
+
+            <div class="admin-table-tools">
+
+                <div class="admin-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        id="userSearch"
+                        placeholder="Search users...">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="table-responsive">
+
+            <table class="table admin-table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            USER
+                        </th>
+
+                        <th>
+                            USER ID
+                        </th>
+
+                        <th>
+                            ROLES
+                        </th>
+
+                        <th>
+                            STATUS
+                        </th>
+
+                        <th>
+                            CREATED
+                        </th>
+
+                        <th class="text-end">
+                            ACTIONS
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {{#each users}}
+
+                    <tr>
+
+                        <!-- USER -->
+
+                        <td>
+
+                            <div class="admin-table-user">
+
+                                <div class="admin-avatar">
+
+                                    {{#if this.username}}
+
+                                        {{firstLetter this.username}}
+
+                                    {{else}}
+
+                                        U
+
+                                    {{/if}}
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        {{this.username}}
+                                    </strong>
+
+                                    <span>
+                                        {{this.email}}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- ID -->
+
+                        <td>
+
+                            <span class="admin-record-id">
+
+                                #{{this.id}}
+
+                            </span>
+
+                        </td>
+
+
+                        <!-- ROLES -->
+
+                        <td>
+
+                            <div class="admin-role-list">
+
+                                {{#each this.roles}}
+
+                                    <span class="admin-status-badge admin-status-info">
+
+                                        {{this.name}}
+
+                                    </span>
+
+                                {{else}}
+
+                                    <span class="admin-status-badge admin-status-muted">
+
+                                        No role
+
+                                    </span>
+
+                                {{/each}}
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- STATUS -->
+
+                        <td>
+
+                            {{#if this.is_active}}
+
+                                <span class="admin-status-badge admin-status-success">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Active
+
+                                </span>
+
+                            {{else}}
+
+                                <span class="admin-status-badge admin-status-warning">
+
+                                    <i class="bi bi-pause-circle"></i>
+
+                                    Inactive
+
+                                </span>
+
+                            {{/if}}
+
+                        </td>
+
+
+                        <!-- CREATED -->
+
+                        <td>
+
+                            <div class="admin-table-date">
+
+                                <strong>
+                                    {{formatDate this.createdAt}}
+                                </strong>
+
+                                <span>
+                                    User account
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <!-- ACTIONS -->
+
+                        <td class="text-end">
+
+                            <div class="admin-actions">
+
+                                <a
+                                    href="/admin/user/{{this.id}}"
+                                    class="admin-action-btn"
+                                    title="Edit user">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+
+                                <button
+                                    type="button"
+                                    data-delete="user-{{this.id}}"
+                                    data-name="{{this.username}}"
+                                    data-url="/admin/user/{{this.id}}"
+                                    class="admin-action-btn admin-action-danger"
+                                    title="Delete user">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    {{else}}
+
+                    <!-- EMPTY STATE -->
+
+                    <tr>
+
+                        <td colspan="6">
+
+                            <div class="admin-empty-state">
+
+                                <div>
+
+                                    <i class="bi bi-people"></i>
+
+                                </div>
+
+                                <h3>
+                                    No users found
+                                </h3>
+
+                                <p>
+                                    User accounts will appear here once they are created.
+                                </p>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- PAGINATION -->
+
+        <div class="admin-table-footer">
+
+            {{> pagination}}
+
+        </div>
+
+    </div>
+
+</div>
