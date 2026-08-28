@@ -1,7 +1,11 @@
 <!-- ===========================
     MAIN
 ============================ -->
-
+<style>
+    .section-title{
+        max-width: 100%;
+    }
+</style>
 <main>
 
     <!-- ===========================================
@@ -257,49 +261,17 @@
 
                 <div class="carousel-indicators">
 
+                    {{#each categories}}
+
                     <button
                         type="button"
                         data-bs-target="#servicesShowcaseCarousel"
-                        data-bs-slide-to="0"
+                        data-bs-slide-to="{{@index}}"
                         class="active"
                         aria-current="true"
-                        aria-label="Brand Identity">
+                        aria-label="{{this.name}}">
                     </button>
-
-                    <button
-                        type="button"
-                        data-bs-target="#servicesShowcaseCarousel"
-                        data-bs-slide-to="1"
-                        aria-label="Packaging Product Design">
-                    </button>
-
-                    <button
-                        type="button"
-                        data-bs-target="#servicesShowcaseCarousel"
-                        data-bs-slide-to="2"
-                        aria-label="Digital Printing">
-                    </button>
-
-                    <button
-                        type="button"
-                        data-bs-target="#servicesShowcaseCarousel"
-                        data-bs-slide-to="3"
-                        aria-label="Offset Printing">
-                    </button>
-
-                    <button
-                        type="button"
-                        data-bs-target="#servicesShowcaseCarousel"
-                        data-bs-slide-to="4"
-                        aria-label="Ready-made Packaging">
-                    </button>
-
-                    <button
-                        type="button"
-                        data-bs-target="#servicesShowcaseCarousel"
-                        data-bs-slide-to="5"
-                        aria-label="Brand Consultation">
-                    </button>
+                    {{/each}}
 
                 </div>
 
@@ -311,12 +283,13 @@
 
                     <!-- BRAND IDENTITY -->
 
-                    <div class="carousel-item active">
+                    {{#each categories}}
+                    <div class="carousel-item {{#if (eq @index 0)}} active {{/if}}">
 
                         <div class="service-showcase-slide">
 
                             <img
-                                src="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=1800&q=90"
+                                src="{{this.image}}"
                                 alt="Brand identity design">
 
                             <div class="service-showcase-overlay"></div>
@@ -324,7 +297,7 @@
                             <div class="service-showcase-content">
 
                                 <span class="showcase-number">
-                                    01
+                                    0{{addOne @index}}
                                 </span>
 
                                 <span class="category-label">
@@ -332,7 +305,7 @@
                                 </span>
 
                                 <h3>
-                                    Brand Identity
+                                    {{this.name}}
                                 </h3>
 
                                 <p>
@@ -342,7 +315,7 @@
                                 </p>
 
                                 <a
-                                    href="/services/brand-identity.html"
+                                    href="/services/{{this.slug}}"
                                     class="showcase-btn">
 
                                     Explore Service
@@ -356,202 +329,7 @@
                         </div>
 
                     </div>
-
-
-                    <!-- PACKAGING / PRODUCT DESIGN -->
-
-                    <div class="carousel-item">
-
-                        <div class="service-showcase-slide">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1800&q=90"
-                                alt="Packaging and product design">
-
-                            <div class="service-showcase-overlay"></div>
-
-                            <div class="service-showcase-content">
-
-                                <span class="showcase-number">
-                                    02
-                                </span>
-
-                                <span class="category-label">
-                                    PRODUCT DESIGN
-                                </span>
-
-                                <h3>
-                                    Packaging / Product Design
-                                </h3>
-
-                                <p>
-                                    From labels to complex product packaging,
-                                    we create designs that are practical,
-                                    attractive and production-ready.
-                                </p>
-
-                                <a
-                                    href="/services/packaging-design.html"
-                                    class="showcase-btn">
-
-                                    Explore Service
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- OFFSET PRINTING -->
-
-                    <div class="carousel-item">
-
-                        <div class="service-showcase-slide">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=1800&q=90"
-                                alt="Offset printing">
-
-                            <div class="service-showcase-overlay"></div>
-
-                            <div class="service-showcase-content">
-
-                                <span class="showcase-number">
-                                    03
-                                </span>
-
-                                <span class="category-label">
-                                    PRINTING
-                                </span>
-
-                                <h3>
-                                    Digital & Offset Printing
-                                </h3>
-
-                                <p>
-                                    Professional high-volume printing
-                                    for corporate materials, brochures,
-                                    packaging and business stationery.
-                                </p>
-
-                                <a
-                                    href="/services/offset-printing.html"
-                                    class="showcase-btn">
-
-                                    Explore Service
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- READY-MADE PACKAGING -->
-
-                    <div class="carousel-item">
-
-                        <div class="service-showcase-slide">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=90"
-                                alt="Ready-made packaging">
-
-                            <div class="service-showcase-overlay"></div>
-
-                            <div class="service-showcase-content">
-
-                                <span class="showcase-number">
-                                    04
-                                </span>
-
-                                <span class="category-label">
-                                    READY TO PICK UP
-                                </span>
-
-                                <h3>
-                                    Ready-made Packaging
-                                </h3>
-
-                                <p>
-                                    Browse available packaging options,
-                                    select what you need and place your
-                                    order without waiting for custom production.
-                                </p>
-
-                                <a
-                                    href="/services/ready-made-package.html"
-                                    class="showcase-btn">
-
-                                    Browse Products
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- CONSULTATION -->
-
-                    <div class="carousel-item">
-
-                        <div class="service-showcase-slide">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=90"
-                                alt="Brand consultation">
-
-                            <div class="service-showcase-overlay"></div>
-
-                            <div class="service-showcase-content">
-
-                                <span class="showcase-number">
-                                    05
-                                </span>
-
-                                <span class="category-label">
-                                    BOOK A MEETING
-                                </span>
-
-                                <h3>
-                                    Brand Consultation
-                                </h3>
-
-                                <p>
-                                    Have an idea or business challenge?
-                                    Book a meeting with us and let's
-                                    work through it together.
-                                </p>
-
-                                <a
-                                    href="/services/brand-consultant.html"
-                                    class="showcase-btn">
-
-                                    Book a Session
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    {{/each}}
 
                 </div>
 
@@ -892,13 +670,15 @@
 
                 <!-- Service -->
 
+                {{#each categories}}
+
                 <div class="col-lg-4 col-md-6">
 
                     <div class="service-card">
 
                         <div class="service-image">
 
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                            <img src="{{this.image}}"
                                 alt="Digital Product Design">
 
                         </div>
@@ -911,17 +691,11 @@
 
                             </div>
 
-                            <h4>Digital Product Creation</h4>
+                            <h4>{{this.name}}</h4>
 
-                            <p>
+                            {{{truncateHTML this.description NGN}}}
 
-                                Eye-catching digital creatives,
-                                marketing assets, social media designs,
-                                presentations and promotional materials.
-
-                            </p>
-
-                            <a href="#">
+                            <a href="/services/{{this.slug}}">
 
                                 Learn More
 
@@ -934,274 +708,7 @@
                     </div>
 
                 </div>
-
-                <!-- Service -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="service-image">
-
-                            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80"
-                                alt="Packaging">
-
-                        </div>
-
-                        <div class="service-content">
-
-                            <div class="service-icon">
-
-                                <i class="bi bi-box-seam-fill"></i>
-
-                            </div>
-
-                            <h4>Product Design & Packaging</h4>
-
-                            <p>
-
-                                Premium product packaging that
-                                strengthens your brand and
-                                attracts customers.
-
-                            </p>
-
-                            <a href="#">
-
-                                Learn More
-
-                                <i class="bi bi-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Service -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="service-image">
-
-                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80"
-                                alt="Brand Identity">
-
-                        </div>
-
-                        <div class="service-content">
-
-                            <div class="service-icon">
-
-                                <i class="bi bi-palette-fill"></i>
-
-                            </div>
-
-                            <h4>Brand Identity</h4>
-
-                            <p>
-
-                                Logos, brand guidelines,
-                                stationery and visual identity
-                                systems that build recognition.
-
-                            </p>
-
-                            <a href="#">
-
-                                Learn More
-
-                                <i class="bi bi-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Service -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="service-image">
-
-                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80"
-                                alt="Printing">
-
-                        </div>
-
-                        <div class="service-content">
-
-                            <div class="service-icon">
-
-                                <i class="bi bi-printer-fill"></i>
-
-                            </div>
-
-                            <h4>Offset & Digital Printing</h4>
-
-                            <p>
-
-                                High-quality print production
-                                with accurate colour reproduction
-                                and premium finishing.
-
-                            </p>
-
-                            <a href="#">
-
-                                Learn More
-
-                                <i class="bi bi-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Service -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="service-image">
-
-                            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
-                                alt="Ready Packaging">
-
-                        </div>
-
-                        <div class="service-content">
-
-                            <div class="service-icon">
-
-                                <i class="bi bi-bag-check-fill"></i>
-
-                            </div>
-
-                            <h4>Ready-made Packaging</h4>
-
-                            <p>
-
-                                Shop quality packaging
-                                solutions that are readily
-                                available for immediate pickup.
-
-                            </p>
-
-                            <a href="#">
-
-                                Learn More
-
-                                <i class="bi bi-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Service -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="service-image">
-
-                            <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80"
-                                alt="Delivery">
-
-                        </div>
-
-                        <div class="service-content">
-
-                            <div class="service-icon">
-
-                                <i class="bi bi-truck"></i>
-
-                            </div>
-
-                            <h4>Design to Dispatch</h4>
-
-                            <p>
-
-                                A complete end-to-end service
-                                from creative concept to
-                                production and delivery.
-
-                            </p>
-
-                            <a href="#">
-
-                                Learn More
-
-                                <i class="bi bi-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="service-card">
-
-                        <div class="service-image">
-
-                            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
-                                alt="Delivery">
-
-                        </div>
-
-                        <div class="service-content">
-
-                            <div class="service-icon">
-
-                                <i class="bi bi-bag-check-fill"></i>
-
-                            </div>
-
-                            <h4>Brand Consultation</h4>
-
-                            <p>
-
-                                Consulting services to help businesses develop
-                                effective branding strategies, improve brand
-                                recognition, and enhance customer engagement.
-
-                            </p>
-
-                            <a href="#">
-
-                                Learn More
-
-                                <i class="bi bi-arrow-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                {{/each}}
 
             </div>
 
@@ -1232,7 +739,7 @@
 
                 </div>
 
-                <a href="portfolio.html" class="btn-outline-brand">
+                <a href="/portfolio" class="btn-outline-brand">
 
                     View All Projects
 
@@ -1258,18 +765,19 @@
 
             <div class="portfolio-grid">
 
-                <div class="portfolio-item large">
+                {{#each portfolios}}
+                <div class="portfolio-item {{#if (eq @index 0)}} large {{else}}{{randomLarge}} {{/if}}">
 
                     <img
-                        src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?auto=format&fit=crop&w=1200&q=80">
+                        src="{{this.image}}">
 
                     <div class="portfolio-overlay">
 
-                        <span>Packaging</span>
+                        <span>{{this.category}}</span>
 
-                        <h3>Luxury Product Packaging</h3>
+                        <h3>{{this.title}}</h3>
 
-                        <a href="#">
+                        <a href="/portfolio/{{this.slug}}">
 
                             <i class="bi bi-arrow-up-right"></i>
 
@@ -1278,111 +786,7 @@
                     </div>
 
                 </div>
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80">
-
-                    <div class="portfolio-overlay">
-
-                        <span>Brand Identity</span>
-
-                        <h3>Corporate Branding</h3>
-
-                        <a href="#">
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80">
-
-                    <div class="portfolio-overlay">
-
-                        <span>Printing</span>
-
-                        <h3>Marketing Materials</h3>
-
-                        <a href="#">
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80">
-
-                    <div class="portfolio-overlay">
-
-                        <span>Packaging</span>
-
-                        <h3>Food Packaging</h3>
-
-                        <a href="#">
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="portfolio-item large">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80">
-
-                    <div class="portfolio-overlay">
-
-                        <span>Brand Strategy</span>
-
-                        <h3>Complete Brand Identity</h3>
-
-                        <a href="#">
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80">
-
-                    <div class="portfolio-overlay">
-
-                        <span>Packaging</span>
-
-                        <h3>Retail Product Design</h3>
-
-                        <a href="#">
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
+                {{/each}}
 
             </div>
 
@@ -1602,6 +1006,7 @@
 
                     <!-- Card -->
 
+                    {{#each testimonies}}
                     <div class="swiper-slide">
 
                         <div class="testimonial-card">
@@ -1614,27 +1019,41 @@
 
                             <div class="stars">
 
-                                ★★★★★
+                                 {{#if this.rating}}
+
+                                    <div class="admin-rating">
+
+                                        {{#repeat this.rating}}
+                                        <i class="bi bi-star-fill"></i>
+                                        {{/repeat}}
+
+                                        {{#repeat (subtract 5 this.rating)}}
+                                        <i class="bi bi-star"></i>
+                                        {{/repeat}}
+
+                                    </div>
+
+                                {{else}}
+
+                                    <span class="text-muted">
+                                        No rating
+                                    </span>
+
+                                {{/if}}
 
                             </div>
 
-                            <p>
-
-                                AlLink exceeded our expectations. The packaging,
-                                branding and print quality were exactly what we
-                                envisioned.
-
-                            </p>
+                            {{{truncateHTML this.content }}}
 
                             <div class="client">
 
-                                <img src="https://randomuser.me/api/portraits/women/45.jpg">
+                                <img src="this.image" alt="{{this.name}}">
 
                                 <div>
 
-                                    <h5>Sarah Johnson</h5>
+                                    <h5>{{this.name}}</h5>
 
-                                    <span>CEO, Bloom Organics</span>
+                                    <span>{{this.role}}, {{this.company}}</span>
 
                                 </div>
 
@@ -1643,93 +1062,7 @@
                         </div>
 
                     </div>
-
-                    <!-- Card -->
-
-                    <div class="swiper-slide">
-
-                        <div class="testimonial-card">
-
-                            <div class="quote">
-
-                                <i class="bi bi-quote"></i>
-
-                            </div>
-
-                            <div class="stars">
-
-                                ★★★★★
-
-                            </div>
-
-                            <p>
-
-                                From concept to delivery, everything was seamless.
-                                Professional communication and excellent finishing.
-
-                            </p>
-
-                            <div class="client">
-
-                                <img src="https://randomuser.me/api/portraits/men/34.jpg">
-
-                                <div>
-
-                                    <h5>Michael Daniels</h5>
-
-                                    <span>Founder, Urban Foods</span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Card -->
-
-                    <div class="swiper-slide">
-
-                        <div class="testimonial-card">
-
-                            <div class="quote">
-
-                                <i class="bi bi-quote"></i>
-
-                            </div>
-
-                            <div class="stars">
-
-                                ★★★★★
-
-                            </div>
-
-                            <p>
-
-                                Their attention to detail is impressive.
-                                We received exactly what we approved.
-
-                            </p>
-
-                            <div class="client">
-
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg">
-
-                                <div>
-
-                                    <h5>Grace Williams</h5>
-
-                                    <span>Creative Director</span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                    {{/each}}
                 </div>
 
             </div>

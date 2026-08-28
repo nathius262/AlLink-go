@@ -138,4 +138,9 @@ export default function registerHelpers(handlebars) {
   handlebars.registerHelper('uppercase', function (value) {
     return String(value || '').toUpperCase()
   });
+  handlebars.registerHelper('randomLarge', function() {
+    // 50% chance to return 'large', otherwise return an empty string
+    return Math.random() < 0.5 ? 'large' : '';
+  });
+
 }
