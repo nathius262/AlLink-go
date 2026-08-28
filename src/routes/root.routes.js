@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { dashboard_view } from "../controllers/admin.controller.js";
-import * as rootController from "../controllers/root.controller.js"
+import { dashboard_view, create_contact } from "../controllers/admin.controller.js";
+import * as rootController from "../controllers/root.controller.js";
+import {create as createContact} from '../modules/contact/controllers/admin.Contact.controller.js'
 
 const router = Router();
 
@@ -8,6 +9,7 @@ const router = Router();
 router.get('/', rootController.index_view);
 router.get('/about', rootController.about_view);
 router.get('/contact', rootController.contact_view);
+router.post('/contact', create_contact);
 router.get('/portfolio', rootController.portfolio_view);
 router.get('/services', rootController.service_view);
 router.get('/services/brand-consultation', rootController.brand_consultation_view);

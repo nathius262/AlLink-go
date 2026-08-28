@@ -2100,3 +2100,126 @@ select.admin-form-control {
     }
 
 }
+
+
+/* ======================================================
+   CONTACT FORM
+====================================================== */
+
+.contact-form-card {
+    padding: 50px;
+    border: 1px solid rgba(15, 23, 42, .06);
+    border-radius: 32px;
+    background: #fff;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, .08);
+}
+
+.form-card-heading {
+    margin-bottom: 35px;
+}
+
+.form-card-heading>span {
+    color: var(--primary);
+    font-family: var(--font-accent);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.form-card-heading h2 {
+    margin: 12px 0;
+    color: var(--dark);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.form-card-heading p {
+    margin: 0;
+    color: #667085;
+    line-height: 1.7;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--dark);
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid #e4e7ec;
+    border-radius: 13px;
+    outline: none;
+    background: #f9fafb;
+    color: var(--dark);
+    font-family: inherit;
+    font-size: .9rem;
+    transition: .3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #98a2b3;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(11, 107, 111, .08);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 17px 25px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--primary);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .35s;
+}
+
+.contact-submit:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.contact-submit i {
+    transition: .3s;
+}
+
+.contact-submit:hover i {
+    transform: translate(3px, -3px);
+}
+
+.form-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 15px;
+    color: #98a2b3;
+    font-size: .7rem;
+}
+
+.form-note i {
+    color: var(--secondary);
+}

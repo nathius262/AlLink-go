@@ -1,4 +1,5 @@
 import * as service from '../services/admin.services.js';
+import * as contactService from '../modules/contact/services/admin.Contact.service.js'
 
 
 /**
@@ -48,4 +49,14 @@ export const dashboard_view = async (req, res) => {
             error,
         });
     }
+};
+
+export const create_contact = async (req, res) => {
+  try {
+    const data = await contactService.create(req.body);
+    res.status(201).json({ success: true, redirectTo: "/contact", message: "Your message has been sent successfully" });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ error: err });
+  }
 };

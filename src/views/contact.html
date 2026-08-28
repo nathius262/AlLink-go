@@ -261,7 +261,7 @@
                         </div>
 
 
-                        <form action="#" method="POST" class="contact-form">
+                        <form action="/contact" method="POST" class="contact-form needs-validation" id="create-form">
 
 
                             <div class="row g-4">
@@ -274,7 +274,7 @@
                                         Full Name
                                     </label>
 
-                                    <input type="text" id="fullName" name="full_name" placeholder="Your full name"
+                                    <input type="text" id="fullName" name="name" placeholder="Your full name"
                                         required>
 
                                 </div>
@@ -397,7 +397,7 @@
                                         Project Timeline
                                     </label>
 
-                                    <select id="deadline" name="timeline">
+                                    <select id="deadline" name="project_timeline">
 
                                         <option value="" selected>
                                             When do you need it?
@@ -436,7 +436,7 @@
                                         Tell Us About Your Project
                                     </label>
 
-                                    <textarea id="message" name="message" rows="6"
+                                    <textarea id="message" name="content" rows="6"
                                         placeholder="Tell us what you're looking to create, the quantity, specifications, references or anything else we should know..."
                                         required></textarea>
 
@@ -844,3 +844,6 @@
     </section>
 
 </main>
+
+<script type="module" src="/assets/js/form-handler.js">
+</script>

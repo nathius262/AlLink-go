@@ -1,0 +1,218 @@
+<!-- ==========================================
+    CREATE CONTACT
+=========================================== -->
+
+<div class="admin-content">
+
+  <!-- PAGE HEADER -->
+
+  <div class="admin-page-header">
+
+    <div>
+
+      <span class="admin-page-label">
+        CONTACT MANAGEMENT
+      </span>
+
+      <h1>
+        Create Contact
+      </h1>
+
+      <p>
+        Add a new contact record to your contact directory.
+      </p>
+
+    </div>
+
+
+    <a href="/admin/contact" class="admin-secondary-btn">
+
+      <i class="bi bi-arrow-left"></i>
+
+      Back to Contacts
+
+    </a>
+
+  </div>
+
+
+  <!-- ==========================================
+        CONTACT FORM
+    =========================================== -->
+
+  <div class="admin-form-card">
+
+    <form action="/admin/contact/create" method="POST" id="update-form" class="needs-validation contact-form" novalidate>
+
+
+      <!-- ==========================================
+                CONTACT INFORMATION
+            =========================================== -->
+
+      <div class="admin-form-section">
+
+        <div class="admin-form-section-header">
+
+          <div class="admin-form-section-icon">
+
+            <i class="bi bi-person"></i>
+
+          </div>
+
+
+          <div>
+
+            <h2>
+              Contact Information
+            </h2>
+
+            <p>
+              Provide the contact's basic contact information.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+          <div class="col-md-6">
+
+            <label for="fullName">
+              Full Name
+            </label>
+
+            <input type="text" id="fullName" readonly name="name" value="{{contact.name}}" placeholder="Your full name" required>
+
+          </div>
+
+
+          <!-- Email -->
+
+          <div class="col-md-6">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <input type="email" id="email" readonly name="email" value="{{contact.email}}" placeholder="you@example.com" required>
+
+          </div>
+
+
+          <!-- Phone -->
+
+          <div class="col-md-6">
+
+            <label for="phone">
+              Phone / WhatsApp
+            </label>
+
+            <input type="tel" id="phone" readonly name="phone" value="{{contact.phone}}" placeholder="0707 235 5286" required>
+
+          </div>
+
+
+          <!-- Service -->
+
+          <div class="col-md-6">
+
+            <label for="service">
+              What Do You Need?
+            </label>
+
+            <input id="service" readonly name="service" value="{{contact.service}}" required>
+
+          </div>
+
+
+          <!-- Project Budget -->
+
+          <div class="col-md-6">
+
+            <label for="budget">
+              Estimated Budget
+            </label>
+
+            <input id="budget" readonly name="budget" value="{{contact.budget}}">
+
+          </div>
+
+
+          <!-- Deadline -->
+
+          <div class="col-md-6">
+
+            <label for="deadline">
+              Project Timeline
+            </label>
+
+            <input id="deadline" readonly name="project_timeline" value="{{contact.project_timeline}}">
+
+          </div>
+
+
+          <!-- Message -->
+
+          <div class="col-12">
+
+            <label for="message">
+              Tell Us About Your Project
+            </label>
+
+            <textarea id="message" readonly name="content" rows="6"
+              placeholder="Tell us what you're looking to create, the quantity, specifications, references or anything else we should know..."
+              required>{{contact.content}}</textarea>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==========================================
+                FORM ACTIONS
+            =========================================== -->
+
+      <div class="admin-form-footer">
+
+        <a href="/admin/contact" class="admin-secondary-btn">
+
+          <i class="bi bi-x-lg"></i>
+
+          Cancel
+
+        </a>
+
+
+        <button type="submit" class="admin-primary-btn">
+
+          <i class="bi bi-person-plus"></i>
+
+          Update Contact
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<script type="module" src="/assets/js/form-handler.js">
+</script>
+
+<!--
+    Use this instead when the form eventually supports
+    image/file uploads.
+
+    <script
+        type="module"
+        src="/assets/js/uploader.js">
+    </script>
+-->
