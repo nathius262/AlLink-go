@@ -167,6 +167,8 @@
 
                 <!-- STARTER -->
 
+                {{#each items}}
+
                 <div class="col-lg-4">
 
                     <article class="identity-package">
@@ -174,23 +176,22 @@
                         <div class="package-top">
 
                             <span>
-                                STARTER
+                                {{#if this.metadata.brand_type}}
+                                {{uppercase this.metadata.brand_type}}
+                                {{/if}}
                             </span>
 
                             <div class="package-number">
-                                01
+                                0{{addOne @index}}
                             </div>
 
                         </div>
 
                         <h3>
-                            Brand Starter
+                            {{this.name}}
                         </h3>
 
-                        <p>
-                            A clean foundation for businesses
-                            getting their brand off the ground.
-                        </p>
+                        {{{truncateHTML description 20}}}
 
                         <div class="package-price">
 
@@ -199,7 +200,7 @@
                             </small>
 
                             <strong>
-                                ₦50,000
+                               {{formatCurrency this.price NGN}}
                             </strong>
 
                         </div>
@@ -208,7 +209,7 @@
                         <div class="package-divider"></div>
 
 
-                        <h4>
+                        <!-- <h4>
                             What's Included
                         </h4>
 
@@ -239,109 +240,10 @@
                                 Final Logo Files
                             </li>
 
-                        </ul>
+                        </ul> -->
 
 
-                        <button class="package-btn" data-package="Brand Starter">
-
-                            Choose Package
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- PROFESSIONAL -->
-
-                <div class="col-lg-4">
-
-                    <article class="identity-package featured">
-
-                        <div class="package-popular">
-                            MOST POPULAR
-                        </div>
-
-                        <div class="package-top">
-
-                            <span>
-                                PROFESSIONAL
-                            </span>
-
-                            <div class="package-number">
-                                02
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Brand Professional
-                        </h3>
-
-                        <p>
-                            A complete visual foundation for
-                            businesses ready to look established.
-                        </p>
-
-                        <div class="package-price">
-
-                            <small>
-                                Starting from
-                            </small>
-
-                            <strong>
-                                ₦120,000
-                            </strong>
-
-                        </div>
-
-
-                        <div class="package-divider"></div>
-
-
-                        <h4>
-                            What's Included
-                        </h4>
-
-                        <ul>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Professional Logo Design
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Logo Variations
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Colour System
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Typography System
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Brand Guidelines
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Social Media Assets
-                            </li>
-
-                        </ul>
-
-
-                        <button class="package-btn" data-package="Brand Professional">
+                        <button class="package-btn" data-package="{{this.name}}">
 
                             Choose Package
 
@@ -352,106 +254,7 @@
                     </article>
 
                 </div>
-
-
-                <!-- PREMIUM -->
-
-                <div class="col-lg-4">
-
-                    <article class="identity-package">
-
-                        <div class="package-top">
-
-                            <span>
-                                PREMIUM
-                            </span>
-
-                            <div class="package-number">
-                                03
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Complete Brand Identity
-                        </h3>
-
-                        <p>
-                            A complete identity system for brands
-                            ready for a serious market presence.
-                        </p>
-
-                        <div class="package-price">
-
-                            <small>
-                                Starting from
-                            </small>
-
-                            <strong>
-                                ₦250,000
-                            </strong>
-
-                        </div>
-
-
-                        <div class="package-divider"></div>
-
-
-                        <h4>
-                            What's Included
-                        </h4>
-
-                        <ul>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Complete Logo System
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Brand Strategy Direction
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Full Colour System
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Typography System
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Brand Guidelines
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Marketing Applications
-                            </li>
-
-                            <li>
-                                <i class="bi bi-check"></i>
-                                Packaging Direction
-                            </li>
-
-                        </ul>
-
-
-                        <button class="package-btn" data-package="Complete Brand Identity">
-
-                            Choose Package
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
+                {{/each}}
 
             </div>
 
@@ -825,9 +628,6 @@
 </main>
 
 <script>
-    AOS.init({
-        once: true
-    });
 
     /* ======================================================
 BRAND IDENTITY PACKAGE SELECTION

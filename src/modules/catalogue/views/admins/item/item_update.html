@@ -24,9 +24,7 @@
 
         </div>
 
-        <a
-            href="/admin/catalogue/item"
-            class="admin-secondary-btn">
+        <a href="/admin/catalogue/item" class="admin-secondary-btn">
 
             <i class="bi bi-arrow-left"></i>
 
@@ -41,18 +39,10 @@
 
     <div class="admin-form-card">
 
-        <form
-            action="/admin/catalogue/item/{{item.id}}"
-            method="POST"
-            enctype="multipart/form-data"
-            id="update-form"
-            class="needs-validation"
-            novalidate>
+        <form action="/admin/catalogue/item/{{item.id}}" method="POST" enctype="multipart/form-data" id="update-form"
+            class="needs-validation" novalidate>
 
-            <input
-                type="hidden"
-                name="_method"
-                value="PUT">
+            <input type="hidden" name="_method" value="PUT">
 
 
             <!-- ==========================================
@@ -91,9 +81,7 @@
 
                     <div class="col-md-6">
 
-                        <label
-                            for="name"
-                            class="admin-form-label">
+                        <label for="name" class="admin-form-label">
 
                             Item Name
 
@@ -101,12 +89,7 @@
 
                         </label>
 
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            class="admin-form-control"
-                            value="{{item.name}}"
+                        <input type="text" name="name" id="name" class="admin-form-control" value="{{item.name}}"
                             required>
 
                         <div class="invalid-feedback">
@@ -120,9 +103,7 @@
 
                     <div class="col-md-6">
 
-                        <label
-                            for="slug"
-                            class="admin-form-label">
+                        <label for="slug" class="admin-form-label">
 
                             Slug
 
@@ -130,12 +111,7 @@
 
                         </label>
 
-                        <input
-                            type="text"
-                            name="slug"
-                            id="slug"
-                            class="admin-form-control"
-                            value="{{item.slug}}"
+                        <input type="text" name="slug" id="slug" class="admin-form-control" value="{{item.slug}}"
                             required>
 
                         <div class="admin-form-help">
@@ -153,9 +129,7 @@
 
                     <div class="col-md-6">
 
-                        <label
-                            for="category_id"
-                            class="admin-form-label">
+                        <label for="category_id" class="admin-form-label">
 
                             Category
 
@@ -163,11 +137,7 @@
 
                         </label>
 
-                        <select
-                            name="category_id"
-                            id="category_id"
-                            class="admin-form-control"
-                            required>
+                        <select name="category_id" id="category_id" class="admin-form-control" required>
 
                             <option value="">
                                 Select a category
@@ -175,15 +145,11 @@
 
                             {{#each categories}}
 
-                                <option
-                                    value="{{this.id}}"
-                                    {{#if (eq this.id ../item.category_id)}}
-                                        selected
-                                    {{/if}}>
+                            <option value="{{this.id}}" {{#if (eq this.id ../item.category_id)}} selected {{/if}}>
 
-                                    {{this.name}}
+                                {{this.name}}
 
-                                </option>
+                            </option>
 
                             {{/each}}
 
@@ -200,9 +166,7 @@
 
                     <div class="col-md-6">
 
-                        <label
-                            for="price"
-                            class="admin-form-label">
+                        <label for="price" class="admin-form-label">
 
                             Price
 
@@ -218,27 +182,26 @@
                                 ₦
                             </span>
 
-                            <input
-                                type="number"
-                                name="price"
-                                id="price"
-                                class="admin-form-control"
-                                value="{{item.price}}"
-                                min="0"
-                                step="0.01">
+                            <input type="number" name="price" id="price" class="admin-form-control"
+                                value="{{item.price}}" min="0" step="0.01">
 
                         </div>
 
                     </div>
 
 
+                    <div class="col-md-6">
+                        <label for="sort_order" class="admin-form-label">Display Order <span
+                                class="admin-form-optional">Optional</span></label>
+                        <input type="number" name="sort_order" id="sort_order" class="admin-form-control"
+                            value="{{item.sort_order}}" min="0">
+                    </div>
+
                     <!-- DESCRIPTION -->
 
                     <div class="col-12">
 
-                        <label
-                            for="description"
-                            class="admin-form-label">
+                        <label for="description" class="admin-form-label">
 
                             Description
 
@@ -246,13 +209,8 @@
 
                         </label>
 
-                        <textarea
-                            name="description"
-                            id="description"
-                            class="admin-form-control ckeditor"
-                            data-editor="ckeditor"
-                            rows="8"
-                            required>{{item.description}}</textarea>
+                        <textarea name="description" id="description" class="admin-form-control ckeditor"
+                            data-editor="ckeditor" rows="8" required>{{item.description}}</textarea>
 
                         <div class="admin-form-help">
 
@@ -305,34 +263,21 @@
 
                     <div class="col-md-6">
 
-                        <label
-                            for="status"
-                            class="admin-form-label">
+                        <label for="status" class="admin-form-label">
 
                             Status
 
                         </label>
 
-                        <select
-                            name="is_active"
-                            id="status"
-                            class="admin-form-control">
+                        <select name="is_active" id="status" class="admin-form-control">
 
-                            <option
-                                value="1"
-                                {{#if item.is_active}}
-                                    selected
-                                {{/if}}>
+                            <option value="1" {{#if item.is_active}} selected {{/if}}>
 
                                 Active
 
                             </option>
 
-                            <option
-                                value="0"
-                                {{#unless item.is_active}}
-                                    selected
-                                {{/unless}}>
+                            <option value="0" {{#unless item.is_active}} selected {{/unless}}>
 
                                 Inactive
 
@@ -347,9 +292,7 @@
 
                     <div class="col-md-6">
 
-                        <label
-                            for="image"
-                            class="admin-form-label">
+                        <label for="image" class="admin-form-label">
 
                             Item Image
 
@@ -359,33 +302,29 @@
 
                         </label>
 
-                        <input
-                            type="file"
-                            name="image"
-                            id="image"
-                            class="admin-form-control"
+                        <input type="file" name="image" id="image" class="admin-form-control"
                             accept="image/jpeg,image/png,image/webp">
 
 
                         {{#if item.image}}
 
-                            <div class="admin-form-help">
+                        <div class="admin-form-help">
 
-                                <i class="bi bi-image"></i>
+                            <i class="bi bi-image"></i>
 
-                                Current image is already uploaded. Upload another image to replace it.
+                            Current image is already uploaded. Upload another image to replace it.
 
-                            </div>
+                        </div>
 
                         {{else}}
 
-                            <div class="admin-form-help">
+                        <div class="admin-form-help">
 
-                                <i class="bi bi-image"></i>
+                            <i class="bi bi-image"></i>
 
-                                No image has been uploaded for this item.
+                            No image has been uploaded for this item.
 
-                            </div>
+                        </div>
 
                         {{/if}}
 
@@ -420,19 +359,14 @@
                         </div>
 
 
-                        <div
-                            id="metadata-builder"
-                            class="metadata-builder">
+                        <div id="metadata-builder" class="metadata-builder">
 
                         </div>
 
 
                         <div class="mt-3">
 
-                            <button
-                                type="button"
-                                id="add-metadata-field"
-                                class="admin-secondary-btn">
+                            <button type="button" id="add-metadata-field" class="admin-secondary-btn">
 
                                 <i class="bi bi-plus-lg"></i>
 
@@ -443,19 +377,11 @@
                         </div>
 
 
-                        <input
-                            type="hidden"
-                            name="metadata"
-                            id="metadata">
+                        <input type="hidden" name="metadata" id="metadata">
 
                     </div>
 
-                    <progress
-                        id="progressBar"
-                        value="0"
-                        max="100"
-                        style="width:100%;display:none;"
-                        class="mt-3">
+                    <progress id="progressBar" value="0" max="100" style="width:100%;display:none;" class="mt-3">
                     </progress>
 
 
@@ -465,12 +391,8 @@
 
                     <div class="admin-form-help-card">
 
-                        <button
-                            type="button"
-                            class="admin-form-help-toggle"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#metadataFieldGuide"
-                            aria-expanded="false">
+                        <button type="button" class="admin-form-help-toggle" data-bs-toggle="collapse"
+                            data-bs-target="#metadataFieldGuide" aria-expanded="false">
 
                             <span>
 
@@ -485,9 +407,7 @@
                         </button>
 
 
-                        <div
-                            id="metadataFieldGuide"
-                            class="collapse">
+                        <div id="metadataFieldGuide" class="collapse">
 
                             <div class="admin-form-help-content">
 
@@ -512,28 +432,21 @@
 
                                     <i class="bi bi-search"></i>
 
-                                    <input
-                                        type="search"
-                                        id="metadataGuideSearch"
-                                        placeholder="Search fields...">
+                                    <input type="search" id="metadataGuideSearch" placeholder="Search fields...">
 
                                 </div>
 
 
                                 <!-- GUIDE -->
 
-                                <div
-                                    id="metadataGuideContainer"
-                                    class="metadata-guide-container">
+                                <div id="metadataGuideContainer" class="metadata-guide-container">
 
                                     <!-- Generated by JavaScript -->
 
                                 </div>
 
 
-                                <div
-                                    id="metadataGuideEmpty"
-                                    class="metadata-guide-empty d-none">
+                                <div id="metadataGuideEmpty" class="metadata-guide-empty d-none">
 
                                     <i class="bi bi-search"></i>
 
@@ -634,9 +547,7 @@
 
             <div class="admin-form-footer">
 
-                <a
-                    href="/admin/catalogue/item"
-                    class="admin-secondary-btn">
+                <a href="/admin/catalogue/item" class="admin-secondary-btn">
 
                     <i class="bi bi-x-lg"></i>
 
@@ -645,9 +556,7 @@
                 </a>
 
 
-                <button
-                    type="submit"
-                    class="admin-primary-btn">
+                <button type="submit" class="admin-primary-btn">
 
                     <i class="bi bi-check-lg"></i>
 
@@ -672,37 +581,34 @@
 
         try {
 
-            existingMetadata =
-                {{{json item.metadata}}} || {};
+            existingMetadata = {{{json item.metadata }}} || {};
 
-        } catch (error) {
+    } catch (error) {
 
-            console.warn(
-                'Unable to parse catalogue metadata.',
-                error
-            );
+        console.warn(
+            'Unable to parse catalogue metadata.',
+            error
+        );
 
-        }
+    }
 
-        const metadataBuilder =
-            window.MetadataBuilder.init({
-                container: '#metadata-builder',
-                input: '#metadata',
-                data: existingMetadata
-            });
+    const metadataBuilder =
+        window.MetadataBuilder.init({
+            container: '#metadata-builder',
+            input: '#metadata',
+            data: existingMetadata
+        });
 
-        document
-            .getElementById('add-metadata-field')
-            .addEventListener('click', () => {
-                metadataBuilder.addField();
-            });
+    document
+        .getElementById('add-metadata-field')
+        .addEventListener('click', () => {
+            metadataBuilder.addField();
+        });
 
     });
 </script>
 
 <script type="module" src="/assets/js/metadata-field-guide.js"></script>
 
-<script
-    type="module"
-    src="/assets/js/uploader.js">
+<script type="module" src="/assets/js/uploader.js">
 </script>

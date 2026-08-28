@@ -148,7 +148,7 @@
                 <div>
 
                     <span class="section-label">
-                        OFFSET PRINT PRODUCTS
+                        DIGITAL PRINTING AND OFFSET PRINT PRODUCTS
                     </span>
 
                     <h2>
@@ -172,6 +172,8 @@
 
                 <!-- BROCHURES -->
 
+                {{#each items}}
+
                 <div class="col-lg-4 col-md-6">
 
                     <article class="offset-product-card">
@@ -181,38 +183,18 @@
                         </div>
 
                         <span class="category-label">
-                            MARKETING
+                            {{#if this.metadata.print_type}}
+                            {{this.metadata.print_type}}
+                            {{/if}}
                         </span>
 
                         <h3>
-                            Brochures
+                            {{this.name}}
                         </h3>
 
-                        <p>
-                            Professional brochures for corporate
-                            presentations, products and services.
-                        </p>
+                        {{{trucateHTML this.description}}}
 
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Multiple pages
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Multiple paper stocks
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Folding options
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Brochures">
+                        <button class="offset-product-btn" data-product="{{this.name}}">
 
                             Request Pricing
 
@@ -223,340 +205,9 @@
                     </article>
 
                 </div>
+                {{/each}}
 
-
-                <!-- FLYERS -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="offset-product-card">
-
-                        <div class="offset-product-icon">
-                            <i class="bi bi-file-earmark-image"></i>
-                        </div>
-
-                        <span class="category-label">
-                            PROMOTIONAL
-                        </span>
-
-                        <h3>
-                            Flyers
-                        </h3>
-
-                        <p>
-                            High-quality promotional flyers for
-                            campaigns, events and product launches.
-                        </p>
-
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Single or double sided
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Various paper options
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Bulk quantities
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Flyers">
-
-                            Request Pricing
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- BUSINESS CARDS -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="offset-product-card">
-
-                        <div class="offset-product-icon">
-                            <i class="bi bi-person-vcard"></i>
-                        </div>
-
-                        <span class="category-label">
-                            CORPORATE
-                        </span>
-
-                        <h3>
-                            Business Cards
-                        </h3>
-
-                        <p>
-                            Professional business cards produced
-                            with excellent colour and finishing.
-                        </p>
-
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Premium stocks
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Double-sided printing
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Bulk production
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Business Cards">
-
-                            Request Pricing
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- LETTERHEAD -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="offset-product-card">
-
-                        <div class="offset-product-icon">
-                            <i class="bi bi-file-earmark"></i>
-                        </div>
-
-                        <span class="category-label">
-                            STATIONERY
-                        </span>
-
-                        <h3>
-                            Letterheads
-                        </h3>
-
-                        <p>
-                            Branded corporate letterheads for
-                            professional business communication.
-                        </p>
-
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Custom sizes
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Premium paper
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Bulk quantities
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Letterheads">
-
-                            Request Pricing
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- NCR -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="offset-product-card">
-
-                        <div class="offset-product-icon">
-                            <i class="bi bi-copy"></i>
-                        </div>
-
-                        <span class="category-label">
-                            BUSINESS FORMS
-                        </span>
-
-                        <h3>
-                            Invoice & NCR Forms
-                        </h3>
-
-                        <p>
-                            Carbonless duplicate and triplicate
-                            business forms for everyday operations.
-                        </p>
-
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                2-part & 3-part
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Sequential numbering
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Custom branding
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Invoice & NCR Forms">
-
-                            Request Pricing
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- CALENDARS -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="offset-product-card">
-
-                        <div class="offset-product-icon">
-                            <i class="bi bi-calendar3"></i>
-                        </div>
-
-                        <span class="category-label">
-                            PROMOTIONAL
-                        </span>
-
-                        <h3>
-                            Calendars
-                        </h3>
-
-                        <p>
-                            Branded calendars designed for offices,
-                            customers, events and promotional campaigns.
-                        </p>
-
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Wall calendars
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Desk calendars
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Custom branding
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Calendars">
-
-                            Request Pricing
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- TAGS -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="offset-product-card">
-
-                        <div class="offset-product-icon">
-                            <i class="bi bi-tags"></i>
-                        </div>
-
-                        <span class="category-label">
-                            PRODUCT
-                        </span>
-
-                        <h3>
-                            Tags & Inserts
-                        </h3>
-
-                        <p>
-                            Product tags, inserts, thank-you cards
-                            and other branded printed materials.
-                        </p>
-
-                        <div class="offset-features">
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Custom sizes
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Multiple stocks
-                            </span>
-
-                            <span>
-                                <i class="bi bi-check"></i>
-                                Custom finishing
-                            </span>
-
-                        </div>
-
-                        <button class="offset-product-btn" data-product="Tags & Inserts">
-
-                            Request Pricing
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- CUSTOM -->
-
+                <!-- CUSTOM --> 
                 <div class="col-lg-4 col-md-6">
 
                     <article class="offset-custom-card">

@@ -49,6 +49,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
 
+      sort_order: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
+
       image: {
         type: DataTypes.STRING,
         allowNull: true,

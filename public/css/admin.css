@@ -940,6 +940,13 @@
 
     font-weight: 700;
 
+    overflow: hidden;
+
+}
+
+.admin-avatar img {
+    width: 100%;
+    object-fit: cover;
 }
 
 .admin-profile-info strong,

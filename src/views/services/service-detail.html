@@ -11,7 +11,7 @@
             <div class="service-hero-content">
 
                 <span class="page-label">
-                    PACKAGING DESIGN
+                    {{uppercase category.name}}
                 </span>
 
                 <h1>
@@ -19,11 +19,7 @@
                     <span>Sells the Product.</span>
                 </h1>
 
-                <p>
-                    We create practical, shelf-ready packaging
-                    designs that make your product look professional,
-                    communicate clearly and stand out in the market.
-                </p>
+               {{{category.description}}}
 
                 <div class="service-hero-actions">
 
@@ -66,7 +62,7 @@
 
                     <div class="service-intro-image">
 
-                        <img src="https://images.unsplash.com/photo-1607164953723-d2a3f8a1d5f1?auto=format&fit=crop&w=1200&q=85"
+                        <img src="{{category.image}}"
                             alt="Product packaging design">
 
                     </div>

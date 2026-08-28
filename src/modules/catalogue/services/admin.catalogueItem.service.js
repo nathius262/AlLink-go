@@ -54,6 +54,48 @@ export const findAll = async ({ limit, offset }) => {
     }
 };
 
+/**
+ * Find all catalogue items by category
+ */
+export const findAllByCategory = async ({ limit, offset, category_id }) => {
+    try {
+
+        const {
+            rows: items,
+            count: totalItems
+        } = await CatalogueItem.findAndCountAll({
+            where: {
+                category_id: category_id
+            },
+            limit,
+            offset,
+
+            distinct: true,
+
+
+            order: [
+                ['created_at', 'DESC'],
+                ['updated_at', 'DESC']
+            ]
+
+        });
+
+        return {
+            items,
+            totalItems,
+            totalPages: Math.ceil(totalItems / limit)
+        };
+
+    } catch (error) {
+
+        console.error(error);
+
+        throw new Error(
+            'Error fetching catalogue items: ' + error.message
+        );
+    }
+};
+
 
 /**
  * Find catalogue item by ID
@@ -127,6 +169,7 @@ export const create = async (data) => {
             slug,
             description,
             price,
+            sort_order,
             is_active,
             image,
             metadata
@@ -175,6 +218,7 @@ export const create = async (data) => {
             slug,
             description,
             price,
+            sort_order,
             is_active,
             image,
             metadata

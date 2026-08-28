@@ -15,6 +15,7 @@ router.get('/services/brand-identity', rootController.brand_identity_view);
 router.get('/services/digital-offset-printing', rootController.digital_offset_print_view);
 router.get('/services/packaging-design', rootController.packaging_design_view);
 router.get('/services/ready-made-packaging', rootController.ready_made_view);
+router.get('/services/:slug', rootController.service_detail_view);
 router.get('/admin', dashboard_view)
 
 

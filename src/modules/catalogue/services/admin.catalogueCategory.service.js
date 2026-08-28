@@ -4,7 +4,19 @@ import cloudinary from '../../../config/cloudinaryConfig.js';
 
 const { CatalogueCategory } = db;
 
+const parseDetails = (value, previous = null) => {
+  if (value === undefined) return previous;
+  if (value === '') return null;
+  if (typeof value === 'object') return value;
 
+  try {
+    return JSON.parse(value);
+  } catch {
+    const error = new Error('Service details must be valid JSON.');
+    error.status = 422;
+    throw error;
+  }
+};
 /**
  * Generate a unique fallback slug.
  *
@@ -36,10 +48,10 @@ const ensureUniqueSlug = async (slug, excludeId = null) => {
           slug: uniqueSlug,
           ...(excludeId
             ? {
-                id: {
-                  [db.Sequelize.Op.ne]: excludeId,
-                },
-              }
+              id: {
+                [db.Sequelize.Op.ne]: excludeId,
+              },
+            }
             : {}),
         },
       })
@@ -50,7 +62,6 @@ const ensureUniqueSlug = async (slug, excludeId = null) => {
 
   return uniqueSlug;
 };
-
 
 /**
  * Find all categories.
@@ -108,6 +119,35 @@ export const findById = async (id) => {
   }
 };
 
+/**
+ * Find category by slug.
+ */
+export const findBySlug = async (slug) => {
+  try {
+    const category = await CatalogueCategory.findOne({
+      where: {
+        slug,
+        is_active: true,
+      },
+    });
+
+    if (!category) {
+      const error = new Error('Catalogue category not found.');
+      error.status = 404;
+      throw error;
+    }
+
+    return category;
+
+  } catch (error) {
+    console.error(
+      'Catalogue category findBySlug error:',
+      error
+    );
+
+    throw error;
+  }
+};
 
 /**
  * Create category.
@@ -134,6 +174,7 @@ export const create = async (data, image = null) => {
       name: data.name.trim(),
       slug,
       description: data.description?.trim() || null,
+      details: parseDetails(data.details),
       image: image || null,
       is_active:
         data.is_active === undefined
@@ -177,6 +218,9 @@ export const update = async (id, data, image = null) => {
       name: data.name?.trim(),
       slug,
       description: data.description?.trim() || null,
+      details: data.details === undefined
+        ? category.details
+        : parseDetails(data.details),
       is_active:
         data.is_active === undefined
           ? category.is_active
@@ -251,3 +295,4 @@ export const destroy = async (id) => {
     throw error;
   }
 };
+

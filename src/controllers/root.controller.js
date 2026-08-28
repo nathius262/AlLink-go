@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 import * as catalogueCategoryService
     from '../modules/catalogue/services/admin.catalogueCategory.service.js';
 
+import * as catalogueItemService
+    from '../modules/catalogue/services/admin.catalogueItem.service.js';
+
 import * as portfolioService
     from '../modules/portfolio/services/admin.Portfolio.service.js';
 
@@ -200,113 +203,231 @@ export const service_view = async (req, res) => {
 
 
 /**
- * SERVICE DETAIL
- *
- * Example:
- * /services/brand-identity
+ * Brand Consultation
+ */
+export const brand_consultation_view = async (req, res) => {
+    try {
+
+        const category = await catalogueCategoryService.findBySlug(
+            'brand-consultation'
+        );
+
+        const catalogueItems = await catalogueItemService.findAllByCategory({
+            category_id: category.id,
+            limit: 10,
+            offset: 0
+        });
+
+        return res.render('./services/brand-consultant', {
+            pageTitle: category.name,
+            pageLogo: page_logo,
+            category,
+            items: catalogueItems.items
+        });
+
+    } catch (err) {
+
+        console.error('Brand consultation page error:', err);
+
+        return res.status(err.status || 500).render('./errors/500', {
+            message: err.message || 'Internal Server Error',
+            error: err
+        });
+    }
+};
+
+
+/**
+ * Brand Identity
+ */
+export const brand_identity_view = async (req, res) => {
+    try {
+
+        const category = await catalogueCategoryService.findBySlug(
+            'brand-and-brand-identity'
+        );
+
+        const catalogueItems = await catalogueItemService.findAllByCategory({
+            category_id: category.id,
+            limit: 10,
+            offset: 0
+        });
+
+        return res.render('./services/brand-identity', {
+            pageTitle: category.name,
+            pageLogo: page_logo,
+            category,
+            items: catalogueItems.items
+        });
+
+    } catch (err) {
+
+        console.error('Brand identity page error:', err);
+
+        return res.status(err.status || 500).render('./errors/500', {
+            message: err.message || 'Internal Server Error',
+            error: err
+        });
+    }
+};
+
+
+/**
+ * Digital & Offset Printing
+ */
+export const digital_offset_print_view = async (req, res) => {
+    try {
+
+        const category = await catalogueCategoryService.findBySlug(
+            'digital-printing-and-offset-printing'
+        );
+
+        const catalogueItems = await catalogueItemService.findAllByCategory({
+            category_id: category.id,
+            limit: 10,
+            offset: 0
+        });
+
+        return res.render('./services/offset-printing', {
+            pageTitle: category.name,
+            pageLogo: page_logo,
+            category,
+            items: catalogueItems.items
+        });
+
+    } catch (err) {
+
+        console.error('Digital & offset printing page error:', err);
+
+        return res.status(err.status || 500).render('./errors/500', {
+            message: err.message || 'Internal Server Error',
+            error: err
+        });
+    }
+};
+
+
+/**
+ * Packaging Design
+ */
+export const packaging_design_view = async (req, res) => {
+    try {
+
+        const category = await catalogueCategoryService.findBySlug(
+            'product-design-and-packaging'
+        );
+
+        const catalogueItems = await catalogueItemService.findAllByCategory({
+            category_id: category.id,
+            limit: 10,
+            offset: 0
+        });
+
+        return res.render('./services/packaging-design', {
+            pageTitle: category.name,
+            pageLogo: page_logo,
+            category,
+            items:catalogueItems.items
+        });
+
+    } catch (err) {
+
+        console.error('Packaging design page error:', err);
+
+        return res.status(err.status || 500).render('./errors/500', {
+            message: err.message || 'Internal Server Error',
+            error: err
+        });
+    }
+};
+
+
+/**
+ * Ready-made Packaging
+ */
+export const ready_made_view = async (req, res) => {
+
+    try {
+
+        const category = await catalogueCategoryService.findBySlug(
+            "ready-made-packaging"
+        );
+
+        if (!category) {
+            return res.status(404).render("./errors/404", {
+                message: "Service not found"
+            });
+        }
+
+
+        const catalogueItems = await catalogueItemService.findAllByCategory({
+            category_id: category.id,
+            limit: 10,
+            offset: 0
+        });
+
+        res.render("./services/ready-made-package", {
+
+            pageTitle: category.name,
+
+            pageLogo: page_logo,
+
+            category,
+
+            items: catalogueItems.items
+        });
+
+    } catch (err) {
+
+        console.error(
+            "Error loading ready-made packaging:",
+            err
+        );
+
+        res.status(500).render("./errors/500", {
+
+            message: "Internal Server Error",
+
+            error: err.message
+
+        });
+
+    }
+
+};
+
+/**
+ * Brand Consultation
  */
 export const service_detail_view = async (req, res) => {
     try {
 
         const { slug } = req.params;
 
-        const category =
-            await catalogueCategoryService.findBySlug(slug);
-
-        return res.render(
-            './services/service-detail',
-            {
-
-                pageTitle: category.name,
-                pageLogo: page_logo,
-
-                category
-
-            }
+        const category = await catalogueCategoryService.findBySlug(
+            slug
         );
 
-    } catch (err) {
-
-        console.error(
-            'Public service detail controller error:',
-            err
-        );
-
-        return res.status(err.status || 500).render(
-            err.status === 404
-                ? 'errors/404'
-                : 'errors/500',
-            {
-                message: err.message,
-                error: err
-            }
-        );
-
-    }
-};
-
-//SERVICE CATALOG
-export const brand_consultation_view = async (req, res) => {
-    try {
-
-        res.render('./services/brand-consultant', {
-            pageTitle: "Brand Consultation",
-            pageLogo: page_logo
+        const catalogueItems = await catalogueItemService.findAllByCategory({
+            category_id: category.id,
+            limit: 10,
+            offset: 0
         });
-    } catch (err) {
 
-        res.status(500).render('./errors/500', { message: 'Internal Server Error', error: err.message });
-    }
-};
-
-export const brand_identity_view = async (req, res) => {
-    try {
-
-        res.render('./services/brand-identity', {
-            pageTitle: "Brand Identity",
-            pageLogo: page_logo
+        return res.render('./services/service-detail', {
+            pageTitle: category.name,
+            pageLogo: page_logo,
+            category,
+            items: catalogueItems.items
         });
+
     } catch (err) {
 
-        res.status(500).render('./errors/500', { message: 'Internal Server Error', error: err.message });
-    }
-};
+        console.error('Brand consultation page error:', err);
 
-export const digital_offset_print_view = async (req, res) => {
-    try {
-
-        res.render('./services/offset-printing', {
-            pageTitle: "Digital & Offset Printing",
-            pageLogo: page_logo
+        return res.status(err.status || 500).render('./errors/500', {
+            message: err.message || 'Internal Server Error',
+            error: err
         });
-    } catch (err) {
-
-        res.status(500).render('./errors/500', { message: 'Internal Server Error', error: err.message });
-    }
-};
-
-export const packaging_design_view = async (req, res) => {
-    try {
-
-        res.render('./services/packaging-design', {
-            pageTitle: "Packaging Design",
-            pageLogo: page_logo
-        });
-    } catch (err) {
-
-        res.status(500).render('./errors/500', { message: 'Internal Server Error', error: err.message });
-    }
-};
-
-export const ready_made_view = async (req, res) => {
-    try {
-
-        res.render('./services/ready-made-package', {
-            pageTitle: "Ready-made Package",
-            pageLogo: page_logo
-        });
-    } catch (err) {
-
-        res.status(500).render('./errors/500', { message: 'Internal Server Error', error: err.message });
     }
 };

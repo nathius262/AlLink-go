@@ -172,6 +172,7 @@
 
                 <!-- 5 MINUTES -->
 
+                {{#each items}}
                 <div class="col-lg-4 col-md-6">
 
                     <article class="consultation-card">
@@ -179,7 +180,7 @@
                         <div class="consultation-card-top">
 
                             <span class="consultation-number">
-                                01
+                                0{{addOne @index}}
                             </span>
 
                             <div class="consultation-icon">
@@ -193,20 +194,17 @@
                         </span>
 
                         <h3>
-                            5 Minutes
+                            {{this.name}}
                         </h3>
 
-                        <p>
-                            A quick conversation for a simple question,
-                            clarification or initial enquiry.
-                        </p>
+                        {{{truncateHTML description 20}}}
 
                         <div class="consultation-duration">
 
                             <i class="bi bi-clock"></i>
 
                             <span>
-                                5 Minutes
+                                {{this.name}}
                             </span>
 
                         </div>
@@ -218,13 +216,13 @@
                             </small>
 
                             <strong>
-                                ₦XX,XXX
+                                {{formatCurrency this.price NGN}}
                             </strong>
 
                         </div>
 
-                        <button class="consultation-book-btn" data-plan="5 Minutes" data-duration="5 Minutes"
-                            data-price="₦XX,XXX">
+                        <button class="consultation-book-btn" data-plan="{{this.name}}" data-duration="{{this.name}}"
+                            data-price="{{formatCurrency this.price NGN}}">
 
                             Book Meeting
 
@@ -235,278 +233,7 @@
                     </article>
 
                 </div>
-
-
-                <!-- 15 MINUTES -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="consultation-card">
-
-                        <div class="consultation-card-top">
-
-                            <span class="consultation-number">
-                                02
-                            </span>
-
-                            <div class="consultation-icon">
-                                <i class="bi bi-chat-dots"></i>
-                            </div>
-
-                        </div>
-
-                        <span class="category-label">
-                            SHORT SESSION
-                        </span>
-
-                        <h3>
-                            15 Minutes
-                        </h3>
-
-                        <p>
-                            A focused conversation for discussing a
-                            specific question or business requirement.
-                        </p>
-
-                        <div class="consultation-duration">
-
-                            <i class="bi bi-clock"></i>
-
-                            <span>
-                                15 Minutes
-                            </span>
-
-                        </div>
-
-                        <div class="consultation-price">
-
-                            <small>
-                                Price
-                            </small>
-
-                            <strong>
-                                ₦XX,XXX
-                            </strong>
-
-                        </div>
-
-                        <button class="consultation-book-btn" data-plan="15 Minutes" data-duration="15 Minutes"
-                            data-price="₦XX,XXX">
-
-                            Book Meeting
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- 30 MINUTES -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <article class="consultation-card consultation-card-featured">
-
-                        <div class="featured-label">
-                            MOST POPULAR
-                        </div>
-
-                        <div class="consultation-card-top">
-
-                            <span class="consultation-number">
-                                03
-                            </span>
-
-                            <div class="consultation-icon">
-                                <i class="bi bi-bullseye"></i>
-                            </div>
-
-                        </div>
-
-                        <span class="category-label">
-                            STANDARD SESSION
-                        </span>
-
-                        <h3>
-                            30 Minutes
-                        </h3>
-
-                        <p>
-                            Enough time to properly discuss your brand,
-                            packaging, design or business challenge.
-                        </p>
-
-                        <div class="consultation-duration">
-
-                            <i class="bi bi-clock"></i>
-
-                            <span>
-                                30 Minutes
-                            </span>
-
-                        </div>
-
-                        <div class="consultation-price">
-
-                            <small>
-                                Price
-                            </small>
-
-                            <strong>
-                                ₦XX,XXX
-                            </strong>
-
-                        </div>
-
-                        <button class="consultation-book-btn" data-plan="30 Minutes" data-duration="30 Minutes"
-                            data-price="₦XX,XXX">
-
-                            Book Meeting
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- 1 HOUR -->
-
-                <div class="col-lg-6 col-xl-4">
-
-                    <article class="consultation-card">
-
-                        <div class="consultation-card-top">
-
-                            <span class="consultation-number">
-                                04
-                            </span>
-
-                            <div class="consultation-icon">
-                                <i class="bi bi-hourglass-split"></i>
-                            </div>
-
-                        </div>
-
-                        <span class="category-label">
-                            EXTENDED SESSION
-                        </span>
-
-                        <h3>
-                            1 Hour
-                        </h3>
-
-                        <p>
-                            A detailed consultation for deeper discussions
-                            around your brand, products and business direction.
-                        </p>
-
-                        <div class="consultation-duration">
-
-                            <i class="bi bi-clock"></i>
-
-                            <span>
-                                1 Hour
-                            </span>
-
-                        </div>
-
-                        <div class="consultation-price">
-
-                            <small>
-                                Price
-                            </small>
-
-                            <strong>
-                                ₦XX,XXX
-                            </strong>
-
-                        </div>
-
-                        <button class="consultation-book-btn" data-plan="1 Hour" data-duration="1 Hour"
-                            data-price="₦XX,XXX">
-
-                            Book Meeting
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
-
-
-                <!-- 1 HOUR 30 MINUTES -->
-
-                <div class="col-lg-6 col-xl-4">
-
-                    <article class="consultation-card">
-
-                        <div class="consultation-card-top">
-
-                            <span class="consultation-number">
-                                05
-                            </span>
-
-                            <div class="consultation-icon">
-                                <i class="bi bi-diagram-3"></i>
-                            </div>
-
-                        </div>
-
-                        <span class="category-label">
-                            DEEP-DIVE SESSION
-                        </span>
-
-                        <h3>
-                            1:30 Hours
-                        </h3>
-
-                        <p>
-                            A comprehensive session for businesses that
-                            need more time to explore their ideas and requirements.
-                        </p>
-
-                        <div class="consultation-duration">
-
-                            <i class="bi bi-clock"></i>
-
-                            <span>
-                                1 Hour 30 Minutes
-                            </span>
-
-                        </div>
-
-                        <div class="consultation-price">
-
-                            <small>
-                                Price
-                            </small>
-
-                            <strong>
-                                ₦XX,XXX
-                            </strong>
-
-                        </div>
-
-                        <button class="consultation-book-btn" data-plan="1:30 Hours" data-duration="1 Hour 30 Minutes"
-                            data-price="₦XX,XXX">
-
-                            Book Meeting
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </button>
-
-                    </article>
-
-                </div>
+                {{/each}}
 
             </div>
 
