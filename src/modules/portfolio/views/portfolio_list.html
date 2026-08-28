@@ -1,0 +1,121 @@
+
+      <section class="service-listing-hero packaging-hero" style="background: linear-gradient(90deg,
+            rgba(10, 45, 70, .98) 0%,
+            rgba(10, 45, 70, .88) 48%,
+            rgba(10, 45, 70, .45) 100%), url({{portfolios.0.image}});">
+
+        <div class="container">
+
+            <div class="service-hero-content">
+
+                <span class="page-label">
+                   OUR PORTFOLIO
+                </span>
+
+                <h1>
+                    Work That Makes <span>Brands Stand Out.</span>
+                </h1>
+
+
+                <div class="service-hero-actions">
+
+                    <a href="/portfolio" class="btn-primary">
+
+                        Explore More
+
+                        <i class="bi bi-arrow-down"></i>
+
+                    </a>
+
+                    <a href="https://wa.me/2347072355286" class="btn-outline">
+
+                        <i class="bi bi-whatsapp"></i>
+
+                        Discuss Your Product
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="portfolio">
+
+        <div class="container">
+
+            <div class="d-lg-flex justify-content-between align-items-end mb-5">
+
+                <div class="section-title mb-0">
+
+                    <span>OUR PORTFOLIO</span>
+
+                    <h2>
+
+                        Work That Makes
+                        <span>Brands Stand Out.</span>
+
+                    </h2>
+
+                </div>
+
+                <a href="/portfolio" class="btn-outline-brand">
+
+                    View All Projects
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+            <!-- Filters -->
+
+            <div class="portfolio-filter">
+
+                <button class="active">All</button>
+                <button>Branding</button>
+                <button>Packaging</button>
+                <button>Printing</button>
+                <button>Labels</button>
+
+            </div>
+
+            <!-- Grid -->
+
+            <div class="portfolio-grid">
+
+                {{#each portfolios}}
+                <div class="portfolio-item {{#if (eq @index 0)}} large {{else}}{{randomLarge}} {{/if}}">
+
+                    <img
+                        src="{{this.image}}">
+
+                    <div class="portfolio-overlay">
+
+                        <span>{{this.category}}</span>
+
+                        <h3>{{this.title}}</h3>
+
+                        <a href="/portfolio/{{this.slug}}">
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+                {{/each}}
+
+            </div>
+
+        </div>
+
+        {{> pagination}}
+
+    </section>
+

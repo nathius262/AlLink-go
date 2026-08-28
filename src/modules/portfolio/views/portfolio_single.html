@@ -1,0 +1,222 @@
+<!-- ===========================================
+        PORTFOLIO DETAIL HERO
+    ============================================ -->
+
+<section class="service-listing-hero packaging-hero" style="background-image: linear-gradient(90deg,
+            rgba(10, 45, 70, .98) 0%,
+            rgba(10, 45, 70, .88) 48%,
+            rgba(10, 45, 70, .45) 100%), url({{portfolio.image}});">
+
+  <div class="container">
+
+    <div class="service-hero-content">
+
+      <span class="page-label">
+        {{portfolio.category}}
+      </span>
+
+      <h1>
+        {{portfolio.title}}
+      </h1>
+
+      {{{truncateHTML portfolio.content 20}}}
+
+      <div class="service-hero-actions">
+
+        <a href="/portfolio" class="btn-primary">
+
+          Explore More
+
+          <i class="bi bi-arrow-down"></i>
+
+        </a>
+
+        <a href="https://wa.me/2347072355286" class="btn-outline">
+
+          <i class="bi bi-whatsapp"></i>
+
+          Discuss Your Product
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ===========================================
+        PROJECT INFORMATION
+    ============================================ -->
+
+<section class="portfolio-detail-info">
+
+  <div class="container">
+
+    <div class="row g-5 align-items-start">
+
+      <!-- Project Description -->
+
+      <div class="col-lg-8">
+
+        <div class="section-title">
+
+          <span>PROJECT OVERVIEW</span>
+
+          <h2>
+            Bringing The
+            <span>Vision To Life.</span>
+          </h2>
+
+        </div>
+
+        {{#if portfolio.description}}
+
+        <div class="portfolio-description">
+
+          {{{portfolio.description}}}
+
+        </div>
+
+        {{/if}}
+
+      </div>
+
+
+      <!-- Project Meta -->
+
+      <div class="col-lg-4">
+
+        <div class="portfolio-project-meta">
+
+          {{#if portfolio.client_name}}
+
+          <div class="project-meta-item">
+
+            <span>CLIENT</span>
+
+            <strong>
+              {{portfolio.client_name}}
+            </strong>
+
+          </div>
+
+          {{/if}}
+
+
+          {{#if portfolio.category}}
+
+          <div class="project-meta-item">
+
+            <span>CATEGORY</span>
+
+            <strong>
+              {{portfolio.category}}
+            </strong>
+
+          </div>
+
+          {{/if}}
+
+
+          {{#if portfolio.project_url}}
+
+          <div class="project-meta-item">
+
+            <span>PROJECT LINK</span>
+
+            <a href="{{portfolio.project_url}}" target="_blank" rel="noopener noreferrer">
+
+              View Project
+
+              <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+          </div>
+
+          {{/if}}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ===========================================
+        BACK TO PORTFOLIO
+    ============================================ -->
+
+<section class="portfolio-detail-navigation">
+
+  <div class="container">
+
+    <div class="portfolio-detail-nav">
+
+      <a href="/portfolio" class="btn-outline-brand">
+
+        <i class="bi bi-arrow-left"></i>
+
+        Back To Portfolio
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ===========================================
+        CTA
+    ============================================ -->
+
+<section class="about-page-cta">
+
+  <div class="container">
+
+    <div class="about-cta-inner">
+
+      <div>
+
+        <span>
+          FROM DESIGN TO DISPATCH
+        </span>
+
+        <h2>
+          Have A Project In Mind?
+          Let's Make It Happen.
+        </h2>
+
+      </div>
+
+      <div class="cta-buttons">
+
+        <a href="/contact" class="btn-quote">
+          Start A Project
+        </a>
+
+        <a href="https://wa.me/2347072355286" class="btn-whatsapp">
+
+          <i class="bi bi-whatsapp"></i>
+
+          WhatsApp Us
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
