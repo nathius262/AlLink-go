@@ -18,7 +18,10 @@ router.get('/services/digital-offset-printing', rootController.digital_offset_pr
 router.get('/services/packaging-design', rootController.packaging_design_view);
 router.get('/services/ready-made-packaging', rootController.ready_made_view);
 router.get('/services/:slug', rootController.service_detail_view);
-router.get('/admin', dashboard_view)
+router.get('/admin', dashboard_view);
+
+router.get("/sitemap.xml",  rootController.sitemap_view);
+router.get("/sitemap",  rootController.sitemap_view);
 
 
 export default router;

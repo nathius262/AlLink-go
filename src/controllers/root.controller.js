@@ -12,6 +12,13 @@ import * as portfolioService
 import * as testimonyService
     from '../modules/testimony/services/admin.Testimony.service.js';
 
+// Derive the equivalent of __dirname
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 dotenv.config();
 
 const page_logo = process.env.PAGELOGO;
@@ -429,5 +436,15 @@ export const service_detail_view = async (req, res) => {
             message: err.message || 'Internal Server Error',
             error: err
         });
+    }
+};
+
+
+export const sitemap_view = async (req, res) => {
+
+    try {
+        res.sendFile(path.join(__dirname, '..', 'views', 'sitemap.xml'));
+    } catch (error) {
+        res.status(404).send('Not found');
     }
 };
